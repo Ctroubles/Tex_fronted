@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setShoppingForm } from '../../../../redux/actions/actions';
 import black_arrow from "../../../../assets/icons/black_arrow.svg"
 import  regions  from '../../../../delivery/ciudades_departamentos';
-import { current } from '@reduxjs/toolkit';
 
 
 
