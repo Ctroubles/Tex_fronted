@@ -1,0 +1,100 @@
+/* @import '../../fonts/fonts.css'; */
+
+#SidebarContainer{
+    width: 300px;
+    font-family: 'Nasalization', sans-serif;
+    color: #fefefefe;
+    transition: all 2s;
+    cursor: auto;
+    overflow: hidden;
+    padding: 15px 5px 15px 0;
+}
+#title{
+  display: flex;
+  justify-content: space-between;
+}
+#title > img{
+  width: 22px;
+}
+#title>h1{
+  color: #fd611a;
+  font-style: italic;
+  font-weight: 600;
+  cursor: default;
+  user-select: none;
+  font-size: 20px;
+}
+#categoryContainer{
+  display: block;
+  padding-left: 10px;
+}
+#categoryIcon{
+  margin-right: 5px;
+}
+#categoryTitle{
+  width: 100%;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  height: 35px;
+  align-items: center;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.arrows{
+  width: 15px ;
+  rotate: -90deg;
+  transition: rotate 0.5s;
+}
+
+#arrowActive{
+  rotate: -270deg;
+}
+
+
+#categoryTitle:hover{
+  background-color: #111111;
+}
+#childsContaier{
+  padding-top: .50em;
+  overflow: hidden;
+  font-weight: 300;
+  font-size: 13px;
+  padding: 0 0 0 30px;
+  font-style: italic;
+  height: 0;
+  transition: height 0.3s ease-in-out;
+}
+
+#childsContaier.categoryActive{
+  height: 50px;
+}
+#childsContaier.categoryActiveThreeElement{
+  height: 75px;
+}
+#childsContaier.categoryActiveOneElement{
+  height: 25px;
+  transition: height 150ms ease-in-out;
+}
+#childsContaier >span > p{
+  height: 20px;
+  margin-bottom: 5px;
+  color: #cdcdcd;
+  display: inline-block;
+  width: calc(100% - 9px);
+  cursor: pointer;
+}
+
+#childsContaier > span > p:hover{
+  text-decoration: underline;
+}
+
+#childsContaier > #categoryPick{
+  color: #fd611a ;
+}
+
+#childsContaier > #categoryPick>p{
+  color: #fd611a ;
+  text-decoration: underline;
+}

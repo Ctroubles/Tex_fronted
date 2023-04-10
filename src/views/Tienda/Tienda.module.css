@@ -1,0 +1,103 @@
+@import '../../fonts/fonts.css';
+
+
+#Tienda{
+    background-color: #111111;
+    min-height: 100vh;
+    color: #fefefe;
+    font-family: 'Nasalization', sans-serif;
+}
+#Tienda>div{
+    display: flex;
+}
+
+#Tienda>#body{
+    padding: 0px 0px;
+}
+#Tienda>div>label{
+    /* flex-grow: 1; */
+}
+#body{
+    width: 100%;
+}
+#sideBar{
+    min-height: calc(100vh - 91.5px);
+    width: 320px;
+    flex-shrink: 0;
+    background-color: #171717;
+    overflow: hidden;
+    padding: 5px 15px;
+}
+#searchBarContainer{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+    background-color: transparent;
+    position: relative;
+}
+#categoryPick{
+    background-color: #fd621a9a;
+    position: absolute;
+    left: 10px;
+    bottom: 50%;
+    transform: translateY(50%);
+    padding: 5px 8px;
+    border-radius: 10px;
+    font-size: 11.5px;
+    display: inline-block;
+    text-align: center;
+}
+#xIcon{
+    width: 15px;
+    margin-left: 5px;
+    background-color: white;
+    color: #fd621a;
+    border-radius: 50%;
+    height: 15px;
+    display: inline-block;
+    cursor: pointer;
+}
+#mainContent{
+    min-height: calc(100vh - 91.5px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+}
+#cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-shrink: 1;
+    width: 100%;
+    max-height: calc(100vh - 167.5px);
+    overflow: auto;
+}
+
+#noHayProductos{
+    height: calc(100vh - 167.5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #2e2e2e;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 20px;
+    /* border: 1px solid #000000; */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #171717;
+  }
+

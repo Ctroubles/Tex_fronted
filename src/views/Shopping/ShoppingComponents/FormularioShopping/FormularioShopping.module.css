@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200;1,300&display=swap');
+
+
+#FormCotainer {
+    background-color: #25292f;
+    margin-top: 10px;
+    font-weight: 300;
+}
+#FormCotainer .inputs{
+    border: none;
+    outline: none;
+    background-color: #111111 !important;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #B4B9C1 !important;
+    font-size: 15.4px;
+    font-weight: 400;
+}
+.inputs::placeholder{
+    color: #B4B9C1;
+    font-size: 15px;
+    opacity: 0.6;
+}
+#FormCotainer .spans{
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#FormCotainer >#firstChild{
+    padding: 15px 32px 10px 32px;
+}
+#identification{
+    display: flex;
+    justify-content: space-between;
+}
+#contactoSection{
+    display: flex;
+    justify-content: space-between;
+}
+#firstChild .firstLabel{
+    width: 61%;
+    display: inline-block;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+#firstChild .firstLabel>#firstSpan{
+    margin: 0 0 6px 6px;
+}
+#childTwo{
+    height: 48px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    background-color: #111111;
+}
+#firstChild .firstLabel>#childTwo input{
+    flex-grow: 1;
+    padding: 13px 12px;
+    height: 22px;
+    background-color: #111111;
+}
+#firstChild #id{
+    width: 35%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+#firstChild #id>#firstSpan{
+    margin: 0 0 6px 6px;
+}
+#firstChild #id>#childTwo input{
+    flex-grow: 1;
+    padding: 13px 12px;
+    height: 22px;
+    width: 100%;
+}
+
+#aviso1{
+    margin: 1px 0 0 6px;
+  
+}
+#aviso1 #avisoOne{
+    font-size: 12px;
+    opacity: 0.6;
+}
+#secondDiv>#childOneSecondDiv{
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+#secondDiv>#childOneSecondDiv>#childOneSecondDivChildOne{
+    display: flex;
+    justify-content: space-between;
+}
+#label2{
+    width: 48%;
+    flex-shrink: 0;
+}
+#label2 #divLabelTwo{
+    height: 48px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    background-color: #111111;
+    color: #ffffffa6;
+}
+
+.opciones{
+    width: 100%;
+    z-index: 1;
+    background-color: #1c1c1c;
+    margin-top: 5px;
+    box-shadow: 0 1px 1px 0 rgba(255, 248, 248, 0.274);
+    display: none;
+}
+.opciones ul{
+    max-height: 228px;
+    overflow-y: auto;
+    color: #ffffffa6;
+}
+.opciones ul::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+  
+.opciones ul::-webkit-scrollbar-track {
+    background-color: #424242;
+}
+  
+.opciones ul::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 2px;
+}
+  
+.opciones ul::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.opciones li {
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    list-style: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+.opciones li:hover{
+    background-color: rgba(211, 209, 209, 0.459);
+}
+
+#spanLabelTwo{
+    margin: 0 0 6px 6px;
+}
+#contactoDiv{
+    padding-top: 18px;
+    width: 48%;   
+}
+#contactoDiv #contactoLabel{
+    width: 100%;
+}
+#contactoDiv #contactoLabel >:nth-child(1){
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    height: 48px;
+    display: flex;
+    align-items: center;
+    background-color: #111111;
+    padding-right: 1px;
+}
+#contactoDiv #contactoLabel >:nth-child(1) input{
+    padding: 13px 12px;
+    height: 22px;
+    flex-grow: 1;
+}
+#telefono #contactoLabel >#spanNumeroTelefono{
+        margin: 0 0 6px 6px;
+}
+#divReferencias{
+    display: flex;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    padding-right: 10px;
+    margin-bottom: 15px;
+    background-color: #111111;    
+}
+#referenciasContainer>#labelReferencias>#divReferencias textarea{
+    height: 70px;
+    flex-grow: 1;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    line-height: 22px;
+    font-size: 16px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+#spanReferencias{
+    margin: 0 0 6px 6px;
+}
+.selects{
+     padding: 13.5px 10px;
+     font-size: 15.4px;
+     display: flex;
+     justify-content: space-between;
+     width: 100%;
+     transition: .2s ease all;
+     position: relative;
+     height: 100%;
+     border-radius: 6px;
+     cursor: pointer;
+     border: 1px solid transparent;
+     user-select: none;
+     font-weight: 400;
+}
+.selects img{
+   width: 20px;
+   rotate: -90deg;
+}
+
+.advertisement{
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+#address{
+    margin-bottom: 18px;
+}
+#address span{
+    margin: 0 0 6px 6px;
+}
+#inputAddressContainer{
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    height: 48px;
+    overflow: hidden;
+    background-color: #111111;
+
+}
+#inputAddressContainer >input{
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+}
+
+#titleFormulario{
+    font-size: 25px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-right: 20px;
+}
+
+.inputsContainer {
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid transparent;
+}
+  
+.inputsContainer:hover{
+    outline: 1px solid #505155bb;
+
+}
+.inputsContainer:focus{
+    outline: 1px solid #505155bb;
+
+}
+.inputsContainer:focus-within {
+    outline: 1px solid #8a8b91bb;
+}

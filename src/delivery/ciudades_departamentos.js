@@ -1,0 +1,28 @@
+const regiones = {
+    amazonas: ["Bagua Grande", "Chachapoyas", "Jaén", "Moyobamba", "Rioja"],
+    ancash: ["Carhuaz", "Chimbote", "Huaraz", "Huarmey", "Yungay"],
+    apurimac: ["Abancay", "Andahuaylas", "Curahuasi", "Chalhuanca", "Tambobamba"],
+    arequipa: ["Arequipa", "Camana", "Chivay", "Mollendo", "Majes"],
+    ayacucho: ["Ayacucho", "Huamanga", "San Miguel", "Puquio", "Coracora"],
+    cajamarca: ["Cajabamba","Cajamarca", "Celendín", "Chota", "Jaén", "San Ignacio"],
+    cusco: ["Cusco", "Urubamba", "Sicuani", "Calca", "Quillabamba"],
+    huancavelica: ["Huancavelica", "Acobamba", "Lircay", "Castrovirreyna", "Pampas"],
+    huanuco: ["Huanuco", "La Unión", "Tingo María", "Amarilis", "Huacaybamba"],
+    ica: ["Ica", "Chincha Alta", "Nazca", "Pisco", "San Juan de Lurigancho"],
+    junin: ["Huancayo", "La Merced", "Satipo", "Tarma", "Chanchamayo"],
+    laLibertad: ["Ascope", "Chepén", "Huamachuco", "Otuzco", "Sánchez Carrión", "Trujillo"],
+    lambayeque: ["Chiclayo", "Ferreñafe", "Lambayeque", "Olmos", "Zaña"],
+    lima: ["Lima", "Barranca", "Cañete", "Huacho", "Huaral"],
+    loreto: ["Iquitos", "Yurimaguas", "Nauta", "Requena", "Puerto Maldonado"],
+    madre_de_dios: ["Puerto Maldonado", "Iñapari", "Laberinto", "Manu", "Tambopata"],
+    moquegua: ["Moquegua", "Ilo", "Omate", "Torata", "Carumas"],
+    pasco: ["Cerro de Pasco", "Oxapampa", "Yanahuanca", "Chaupimarca", "Simón Bolívar"],
+    piura: ["Piura", "Chulucanas", "Paita", "Sullana", "Talara"],
+    puno: ["Puno", "Azángaro", "Juliaca", "Ayaviri", "Macusani"],
+    san_martin: ["Moyobamba", "Tarapoto", "Rioja", "Lamas", "Juanjui"],
+    ucayali : ["Pucallpa", "Atalaya", "Yarinacocha", "Aguaytía", "Contamana"],
+    tacna : ["Tacna", "Tarata", "Candarave", "Jorge Basadre", "Locumba", "Ilabaya", "Pachía", "Palca", "Sama"],
+    tumbes : ["Tumbes", "Zorritos", "Zarumilla", "Puerto Pizarro", "Pampas de Hospital"],
+}
+
+export default regiones;

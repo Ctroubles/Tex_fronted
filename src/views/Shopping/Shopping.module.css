@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+#ContainerShopping{
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+    /* color: #333333; */
+    position: relative;
+}
+#maxCotainerP{
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: calc(100vh + 15px);
+    z-index: 10000;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    text-align: center;    
+    overflow: hidden;
+}
+
+#containerPaypal{
+    border-radius: 10px;
+    background-color: #e0620f;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    position: relative;
+}
+#containerPaypal > h1{
+    /* color: #fefefe; */
+    font-weight: 500;
+}
+
+#exitPasarela{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#headerShopping{
+  z-index: 10000;
+  width:100%;
+  height: 60px;
+  background-color: #25292f;
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+}
+
+#headerShopping img{
+    height: 40px;
+}
+
+#headerShopping div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    max-width: 1300px;
+}
+
+#headerShopping a{
+    color: #D6D6D6;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#mainShopping{
+    padding-top: 60px;
+    background-color: #121212;
+    color: #D6D6D6;
+}
+#mainShopping>#firstChildMain{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#formularioContainer{
+    position: fixed; 
+    z-index: 1;
+    width: 688px;
+    padding: 20px 48px 0px 8px;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+#formularioContainer::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+  
+#formularioContainer::-webkit-scrollbar-track {
+    background-color: #b6adad;
+}
+  
+#formularioContainer::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 2px;
+}
+  
+#formularioContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+
+#formularioContainer #titleFormulario{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+#continuarButton{
+    margin: 24px 0;
+    text-align: center;
+}
+#principalButton{
+    background-color: #3483fa;
+    color:#ffffff ;
+    border-radius: 6px;
+    padding: 0 24px;
+    border-color: transparent;
+    line-height: 45px;
+    width: 95%;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+
+};
+#principalButton span{
+    font-size: 17px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+#principalButton:active{
+    background-color: #1c4685;
+}
+
+
+#cartContainer{
+  padding-left: 688px;
+  min-height: calc(100vh - 140px);
+  flex-shrink: 0;
+}
+
+#footerShopping{
+    background-color: #111111;
+    height: 80px;
+    width: 100%;
+    border-top: 1px solid #111111;
+}
+
+#navFooter{
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 0px 10px;
+}
+#navFooter>:first-child{
+    padding: 0 0 8px 0;
+}
+#navFooter>:first-child> a{
+    font-size: 12.5px;
+    text-decoration: none;
+    color: #333;
+    margin: 0 20px 0 0;
+    word-spacing: -0.1em;
+}
+#navFooter h2{
+    font-size: 12px;
+    color: #999;
+    font-weight: 400;
+    margin-bottom: 2px;
+}
+
+#navFooter p{
+    font-size: 12px;
+    font-weight: 400;
+    color: #999;
+}
+
+#AlertaExitosa{
+    display: flex;
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+#firma{
+    text-align: end;
+}

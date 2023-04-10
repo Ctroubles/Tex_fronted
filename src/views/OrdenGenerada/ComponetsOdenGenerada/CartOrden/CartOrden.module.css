@@ -1,0 +1,32 @@
+#CartOrden{
+    display: flex;
+    border-bottom: 1px solid gray;
+    font-weight: 300;
+}
+#CartOrden>div{
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+#product {
+    width: 60%;
+    flex-shrink: 0;
+    flex-direction: column;
+ 
+}
+#quantity{
+    flex-shrink: 0;
+}
+#product img{
+    width: 100px;
+    height: 100px;
+}
+#product h2{
+    font-size: 18px;
+    font-weight: 300;
+}
+#precio{
+    flex-shrink: 1;
+    width: 100%;
+}

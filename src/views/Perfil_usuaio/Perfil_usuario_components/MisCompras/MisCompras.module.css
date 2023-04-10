@@ -1,0 +1,64 @@
+
+#MisComprasContaier{
+    /* min-height: calc(100vh - 200px); */
+    width: 100%;
+    /* font-family: 'Poppins', sans-serif; */
+    background-color: #302f2f;
+    position: relative;
+    font-family: 'Nasalization', sans-serif;
+
+}
+#MisComprasContaier > :nth-child(1){
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 15px 30px 15px;
+}
+#titleMisCompras{
+    /* padding: 40px 92px 10px 92px; */
+    font-family: 18px;
+}
+#titleMisCompras h1{
+    font-size: 20px;
+}
+
+#compraDetallesContainerRelative{
+    position: fixed;
+    top: 145px;
+    height: 100%;
+    width: 100vw;
+    height: calc(100vh - 145px);
+    background-color: rgba(0, 0, 0, 0.284);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+#comprasContainerAbsolute{
+    background-color: blueviolet;
+    transform: translateY(0px);
+    animation: intro 0.4s ease;
+}
+
+@keyframes intro{
+    0%{
+        transform: translateY(-780px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+
+#verMasButton{
+    text-align: center;
+}
+#verMasButton span{
+    background-color: rgb(91, 27, 150);
+    padding: 5px 30px;
+    border-radius: 6px;
+    font-size: 15px;
+    text-align: center;
+}

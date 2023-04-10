@@ -1,0 +1,126 @@
+@import '../../fonts/fonts.css';
+#Perfil_usuario{
+    width: 100%;
+    background-color: #111111;
+    min-height: 100vh;
+    color: #fefefe;
+    font-family: 'Nasalization', sans-serif;
+    display: flex;
+}
+#main{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    width: 1180px   ;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+#side{
+    margin-top: 30px;
+    width: 25%;
+    padding: 0 15px;
+}
+
+#pricipal{
+    margin-top: 30px;
+    width: 75%;
+    padding: 0 15px;
+}
+#side>#userPresentation{
+    background-color: #222121;
+    padding: 30px;
+}
+#side>#userPresentation h1,#side>#userPresentation p,#side>#userPresentation {
+    text-align: center;
+}
+#side>#userPresentation img{
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    border:5px solid rgba(255, 255, 255, 0.2);
+}
+#side>#userPresentation h1{
+    margin-top: 20px;
+    font-size: 22px;
+}
+#side>#userPresentation p{
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+#pointsSection{
+    background-color: #222121;
+    padding: 40px 110px;
+}
+
+#informationContainer{
+    padding: 15px;
+    background-color: #302f2f;
+
+}
+#informationContainer>h1{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#userData{
+}
+.row{
+    display: flex;
+}
+.row label{
+    width: 50%;
+    margin: 0 2px;
+    flex-grow: 0;
+    padding: 0 15px;
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    color: #bbbbbb;
+}
+.row label span{
+    width: 100px;
+    display: inline-block;
+    font-size: 12.5px;
+    color: #fefefe;
+}
+#admirationBirthday{
+    position: relative;
+}
+#admirationBirthday img{
+    width: 16px;
+    height: 16px;
+    line-height: 10px;
+    position: absolute;
+    bottom: -4px;
+    left: 4px;
+}
+#admirationBirthday::after{
+    content: "Verifica tu fecha de cumpleaños y TEX te enviará un regalo.";
+    position: absolute;
+    background-color: #525050;
+    padding: 10px;
+    width: 200px;
+    font-size: 12px;
+    border-radius: 6px;
+    top: -70px;
+    right: -120px;
+    display: none;
+}
+#admirationBirthday:hover::after {
+    display: block;
+}
+#sideOptions{
+    list-style: none;
+    background-color: #302f2f;
+}
+#sideOptions li{
+    padding: 10px 15px;
+    list-style: none;
+    font-size: 13px;
+}
+#sideOptions li:hover{
+    background-color: #222121;
+    cursor: pointer;
+}
+#sideOptions >:nth-child(1)>:nth-child(1)>:nth-child(1){
+    border-bottom: 1px solid rgba(68, 66, 66, 0.575);
+}

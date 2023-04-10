@@ -1,0 +1,96 @@
+@import '../../../../fonts/fonts.css';
+
+#Card{
+    width: 330px;
+    font-family: 'Nasalization', sans-serif;
+    color: #fefefe;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+#imageContainer{
+    width: 200px;
+    height: 200px;
+    margin: 20px auto 10px auto;
+}
+#imageContainer>img{
+    width: 100%;
+}
+#title{
+    margin-bottom: 10px;
+}
+#title h1{
+    font-size: 17px;
+    text-align: center;
+}
+#price{
+    display: flex;
+    justify-content: center;
+}
+#price>label{
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+#original{
+    margin-top: 2px;
+    margin-right: 10px;
+    font-size: 11px;
+    color: rgb(153, 153, 153);
+}
+#original{
+    position: relative;
+}
+#original::after{
+    content: "";
+    width: 45px;
+    height: 1px;
+    background-color: rgba(153, 153, 153, 0.882);
+    position: absolute;
+    transform: rotate(15deg);
+    bottom: 8px;
+    right: -5px;
+}
+#discount{
+    color: #fd611a;
+}
+#seeDetails{
+    text-align: center;
+    padding-top: 10px;
+}
+#seeDetails>button{
+    border: none;
+    font-family: 'Nasalization', sans-serif;
+    font-weight: lighter;
+    text-transform: uppercase;
+    background-color: rgba(62, 37, 62, 0.655);
+    color: #fefefe;
+    font-size: 11px;
+    cursor: pointer;
+}
+#seeDetails>button:hover{
+    text-decoration: underline;
+}
+#buy{
+    text-align: center;
+    padding-top: 10px;
+}
+#buy>button{
+    padding: 5px 8px;
+    border: none;
+    font-family: 'Nasalization', sans-serif;
+    font-weight: lighter;
+    text-transform: uppercase;
+    background-color: rgb(111, 62, 111);
+    color: #fefefe;
+    font-size: 15px;
+    cursor: pointer;
+}
+#buy>button:active{
+    background-color: rgb(155, 85, 155);
+    transform: scale(1.05);
+}
+
+.buttonSumarCart{
+    background-color: red;
+}

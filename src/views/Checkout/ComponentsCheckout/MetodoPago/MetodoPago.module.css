@@ -1,0 +1,77 @@
+#title{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+    padding-right: 20px;
+}
+#squarePayment{
+    width: 100%;
+    max-width: 500px;
+    margin-top: 15px;
+    border: 1px solid #757373;
+}
+#squarePayment p{
+    color: #ffffffc5;
+    font-weight: 300;
+    font-size: 15px;
+    padding: 17px;
+}
+.boxes{
+    border-bottom: 1px solid #757373;
+    padding: 17px;
+    cursor: pointer;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.boxes img{
+    width: 20px;
+    margin-right: 10px;
+}
+.dinamicBoxes{
+    border-bottom: 1px solid #757373;
+    transition: height .3s ease;
+    overflow: hidden;
+}
+.dinamicBoxesInactive{
+    overflow: hidden;
+    border-bottom: none;
+    transition: height .3s ease;
+}
+#boxSelected{
+    position: relative;
+}
+#boxSelected::after{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 225, 57);
+    position: absolute;
+    right: 20px;
+    border-radius: 50%;
+}
+#confirmarButton{
+    text-align: center;
+}
+#confirmarButton>:nth-child(1){
+    padding-top: 25px;
+    display: inline-block;
+}
+#confirmarButton span {
+    background-color: rgb(255, 217, 0);
+    background-color: #EFBA34;
+    color: #111111;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 21px;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+}
+
+#confirmarButton span:active {
+    background-color: rgb(235, 207, 53);
+    transform: scale(1.05);
+}

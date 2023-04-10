@@ -1,0 +1,29 @@
+#TableInformation {
+    display: flex;
+}
+
+.row{
+    display: flex;
+    margin: 2px 20px 2px 2px;
+}
+.row label{
+    margin: 0 2px;
+    flex-grow: 0;
+    padding: 0 15px;
+    margin-bottom: 10px;
+    font-size: 12.5px;
+    color: #bbbbbb;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    border: solid 1px gray;
+    padding:3px 10px;
+    border-radius: 6px;
+}
+.row label span{
+    /* width: 100px; */
+    margin-right: 5px;
+    display: inline-block;
+    font-size: 13.5px;
+    color: #fefefe;
+}
