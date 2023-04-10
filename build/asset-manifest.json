@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7f9d7c37.chunk.css",
+    "main.js": "/static/js/main.a1d6a7e0.chunk.js",
+    "main.js.map": "/static/js/main.a1d6a7e0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4d483e6d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4d483e6d.js.map",
+    "static/js/2.97a81008.chunk.js": "/static/js/2.97a81008.chunk.js",
+    "static/js/2.97a81008.chunk.js.map": "/static/js/2.97a81008.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.7f9d7c37.chunk.css.map": "/static/css/main.7f9d7c37.chunk.css.map",
+    "static/js/2.97a81008.chunk.js.LICENSE.txt": "/static/js/2.97a81008.chunk.js.LICENSE.txt",
+    "static/media/Instagram_transparent.7d6e2efa.svg": "/static/media/Instagram_transparent.7d6e2efa.svg",
+    "static/media/TEX LOGO.0b46894f.svg": "/static/media/TEX LOGO.0b46894f.svg",
+    "static/media/admiracion_icon.c4f05ae8.svg": "/static/media/admiracion_icon.c4f05ae8.svg",
+    "static/media/bag_tex.2113093a.png": "/static/media/bag_tex.2113093a.png",
+    "static/media/black-shopping-cart.65bdd8e2.svg": "/static/media/black-shopping-cart.65bdd8e2.svg",
+    "static/media/black_arrow.948a0148.svg": "/static/media/black_arrow.948a0148.svg",
+    "static/media/check-green-icon.b3e9a8df.svg": "/static/media/check-green-icon.b3e9a8df.svg",
+    "static/media/check-green.001158a5.svg": "/static/media/check-green.001158a5.svg",
+    "static/media/computer-mouse-icon.27fc78ed.svg": "/static/media/computer-mouse-icon.27fc78ed.svg",
+    "static/media/delivery_truck.711b54ed.svg": "/static/media/delivery_truck.711b54ed.svg",
+    "static/media/facebook_transparentBackground.bc3a2645.svg": "/static/media/facebook_transparentBackground.bc3a2645.svg",
+    "static/media/green_check.c7d54191.svg": "/static/media/green_check.c7d54191.svg",
+    "static/media/image_forge-way.2bd9ab30.webp": "/static/media/image_forge-way.2bd9ab30.webp",
+    "static/media/logo_tex_modern.97c1b9d7.png": "/static/media/logo_tex_modern.97c1b9d7.png",
+    "static/media/logout-svgrepo-com.ae1aa0ea.svg": "/static/media/logout-svgrepo-com.ae1aa0ea.svg",
+    "static/media/lupa.1b33b252.png": "/static/media/lupa.1b33b252.png",
+    "static/media/Landing.module.css": "/static/media/nasalization-rg.4cbf2019.otf",
+    "static/media/orange_arrow.5299f209.svg": "/static/media/orange_arrow.5299f209.svg",
+    "static/media/shield.1c07ee17.svg": "/static/media/shield.1c07ee17.svg",
+    "static/media/success-svgrepo-com.2822d5c7.svg": "/static/media/success-svgrepo-com.2822d5c7.svg",
+    "static/media/trash_can.1a4303d3.svg": "/static/media/trash_can.1a4303d3.svg",
+    "static/media/triangle.398cbb3f.svg": "/static/media/triangle.398cbb3f.svg",
+    "static/media/x_octagon_red.75e5d0f6.svg": "/static/media/x_octagon_red.75e5d0f6.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4d483e6d.js",
+    "static/js/2.97a81008.chunk.js",
+    "static/css/main.7f9d7c37.chunk.css",
+    "static/js/main.a1d6a7e0.chunk.js"
+  ]
+}
