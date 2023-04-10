@@ -1,5 +1,5 @@
 import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, GET_ALL_COMPONENTS, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC, FILTER_BY_NAME, ADD_DELIVERY_INFORMATION, ADD_PAYMENT_METHOD } from "../actions/actions.types";
-import { paginationArray, getCurrentComponent } from "../../utils";
+import { getCurrentComponent } from "../../utils";
 import { sortByPrice,fusionarProductos } from "../../helpers/reducer.helpers";
 const pc_build= JSON.parse(window.localStorage.getItem("pc_build"))
 
@@ -55,14 +55,6 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                 ...state,
                 searchBarStatus:payload
             }
-        
-        case GET_ALL_COMPONENTS:
-            data = state.orderPrice?sortByPrice(payload, state.orderPrice) :payload
-            return{
-                ...state,
-                allComponents: data,
-                paginated: paginationArray(data, 9),
-            };
         case GET_DETAIL_COMPONENT:
             return{
                 ...state,
@@ -74,7 +66,6 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             return{
                 ...state
                 , allComponents: newOrder,
-                paginated: paginationArray(newOrder, 9),
                 numPaginado:0,
                 orderPrice: payload.tipo,
 
