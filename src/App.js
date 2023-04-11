@@ -39,7 +39,7 @@ function App() {
   useEffect(()=>{
     const setting = async()=>{
       const postUser=async()=>{
-        const {data} = await axios.post(`/users`,{email:user.email }).catch(err=>logout({ returnTo: window.location.origin}))
+        const {data} = await axios.post(`/users`,{email:user.email }).catch(err=>console.log(err))
         if (data) setCurrentUser(data)
       }
       if(isAuthenticated) await postUser()
