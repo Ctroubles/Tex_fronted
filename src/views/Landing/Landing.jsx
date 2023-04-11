@@ -9,7 +9,7 @@ const Landing = ()=>{
     return(
         <div id={style.LandingContainer}>
             <Link to={"/tienda"} className={style.ways}>
-                <div   div id={style.img_ways}>
+                <div id={style.img_ways}>
                     <img src={bolsaTienda} alt="" />
                 </div>
                 <h1>

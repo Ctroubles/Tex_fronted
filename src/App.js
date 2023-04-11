@@ -7,13 +7,15 @@ import Admin from "./admin/view/Admin.jsx";
 import {useEffect, useRef, useState} from "react";
 import ShoppingView from "./views/Shopping/Shopping.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
 import GeneralLoading from "./views/General_Loading/GeneralLoading.jsx"
 import Tienda from "./views/Tienda/Tienda";
 import Forja from "./views/Forja/Forja.jsx"
 import Checkout from "./views/Checkout/Checkout";
 import OrdenGenerada from "./views/OrdenGenerada/OrdenGenerada.jsx";
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://tex-api.vercel.app/';
 
 
 

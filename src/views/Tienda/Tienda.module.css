@@ -19,6 +19,8 @@
 }
 #body{
     width: 100%;
+    height: calc(100vh - 92.5px);
+    overflow: hidden;
 }
 #sideBar{
     min-height: calc(100vh - 91.5px);
