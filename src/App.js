@@ -16,7 +16,7 @@ import OrdenGenerada from "./views/OrdenGenerada/OrdenGenerada.jsx";
 import axios from 'axios';
 
 // axios.defaults.baseURL = 'https://tex-api.vercel.app/';
-axios.defaults.baseURL = 'https://localhost:3001/';
+axios.defaults.baseURL = 'http://localhost:3001/';
 
 
 
@@ -41,7 +41,7 @@ function App() {
     const setting = async()=>{
       const postUser=async()=>{
         console.log(user.email);
-        const {data} = await axios.post(`/users`,{email:user.email}).catch(err=>console.log(err))
+        const {data} = await axios.post(`/users`,{user:user}).catch(err=>console.log(err))
         if (data) setCurrentUser(data)
       }
         if(isAuthenticated) await postUser()

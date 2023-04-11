@@ -53,7 +53,6 @@ const Tienda = () =>{
         dispatch(filterByName(""))
         if(!categoryFilter.label){
             const getData =async()=>{
-                process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
                 const {data} =await axios.get(`/`)
                 let arrayUnido = [];
                 for (let atributo in data) {
