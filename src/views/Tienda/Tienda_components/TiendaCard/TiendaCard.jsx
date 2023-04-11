@@ -30,13 +30,13 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
                 </label>
             </div>            
             <div id={style.price}>
-                <label id={style.original}>
-                    <span>s/</span>
+                {/* <label id={style.original}>
+                    <span>s/ </span>
                     <span> {Math.ceil(price+50)}</span>
-                </label> 
+                </label>  */}
                 <label id={style.discount}>
-                    <span>s/</span>
-                    <span>{Math.floor(price)+0.99}</span>
+                    <span>s/. &nbsp;</span>
+                    <span> {Math.floor(price)+0.99}</span>
                 </label>
             </div>
             <div id={style.seeDetails}>

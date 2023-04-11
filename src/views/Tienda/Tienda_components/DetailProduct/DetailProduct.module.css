@@ -28,9 +28,9 @@
 }
 #xIcon{
     position: absolute;
-    top: 1px;
+    top: 4px;
     font-size: 25px;
-    right: 6px;
+    right: 8px;
     font-family: 'Nasalization', sans-serif;
     cursor: pointer;
 }

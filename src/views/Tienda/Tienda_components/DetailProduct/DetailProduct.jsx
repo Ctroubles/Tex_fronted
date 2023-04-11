@@ -15,7 +15,7 @@ const DetailProduct = ({product})=>{
 
  const addToCartHandler = ()=>{
     const getProductById = async() =>{
-        const {data}= await axios.get(`/id/${id}`);
+        const {data}= await axios.get(`/id/${product._id}`);
 
         dispatch(addToCart(data))
     };
@@ -45,11 +45,11 @@ const descriptionArray = Object.entries(description);
                     <div>
                         <div>
                             <p>PRECIO ESPECIAL</p>
-                            <h2>${Math.floor(price)+0.99}</h2>
+                            <h2>s/. {Math.floor(price)+0.99}</h2>
                         </div>
                         <div>
                             <p>PRECIO LISTA</p>
-                            <h2 id={style.discountPrice}>${Math.ceil(price+50)}</h2>
+                            <h2 id={style.discountPrice}>s/. {Math.ceil(price+50)}</h2>
                         </div>
                     </div>
                             <div>
@@ -59,7 +59,7 @@ const descriptionArray = Object.entries(description);
                                     <li><div><img src={truck} alt="Delivery truck" id={style.truck} /></div> Envíos a todo el país</li>
                                 </ul>
                             </div>
-                            <button className={2 <= 0 ? style.noStock : undefined} onClick={2<= 0 ? undefined : () => {}}>SUMAR AL CARRITO</button>
+                            <button className={2 <= 0 ? style.noStock : undefined} onClick={()=>addToCartHandler()}>SUMAR AL CARRITO</button>
                         </div>
                         <div id={style.xIcon} onClick={()=>history.push("/tienda")}>X</div>
                      </div>

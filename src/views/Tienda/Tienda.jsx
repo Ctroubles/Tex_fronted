@@ -178,6 +178,9 @@ const Tienda = () =>{
                                 <span onClick={()=>dispatch(deleteFilterCategory())} id={style.xIcon}>X</span>
                             </label>
                             <SearchBar/>
+                            <label>
+                                <span>Precio</span>
+                            </label>
                         </div>
                         {showLoading && <LoadingCardContainer />}
                                         
