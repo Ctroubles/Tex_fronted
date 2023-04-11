@@ -15,15 +15,20 @@ import Checkout from "./views/Checkout/Checkout";
 import OrdenGenerada from "./views/OrdenGenerada/OrdenGenerada.jsx";
 import axios from 'axios';
 
+
 // axios.defaults.baseURL = 'https://tex-api.vercel.app/';
 axios.defaults.baseURL = 'http://localhost:3001/';
 
-
+const domain = process.env.REACT_APP_DOMAIN_AUTH0;
+const clientId = process.env.REACT_APP_CLIENT_ID_AUTH0;
+const audience = process.env.REACT_APP_AUDIENCE_AUTH0;
 
 function App() {
   const history = useHistory();
 
   const { user,isAuthenticated,loginWithRedirect,isLoading,logout} = useAuth0()
+  const { getAccessTokenSilently } = useAuth0();
+
 
   const headerRef = useRef(null)
   const location = useLocation();
@@ -39,8 +44,21 @@ function App() {
 
   useEffect(()=>{
     const setting = async()=>{
-      const postUser=async()=>{
-        console.log(user.email);
+      try {
+        const accessToken = await getAccessTokenSilently({ audience });
+        const response = await fetch(`https://${domain}/api/v2/users/{user_id}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        const data = await response.json();
+        console.log(data);
+        // setUser(data);
+      } catch (e) {
+        console.error(e);
+      }
+
+        const postUser=async()=>{
         const {data} = await axios.post(`/users`,{user:user}).catch(err=>console.log(err))
         if (data) setCurrentUser(data)
       }
