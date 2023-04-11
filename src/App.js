@@ -15,7 +15,8 @@ import Checkout from "./views/Checkout/Checkout";
 import OrdenGenerada from "./views/OrdenGenerada/OrdenGenerada.jsx";
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://tex-api.vercel.app/';
+// axios.defaults.baseURL = 'https://tex-api.vercel.app/';
+axios.defaults.baseURL = 'http://192.168.100.5:3001/';
 
 
 
@@ -39,10 +40,11 @@ function App() {
   useEffect(()=>{
     const setting = async()=>{
       const postUser=async()=>{
-        const {data} = await axios.post(`/users`,{email:user.email }).catch(err=>console.log(err))
+        console.log(user.email);
+        const {data} = await axios.post(`/users`,{email:user.email}).catch(err=>console.log(err))
         if (data) setCurrentUser(data)
       }
-      if(isAuthenticated) await postUser()
+        if(isAuthenticated) await postUser()
         if(!isLoading)setLoadingStatus(false)
       
     }
