@@ -28,7 +28,7 @@ const PedidoGenerado = () =>{
     useEffect(()=>{
         const getOrder = async()=>{
             try {
-                const {data} = await axios.get(`http://localhost:3001/shopping/pedidos/${norden}/${id}`)
+                const {data} = await axios.get(`/shopping/pedidos/${norden}/${id}`)
                 const dosHorasEnMilisegundos = 7200000;
                 const ahora = new Date();
                 if(data)setPedido(data)

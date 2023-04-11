@@ -16,7 +16,6 @@ import LoadingCardContainer from "./Tienda_components/LoadingCardContainer/Loadi
 import PopoutFinalizar from "./Tienda_components/Popout_finalizar/Popout_finalizar";
 
 
-const Url = `http://localhost:3001/`;
 
 function compararProductos(a, b) {
     if (a.stock === 0 && b.stock > 0) {
@@ -54,7 +53,7 @@ const Tienda = () =>{
         dispatch(filterByName(""))
         if(!categoryFilter.label){
             const getData =async()=>{
-                const {data} =await axios.get(`http://localhost:3001/`)
+                const {data} =await axios.get(`/`)
                 let arrayUnido = [];
                 for (let atributo in data) {
                 arrayUnido = arrayUnido.concat(data[atributo]);
@@ -67,7 +66,7 @@ const Tienda = () =>{
             getData()
         }else{
             const getData =async()=>{
-                const {data} =await axios.get(`http://localhost:3001/category/${categoryFilter.categoryPick}`)
+                const {data} =await axios.get(`/category/${categoryFilter.categoryPick}`)
                 console.log(data);
                 if(!categoryFilter.specificity){
                     data.sort(compararProductos);
@@ -137,7 +136,7 @@ const Tienda = () =>{
             const cleanPathName = cleanPathname(pathname)
             const urlArr = cleanPathName.split("/")
             const idProduct = urlArr[urlArr.length-1];
-            const {data}= await axios.get(`http://localhost:3001/id/${idProduct}`)
+            const {data}= await axios.get(`/id/${idProduct}`)
             .catch(e=>history.push(`/tienda`));
             if(data)setProductOnFocus(data)
             else history.push(`/tienda`)

@@ -60,7 +60,7 @@ const MetodoPago = ()=>{
                     instructions: purchaseOrder.deliveryData.instructions,
                 }
 
-                const result = await axios.post("http://localhost:3001/shopping/create",orderToSend)
+                const result = await axios.post("/shopping/create",orderToSend)
                 if(result.status ===201){
                     history.push(`/pedidos/${result.data.nOrden}/${result.data._id}`)
                     dispatch(cleanShoppingCart())
