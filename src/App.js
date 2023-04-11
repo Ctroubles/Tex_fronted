@@ -16,7 +16,7 @@ import OrdenGenerada from "./views/OrdenGenerada/OrdenGenerada.jsx";
 import axios from 'axios';
 
 // axios.defaults.baseURL = 'https://tex-api.vercel.app/';
-axios.defaults.baseURL = 'http://192.168.100.5:3001/';
+axios.defaults.baseURL = 'https://localhost:3001/';
 
 
 
