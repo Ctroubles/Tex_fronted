@@ -41,7 +41,7 @@ const ShoppingCart = (props) =>{
         </div>:null}
         {itemsToBuy.length?<div>
             <span><span ref={props.buttonComprarRef} onClick={()=>finalizarHandler()} to={"/finalizar"}>Comprar</span> </span>
-            <h3>${totalPrice}</h3>
+            <h3>${totalPrice.toFixed(2)}</h3>
         </div>:null}
     </div>
     )

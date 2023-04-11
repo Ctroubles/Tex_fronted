@@ -39,10 +39,10 @@ function App() {
   useEffect(()=>{
     const setting = async()=>{
       const postUser=async()=>{
-        // const {data} = await axios.post(`${urlBack}/users`,{email:user.email }).catch(err=>logout({ returnTo: window.location.origin}))
-        // if (data) setCurrentUser(data)
+        const {data} = await axios.post(`/users`,{email:user.email }).catch(err=>logout({ returnTo: window.location.origin}))
+        if (data) setCurrentUser(data)
       }
-      // if(isAuthenticated) await postUser()
+      if(isAuthenticated) await postUser()
         if(!isLoading)setLoadingStatus(false)
       
     }

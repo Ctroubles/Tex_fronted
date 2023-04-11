@@ -179,7 +179,14 @@ const Tienda = () =>{
                             </label>
                             <SearchBar/>
                             <label>
-                                <span>Precio</span>
+                                {/* <div>
+                                     <label >ORDER</label>
+                        
+                            <div> 
+                                <span className={style.spanAZ}>Z-A</span>  
+                                <input type="range" id={orderFilter.orderAZ != '2' ? style.rangeBlue : undefined}  onChange={(e)=>{   switchGlobalOrder({ orderAZ:e.target.value , healthScore:'2' } , dispatch) }}  min='1' max='3' value={orderFilter.orderAZ} />
+                                <span className={style.spanAZ}>A-Z</span>  </div>
+                                </div> */}
                             </label>
                         </div>
                         {showLoading && <LoadingCardContainer />}
