@@ -4,13 +4,24 @@ import truck from "../../../../assets/detalles_componente/delivery_truck.svg";
 import shield from "../../../../assets/detalles_componente/shield.svg";
 import { useHistory } from "react-router-dom";
 import TableInformation from "./Table_information/TableInformation";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../../redux/actions/actions";
+import axios from "axios";
 
 
 const DetailProduct = ({product})=>{
-
+    const dispatch = useDispatch()
  const history = useHistory()
 
-console.log(product);
+ const addToCartHandler = ()=>{
+    const getProductById = async() =>{
+        const {data}= await axios.get(`/id/${id}`);
+
+        dispatch(addToCart(data))
+    };
+    getProductById()
+};
+
 
 const {id,_id,__v,img,name,price,category,cod,...description} = product;
 

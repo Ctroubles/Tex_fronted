@@ -10,12 +10,11 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
 
     const addToCartHandler = ()=>{
         const getProductById = async() =>{
-            const {data}= await axios.get(`http://localhost:3001/id/${id}`);
+            const {data}= await axios.get(`/id/${id}`);
 
             distpatch(addToCart(data))
         };
         getProductById()
-
     };
 
     return(
