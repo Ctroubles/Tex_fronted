@@ -36,6 +36,7 @@
     padding-bottom: 10px;
     background-color: transparent;
     position: relative;
+
 }
 #categoryPick{
     background-color: #fd621a9a;
@@ -103,3 +104,39 @@
     background: #171717;
   }
 
+
+
+
+#priceLess{
+    font-size: 15px;
+    margin-right: 1px;
+}
+#priceMore{
+    font-size: 15px;
+}
+
+.spanAZ{
+    font-size: 12px;
+    margin: 2px 2px;
+}
+
+#switchInput{
+    appearance: none;
+    width: 45px;
+    border-radius: 10px;
+    border: 2px solid rgba(27, 27, 27, 0.753);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 1s;
+}
+#priceFilter{
+    font-size: 13px;
+}
+#priceFilter>:nth-child(2){
+    display: flex;
+}
+#switchContainer{
+    position: absolute;
+    right: 100px;
+}

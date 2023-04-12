@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { cleanPathname } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteFilterCategory, filterByName } from "../../redux/actions/actions";
+import { deleteFilterCategory, filterByName, orderByPrice } from "../../redux/actions/actions";
 import SideBar from "../../components/SideBar/SideBar.jsx";
 import Card from "./Tienda_components/TiendaCard/TiendaCard"
 import DetailProduct from "./Tienda_components/DetailProduct/DetailProduct";
@@ -35,6 +35,8 @@ const Tienda = () =>{
 
     const categoryFilter = useSelector(e=>e.categoryFilter)
     const searchBarStatus = useSelector(e=>e.searchBarStatus)
+    const orderPrice = useSelector(e=>e.orderPrice)
+
 
     const [products, setProducts] = useState([])
     const [productsFilteredBySearchBar, setProductsFilteredBySearchBar] = useState([])
@@ -51,6 +53,7 @@ const Tienda = () =>{
         setLoadingStatus(true)
         setProducts([])
         dispatch(filterByName(""))
+        console.log(orderPrice);
         if(!categoryFilter.label){
             const getData =async()=>{
                 const {data} =await axios.get(`/`)
@@ -58,6 +61,9 @@ const Tienda = () =>{
                 for (let atributo in data) {
                 arrayUnido = arrayUnido.concat(data[atributo]);
                 }
+
+                if(orderPrice==="1")arrayUnido.sort((a, b) => a.price - b.price);
+                if(orderPrice==="3")arrayUnido.sort((a, b) => b.price - a.price);
                 arrayUnido.sort(compararProductos);
                 setProducts(arrayUnido)
                 setLoadingStatus(false)
@@ -67,8 +73,9 @@ const Tienda = () =>{
         }else{
             const getData =async()=>{
                 const {data} =await axios.get(`/category/${categoryFilter.categoryPick}`)
-                console.log(data);
                 if(!categoryFilter.specificity){
+                    if(orderPrice==="1")data.sort((a, b) => a.price - b.price);
+                    if(orderPrice==="3")data.sort((a, b) => b.price - a.price);
                     data.sort(compararProductos);
                     setProducts(data)
                     setLoadingStatus(false)
@@ -80,9 +87,9 @@ const Tienda = () =>{
                             }
                             return acumulador;
                         }, []);                        
+                        if(orderPrice==="1")filtrado.sort((a, b) => a.price - b.price);
+                        if(orderPrice==="3")filtrado.sort((a, b) => b.price - a.price);
                         filtrado.sort(compararProductos);
-                        console.log(categoryFilter.specificity);
-                        console.log(filtrado);
                         setProducts(filtrado)
                         setLoadingStatus(false)
                     }
@@ -94,7 +101,8 @@ const Tienda = () =>{
                             return acumulador;
                         }, []);
                         
-
+                        if(orderPrice==="1")filtrado.sort((a, b) => a.price - b.price);
+                        if(orderPrice==="3")filtrado.sort((a, b) => b.price - a.price);
                         filtrado.sort(compararProductos);
                         setProducts(filtrado)
                         setLoadingStatus(false)
@@ -105,6 +113,8 @@ const Tienda = () =>{
                               product.name.toLowerCase().includes(word.toLowerCase())
                             )
                           );   
+                        if(orderPrice==="1")filtrado.sort((a, b) => a.price - b.price);
+                        if(orderPrice==="3")filtrado.sort((a, b) => b.price - a.price);
                         filtrado.sort(compararProductos);
                         setProducts(filtrado)
                         setLoadingStatus(false)
@@ -115,7 +125,7 @@ const Tienda = () =>{
             getData()
         }
 
-    },[categoryFilter])
+    },[categoryFilter,orderPrice])
 
 
     useEffect(()=>{
@@ -126,6 +136,8 @@ const Tienda = () =>{
             }
             return acumulador;
           }, []);
+          if(orderPrice==="1")filtrado.sort((a, b) => a.price - b.price);
+          if(orderPrice==="3")filtrado.sort((a, b) => b.price - a.price);
           setProductsFilteredBySearchBar(filtrado)
         }
     },[searchBarStatus])
@@ -177,15 +189,15 @@ const Tienda = () =>{
                                 <span onClick={()=>dispatch(deleteFilterCategory())} id={style.xIcon}>X</span>
                             </label>
                             <SearchBar/>
-                            <label>
-                                {/* <div>
-                                     <label >ORDER</label>
-                        
-                            <div> 
-                                <span className={style.spanAZ}>Z-A</span>  
-                                <input type="range" id={orderFilter.orderAZ != '2' ? style.rangeBlue : undefined}  onChange={(e)=>{   switchGlobalOrder({ orderAZ:e.target.value , healthScore:'2' } , dispatch) }}  min='1' max='3' value={orderFilter.orderAZ} />
-                                <span className={style.spanAZ}>A-Z</span>  </div>
-                                </div> */}
+                            <label id={style.switchContainer}>
+                               <div id={style.priceFilter}>
+                                    <label></label>
+                                    <div> 
+                                        <span id={style.priceLess} >&#9650;</span>  
+                                        <input id={style.switchInput} type="range"  onChange={(e)=>dispatch(orderByPrice(e.target.value))} min='1' max='3' value={orderPrice} /> 
+                                        <span id={style.priceMore} >&#9660;</span>  
+                                    </div>
+                                </div>
                             </label>
                         </div>
                         {showLoading && <LoadingCardContainer />}

@@ -1,37 +1,13 @@
-import { GET_ALL_COMPONENTS, SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, EDIT_USER, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC, FILTER_BY_NAME, ADD_DELIVERY_INFORMATION, ADD_PAYMENT_METHOD,} from "./actions.types"
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, EDIT_USER, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC, FILTER_BY_NAME, ADD_DELIVERY_INFORMATION, ADD_PAYMENT_METHOD,} from "./actions.types"
 import axios from 'axios'
 import { filterCategoryParams } from "../../helpers/Filter.helpers";
 import url from "../../utils/deploy_back";
 
 
-const orderBy = (tipo ,categoryPick) => {
-    if(!categoryPick){
-        return async (dispatch)=>{
-            const {data}  = await axios.get(`${url}/components/`);
-            dispatch({type: ORDER_PRICE,payload: {
-                tipo,
-                data
-            },
-            })
-        }
-    }else{
-        return async dispatch =>{
-            const [category,marca] = filterCategoryParams(categoryPick)
-
-
-            let {data} = await axios.get(`${url}/components/${category}`).catch(e=>{alert(`No Econtró componentes con la categoría ${category}`); return "no data"})
-
-            if(marca){
-                data = data.filter(e=>e.description.toLowerCase().includes(marca.toLowerCase()))
-            }
-    
-            if(!data?.length) alert("No Hay componentes con esa marca")
-            else if(data.length)  dispatch({type: ORDER_PRICE,payload: {
-                tipo,
-                data
-            },
-            })
-        }
+const orderByPrice = (payload) => {
+    return{
+        type: ORDER_PRICE,
+        payload,
     }
 };
 
@@ -63,22 +39,6 @@ const setStepBuildPc = (step) =>{
     }
 }
 
-
-
- const getAllComponents = () => {
-    return async dispatch => {
-        const ddd = `${url}/components/`
-        console.log(ddd)
-        const {data} = await axios.get(ddd)
-        .catch(error => alert("Error en la action getAllComponents, al obtener la data"));
-
-            if(data) dispatch({
-                    type: GET_ALL_COMPONENTS,
-                    payload: data,
-                 })
-         
-    }
-}
 
 
 const filterByCategory = (category, specificity,label)=>{
@@ -166,9 +126,8 @@ const addDeliveryInformation = (form) =>{
 export {
      setStateViewCard,
      setStepBuildPc,
-     getAllComponents,
      filterByName,
-     orderBy,
+     orderByPrice,
      getDetailComponent,
      filterByCategory,
      deleteFilterCategory,

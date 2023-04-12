@@ -75,7 +75,7 @@
 }
 #childsContaier.categoryActiveOneElement{
   height: 25px;
-  transition: height 150ms ease-in-out;
+  transition: height 0.3s ease-in-out;
 }
 #childsContaier >span > p{
   height: 20px;
