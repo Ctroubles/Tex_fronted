@@ -44,19 +44,20 @@ function App() {
 
   useEffect(()=>{
     const setting = async()=>{
-      try {
-        const accessToken = await getAccessTokenSilently({ audience });
-        const response = await fetch(`https://${domain}/api/v2/users/{user_id}`, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        const data = await response.json();
-        console.log(data);
-        // setUser(data);
-      } catch (e) {
-        console.error(e);
-      }
+      console.log(user);
+      // try {
+      //   const accessToken = await getAccessTokenSilently({ audience });
+      //   const response = await fetch(`https://${domain}/api/v2/users/${user_id}`, {
+      //     headers: {
+      //       Authorization: `Bearer ${accessToken}`,
+      //     },
+      //   });
+      //   const data = await response.json();
+      //   console.log(data);
+      //   setUser(data);
+      // } catch (e) {
+      //   console.error(e);
+      // }
 
         const postUser=async()=>{
         const {data} = await axios.post(`/users`,{user:user}).catch(err=>console.log(err))
