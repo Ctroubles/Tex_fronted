@@ -111,17 +111,19 @@ const Header_tienda =({setPopoutFinalizar})=>{
                             <img src={shoppingCart} alt="shoping Cart"/>
                         </div>
                         <div id={shoppingCartStatus?style.shoppingCartActive:undefined}>
-                            <div ref={containerRef} style={styleCartContainer}>
+                            <div ref={containerRef} style={styleCartContainer} id={style.carritoContenedor}>
                                  <ShoppingCart setPopoutFinalizar={setPopoutFinalizar} history={history} isAuthenticated={isAuthenticated} refCart={cartRef} buttonComprarRef={buttonComprarRef} />
                             </div>
                         </div>
                         <p id={style.itemNumber}>{numberStatus}</p>
                     </div>
-                    {isAuthenticated?(
-                        <Logged img={usuario.img} name={usuario.name} />
-                    ):(
-                        <LoggingButton/>
-                    )}
+                    <div style={{width:"150px"}}>
+                        {isAuthenticated?(
+                            <Logged img={usuario.img} name={usuario.name} />
+                        ):(
+                            <LoggingButton/>
+                        )}
+                    </div>
                     
                 </label>
                 <span onClick={()=>finalizarHanlder()} id={style.finalizarCompre} style={{opacity: itemsToBuy.length ? 1 : 0,}}>

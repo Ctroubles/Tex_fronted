@@ -141,3 +141,6 @@
     font-size: 18px;
     cursor: pointer;
 }
+#carritoContenedor{ 
+    height: 0;
+}

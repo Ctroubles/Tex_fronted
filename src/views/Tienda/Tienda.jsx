@@ -62,8 +62,8 @@ const Tienda = () =>{
                 arrayUnido = arrayUnido.concat(data[atributo]);
                 }
 
-                if(orderPrice==="1")arrayUnido.sort((a, b) => a.price - b.price);
-                if(orderPrice==="3")arrayUnido.sort((a, b) => b.price - a.price);
+                if(orderPrice==="3")arrayUnido.sort((a, b) => a.price - b.price);
+                if(orderPrice==="1")arrayUnido.sort((a, b) => b.price - a.price);
                 arrayUnido.sort(compararProductos);
                 setProducts(arrayUnido)
                 setLoadingStatus(false)
@@ -74,8 +74,8 @@ const Tienda = () =>{
             const getData =async()=>{
                 const {data} =await axios.get(`/category/${categoryFilter.categoryPick}`)
                 if(!categoryFilter.specificity){
-                    if(orderPrice==="1")data.sort((a, b) => a.price - b.price);
-                    if(orderPrice==="3")data.sort((a, b) => b.price - a.price);
+                    if(orderPrice==="3")data.sort((a, b) => a.price - b.price);
+                    if(orderPrice==="1")data.sort((a, b) => b.price - a.price);
                     data.sort(compararProductos);
                     setProducts(data)
                     setLoadingStatus(false)
@@ -87,8 +87,8 @@ const Tienda = () =>{
                             }
                             return acumulador;
                         }, []);                        
-                        if(orderPrice==="1")filtrado.sort((a, b) => a.price - b.price);
-                        if(orderPrice==="3")filtrado.sort((a, b) => b.price - a.price);
+                        if(orderPrice==="3")filtrado.sort((a, b) => a.price - b.price);
+                        if(orderPrice==="1")filtrado.sort((a, b) => b.price - a.price);
                         filtrado.sort(compararProductos);
                         setProducts(filtrado)
                         setLoadingStatus(false)
@@ -101,8 +101,8 @@ const Tienda = () =>{
                             return acumulador;
                         }, []);
                         
-                        if(orderPrice==="1")filtrado.sort((a, b) => a.price - b.price);
-                        if(orderPrice==="3")filtrado.sort((a, b) => b.price - a.price);
+                        if(orderPrice==="3")filtrado.sort((a, b) => a.price - b.price);
+                        if(orderPrice==="1")filtrado.sort((a, b) => b.price - a.price);
                         filtrado.sort(compararProductos);
                         setProducts(filtrado)
                         setLoadingStatus(false)
@@ -113,8 +113,8 @@ const Tienda = () =>{
                               product.name.toLowerCase().includes(word.toLowerCase())
                             )
                           );   
-                        if(orderPrice==="1")filtrado.sort((a, b) => a.price - b.price);
-                        if(orderPrice==="3")filtrado.sort((a, b) => b.price - a.price);
+                        if(orderPrice==="3")filtrado.sort((a, b) => a.price - b.price);
+                        if(orderPrice==="1")filtrado.sort((a, b) => b.price - a.price);
                         filtrado.sort(compararProductos);
                         setProducts(filtrado)
                         setLoadingStatus(false)
@@ -136,8 +136,8 @@ const Tienda = () =>{
             }
             return acumulador;
           }, []);
-          if(orderPrice==="1")filtrado.sort((a, b) => a.price - b.price);
-          if(orderPrice==="3")filtrado.sort((a, b) => b.price - a.price);
+          if(orderPrice==="3")filtrado.sort((a, b) => a.price - b.price);
+          if(orderPrice==="1")filtrado.sort((a, b) => b.price - a.price);
           setProductsFilteredBySearchBar(filtrado)
         }
     },[searchBarStatus])
@@ -193,9 +193,9 @@ const Tienda = () =>{
                                <div id={style.priceFilter}>
                                     <label></label>
                                     <div> 
-                                        <span id={style.priceLess} >&#9650;</span>  
-                                        <input id={style.switchInput} type="range"  onChange={(e)=>dispatch(orderByPrice(e.target.value))} min='1' max='3' value={orderPrice} /> 
-                                        <span id={style.priceMore} >&#9660;</span>  
+                                        <span id={style.priceLess} style={orderPrice==="1"?{color:"#ffbf00",transform:"scale(1.1)"}:undefined} onClick={()=>dispatch(orderByPrice("1"))} >&#9650;</span>  
+                                        <input id={style.switchInput} type="range"  onChange={(e)=>dispatch(orderByPrice(e.target.value))} min='1' max='3' value={orderPrice} style={orderPrice!=="2"?{backgroundColor:"rgba(209, 30, 209, 0.655)"}:undefined}/> 
+                                        <span id={style.priceMore} style={orderPrice==="3"?{color:"#ffbf00",transform:"scale(1.15)"}:undefined} onClick={()=>dispatch(orderByPrice("3"))}  >&#9660;</span>  
                                     </div>
                                 </div>
                             </label>

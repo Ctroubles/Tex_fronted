@@ -12,8 +12,9 @@
     width: 200px;
     height: 200px;
     margin: 20px auto 10px auto;
+    position: relative;
 }
-#imageContainer>img{
+#imageContainer img{
     width: 100%;
 }
 #title{
@@ -90,7 +91,22 @@
     background-color: rgb(155, 85, 155);
     transform: scale(1.05);
 }
+#imgToThrow{
+    top: 0;
+}
+.lanzar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation: mover-carrito 0.5s ease;
+    z-index: 100000;
+}
 
-.buttonSumarCart{
-    background-color: red;
+@keyframes mover-carrito {
+    0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(var(--destino-x), var(--destino-y));
+      }
 }

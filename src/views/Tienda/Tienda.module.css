@@ -109,10 +109,11 @@
 
 #priceLess{
     font-size: 15px;
-    margin-right: 1px;
+    cursor: pointer;
 }
 #priceMore{
     font-size: 15px;
+    cursor: pointer;
 }
 
 .spanAZ{

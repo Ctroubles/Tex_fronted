@@ -27,7 +27,7 @@ const initialState = {
         label:undefined,
     },
     searchBarStatus:"",
-    orderPrice:2,
+    orderPrice:"2",
     shoppingCart:window.localStorage.getItem("carrito")===null?[]:JSON.parse(window.localStorage.getItem("carrito")),
     shoppingForm:undefined,
     purchaseOrder:{}
