@@ -9,7 +9,12 @@
     color: rgb(207, 206, 203);
     position: relative;
     overflow: hidden;
-    font-family: 'Nasalization', sans-serif;
+    font-family: 'Exo 2', sans-serif;
+}
+#CardShoppingCart h1,
+#CardShoppingCart h2{
+    font-weight: 300;
+    font-size: 15.5px;
 }
 
 #CardShoppingCart>:nth-child(1){
@@ -26,7 +31,6 @@
 }
 #CardShoppingCart>:nth-child(2){
     width: 110px;
-    font-size: 16.5px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -55,6 +59,7 @@
     justify-content: center;
     color: #000000;
     user-select: none;
+    cursor: pointer;
 }
 #CardShoppingCart>:nth-child(3)>span:active{
     transform: scale(1.15);
@@ -70,15 +75,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16.5px;
     padding-right: 10px;
 }
 #trashIcon{
     position: absolute;
     right: 5px;
     bottom: 3px;
+    cursor: pointer;
 }
 #trashIcon img{
     width: 15px;
-    cursor: pointer;
 }

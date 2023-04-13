@@ -1,8 +1,9 @@
-@import '../../../../fonts/fonts.css';
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;700&display=swap');
+
 
 #Card{
     width: 330px;
-    font-family: 'Nasalization', sans-serif;
+    font-family: 'Exo 2', sans-serif;
     color: #fefefe;
     padding: 20px;
     margin: 20px;
@@ -23,6 +24,7 @@
 #title h1{
     font-size: 17px;
     text-align: center;
+    font-weight: 300;
 }
 #price{
     display: flex;
@@ -61,8 +63,8 @@
 }
 #seeDetails>button{
     border: none;
-    font-family: 'Nasalization', sans-serif;
-    font-weight: lighter;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 300;
     text-transform: uppercase;
     background-color: rgba(62, 37, 62, 0.655);
     color: #fefefe;
@@ -79,8 +81,8 @@
 #buy>button{
     padding: 5px 8px;
     border: none;
-    font-family: 'Nasalization', sans-serif;
-    font-weight: lighter;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 400;
     text-transform: uppercase;
     background-color: rgb(111, 62, 111);
     color: #fefefe;

@@ -115,24 +115,24 @@ export default function Sidebar(){
                     </div>
                 </div>                                  
                 <div  id={style.categoryContainer} >
-                    <div id={style.categoryTitle} onClick={() => open !== "Placas de Video"? setOpen("Placas de Video"): setOpen(!"Placas de Video")}>
+                    <div id={style.categoryTitle} onClick={() => open !== "Tarjetas de Video"? setOpen("Tarjetas de Video"): setOpen(!"Tarjetas de Video")}>
                         <div>
                             { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
-                            Placas de Video   
+                            Tarjetas de Video   
                         </div> 
-                        <img className={style.arrows} id={open=== "Placas de Video"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
+                        <img className={style.arrows} id={open=== "Tarjetas de Video"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
-                    <div id={style.childsContaier} className={open=== "Placas de Video" ? style.categoryActive : undefined}>
-                        <span id={categoryFilter.label=== "Placas de Video GeForce" ? style.categoryPick : undefined}> 
+                    <div id={style.childsContaier} className={open=== "Tarjetas de Video" ? style.categoryActive : undefined}>
+                        <span id={categoryFilter.label=== "Tarjetas de Video GeForce" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Graficas',"GeForce","Placas de Video GeForce"))}>
-                            Placas de Video GeForce
+                            <p onClick={()=>dispatch(filterByCategory('Graficas',"GeForce","Tarjetas de Video GeForce"))}>
+                            Tarjetas de Video GeForce
                             </p>
                          </span>  
-                         <span id={categoryFilter.label=== "Placas de Video Radeon AMD" ? style.categoryPick : undefined}> 
+                         <span id={categoryFilter.label=== "Tarjetas de Video Radeon AMD" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("Graficas","Radeon","Placas de Video Radeon AMD"))}>
-                                Placas de Video AMD
+                            <p onClick={()=>dispatch(filterByCategory("Graficas","Radeon","Tarjetas de Video Radeon AMD"))}>
+                            Tarjetas de Video AMD
                             </p>
                          </span> 
                                 

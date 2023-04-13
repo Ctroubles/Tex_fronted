@@ -28,13 +28,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     position: relative;
     margin-right: 100px;
 }
 
 #shoppingCartContainer:hover:not(div img){
-    /* animation:  shaking infinite 2s; */
     background-color: #ffdf58;
 }
 
@@ -88,6 +86,7 @@
     display: flex;
     align-items: center;
     justify-content: center;   
+    cursor: pointer;
 }
 #shoppingCartContainer  img{
     padding-top: 2px;

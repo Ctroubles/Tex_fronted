@@ -121,7 +121,7 @@ const decrementCart = (payload) => {
             const { shoppingCart } = getState();
             const indexItem = shoppingCart.findIndex((item) => item._id === payload);
 
-            if (shoppingCart[indexItem]?.quantity > 0) {
+            if (shoppingCart[indexItem]?.quantity > 1) {
                 const newob = {
                     ...data,
                     quantity: shoppingCart[indexItem].quantity - 1,
@@ -131,14 +131,14 @@ const decrementCart = (payload) => {
                 newCart.splice(indexItem, 1, newob);
                 window.localStorage.setItem('carrito', JSON.stringify(newCart));
                 dispatch({
-                    type: INCREMENT_CART,
+                    type: DECREMENT_CART,
                     payload: newCart,
                 });
-            } else {
+            } else if(shoppingCart[indexItem]?.quantity <= 1) {
                 console.log(shoppingCart);
                 dispatch({
-                    type: DECREMENT_CART,
-                    payload: shoppingCart,
+                    type: REMOVE_ITEM_CART,
+                    payload: payload,
                 });
             }
         } catch (error) {
