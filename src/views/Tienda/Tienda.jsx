@@ -53,7 +53,6 @@ const Tienda = () =>{
         setLoadingStatus(true)
         setProducts([])
         dispatch(filterByName(""))
-        console.log(orderPrice);
         if(!categoryFilter.label){
             const getData =async()=>{
                 const {data} =await axios.get(`/`)

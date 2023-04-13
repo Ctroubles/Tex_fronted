@@ -33,7 +33,6 @@ function App() {
 
   useEffect(()=>{
     const setting = async()=>{
-      console.log(user);
         const postUser=async()=>{
         const {data} = await axios.post(`/users`,{user:user}).catch(err=>alert(err))
         if (data) setCurrentUser(data)

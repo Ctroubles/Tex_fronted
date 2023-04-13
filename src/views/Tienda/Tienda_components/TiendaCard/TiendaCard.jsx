@@ -1,26 +1,26 @@
 import style from "./TiendaCard.module.css"
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../../redux/actions/actions";
+import { useState } from "react";
 
 
 
 const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
 
+    const [overStock, setOverStock]=useState(false)
+    const carrito = useSelector(e=>e.shoppingCart)
+
+
   
     const handleLanzar = (event) => {
-
-     
         const button = event.target;
         const card = button.closest(`#${style.Card}`);
         const imagen = card.querySelector(`#${style.imgToThrow}`);
-      
         const imgClone = imagen.cloneNode(true);
-
         const rect = card.getBoundingClientRect();
         const distanciaX = window.innerWidth - rect.right;
         const distanciaY = rect.top + window.scrollY;
-
         const styles = {
         destinoX: {
             '--destino-x': `${distanciaX}px`,
@@ -29,10 +29,7 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
             '--destino-y': `${-(distanciaY+150)}px`,
         },
         };
-
         imgClone.classList.add(style.lanzar);
-      
-        // Agregar la imagen clonada a la tarjeta
         card.children[0].appendChild(imgClone);
         imgClone.style.setProperty('--destino-x', styles.destinoX['--destino-x']);
         imgClone.style.setProperty('--destino-y', styles.destinoY['--destino-y']);
@@ -40,20 +37,27 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
 
         setTimeout(() => {
           imgClone.remove();
-        }, 1500);
+        }, 750);
       };
 
 
     const distpatch = useDispatch()
 
 
-    const addToCartHandler = ()=>{
-        const getProductById = async() =>{
+    const addToCartHandler = (e)=>{
+        const getProductById = async(e) =>{
+            handleLanzar(e)
             const {data}= await axios.get(`/id/${id}`);
-
-            distpatch(addToCart(data))
+            const itemInCart = carrito.find(producto => producto._id === data._id);
+            if (itemInCart) {
+                if(itemInCart.quantity<data.stock){
+                    distpatch(addToCart(data))
+                }else setOverStock(true)
+            }else{
+                distpatch(addToCart(data))
+            }
         };
-        getProductById()
+        getProductById(e)
     };
 
     return(
@@ -82,7 +86,7 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
                 <button onClick={()=>seeDetails(id)}>Ver detalles</button>
             </div>   
             <div id={style.buy}>
-                <button onClick={(e)=>{addToCartHandler();handleLanzar(e)}} className="buttonSumarCart" >Comprar</button>  {/*este es el botón que se clickea */}
+                <button onClick={stock>0?overStock?()=>alert("limite de stock"):(e)=>{addToCartHandler(e)}:undefined} className="buttonSumarCart" >Comprar</button>  {/*este es el botón que se clickea */}
             </div>
         </div>
     )
