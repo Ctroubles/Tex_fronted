@@ -151,6 +151,7 @@ const Tienda = () =>{
             .catch(e=>history.push(`/tienda`));
             if(data)setProductOnFocus(data)
             else history.push(`/tienda`)
+            console.log(data);
         }
 
         if (cleanPathname(pathname)!=="/tienda")getProductById()

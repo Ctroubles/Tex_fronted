@@ -16,7 +16,6 @@ const DetailProduct = ({product})=>{
  const addToCartHandler = ()=>{
     const getProductById = async() =>{
         const {data}= await axios.get(`/id/${product._id}`);
-
         dispatch(addToCart(data))
     };
     getProductById()
