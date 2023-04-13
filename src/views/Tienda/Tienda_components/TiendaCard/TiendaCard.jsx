@@ -28,7 +28,7 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
             '--destino-x': `${distanciaX}px`,
         },
         destinoY: {
-            '--destino-y': `${-distanciaY}px`,
+            '--destino-y': `${-(distanciaY+150)}px`,
         },
         };
 
@@ -77,7 +77,7 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
                 </label>  */}
                 <label id={style.discount}>
                     <span>s/. &nbsp;</span>
-                    <span> {Math.floor(price)+0.99}</span>
+                    <span> {Math.floor(price)}</span> <span style={{fontSize:"11px", marginLeft:"2px"}}>.99</span>
                 </label>
             </div>
             <div id={style.seeDetails}>

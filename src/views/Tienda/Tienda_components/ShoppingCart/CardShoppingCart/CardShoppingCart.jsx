@@ -31,7 +31,7 @@ const CardShoppingCart= (props) =>{
                 <p>{props.cantidad}</p>
                 <span onClick={()=>dispatch(incrementCart(props.id))}>+</span>
             </div>
-            <h2>${price.toFixed(2)}</h2>
+            <h2>s/. {price.toFixed(2)}</h2>
             <div ref={props.refToTrash} className="trash" onClick={()=>dispatch(removeItemCart(props.id))} id={style.trashIcon}><img src={trash_can} alt="Trash Can" /></div>
         </div>
     )

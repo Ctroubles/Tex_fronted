@@ -98,15 +98,17 @@
     position: absolute;
     top: 0;
     right: 0;
-    animation: mover-carrito 0.5s ease;
+    animation: mover-carrito 0.8s ease;
     z-index: 100000;
 }
 
 @keyframes mover-carrito {
     0% {
-        transform: translate(0, 0);
-      }
-      100% {
-        transform: translate(var(--destino-x), var(--destino-y));
-      }
-}
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--destino-x), var(--destino-y)) scale(0.2);
+      opacity: 0;
+    }
+  }

@@ -207,18 +207,29 @@ export default function Sidebar(){
                     <div id={style.categoryTitle} onClick={() => open !== "Auriculares"? setOpen("Auriculares"): setOpen(!"Auriculares")}>
                         <div>
                             { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
-                            Auriculares 
+                            Periféricos 
                         </div> 
                         <img className={style.arrows} id={open === "Auriculares"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
-                    <div id={style.childsContaier} className={open === "Auriculares"? style.categoryActiveOneElement : undefined}>
+                    <div id={style.childsContaier} className={open === "Auriculares"? style.categoryActiveThreeElement : undefined}>
                         <span id={categoryFilter.label=== "Auriculares" ? style.categoryPick : undefined}> 
                             -&nbsp;
                             <p onClick={()=>dispatch(filterByCategory('Audifonos',"","Audifonos"))}>
-                            Auriculares
+                                Auriculares
                             </p>
                          </span>  
-                              
+                         <span id={categoryFilter.label=== "Mouses" ? style.categoryPick : undefined}> 
+                            -&nbsp;
+                            <p onClick={()=>dispatch(filterByCategory('Mouses',"","Mouses"))}>
+                                Mouses
+                            </p>
+                         </span>  
+                         <span id={categoryFilter.label=== "Teclados" ? style.categoryPick : undefined}> 
+                            -&nbsp;
+                            <p onClick={()=>dispatch(filterByCategory('Teclados',"","Teclados"))}>
+                            Teclados
+                            </p>
+                         </span> 
                     </div>
                 </div>   
 
@@ -226,39 +237,17 @@ export default function Sidebar(){
                     <div id={style.categoryTitle} onClick={() => open !== "Mouses"? setOpen("Mouses"): setOpen(!"Mouses")}>
                         <div>
                             { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
-                            Mouses 
+                            Multimedia 
                         </div> 
                         <img className={style.arrows} id={open === "Mouses"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
                     <div id={style.childsContaier} className={open === "Mouses"? style.categoryActiveOneElement : undefined}>
-                        <span id={categoryFilter.label=== "Mouses" ? style.categoryPick : undefined}> 
-                            -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Mouses',"","Mouses"))}>
-                            Mouses
-                            </p>
-                         </span>  
+                      
                               
                     </div>
                 </div>     
 
-                 <div  id={style.categoryContainer} >
-                    <div id={style.categoryTitle} onClick={() => open !== "Teclados"? setOpen("Teclados"): setOpen(!"Teclados")}>
-                        <div>
-                            { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
-                            Teclados 
-                        </div> 
-                        <img className={style.arrows} id={open === "Teclados"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
-                    </div>
-                    <div id={style.childsContaier} className={open === "Teclados"? style.categoryActiveOneElement : undefined}>
-                        <span id={categoryFilter.label=== "Teclados" ? style.categoryPick : undefined}> 
-                            -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Teclados',"","Teclados"))}>
-                            Teclados
-                            </p>
-                         </span>  
-                              
-                    </div>
-                </div>                                                                                         
+                                                                                       
                      
             </div>
         </div>

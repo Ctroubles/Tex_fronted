@@ -1,7 +1,6 @@
 import style from "./ShoppingCart.module.css"
 import { useSelector } from "react-redux";
 import CardShoppingCart from "./CardShoppingCart/CardShoppingCart";
-import {Link} from "react-router-dom";
 import { useEffect, useState } from "react";
 
 
@@ -41,7 +40,7 @@ const ShoppingCart = (props) =>{
         </div>:null}
         {itemsToBuy.length?<div>
             <span><span ref={props.buttonComprarRef} onClick={()=>finalizarHandler()} to={"/finalizar"}>Comprar</span> </span>
-            <h3>${totalPrice.toFixed(2)}</h3>
+            <h3>s/. {totalPrice.toFixed(2)}</h3>
         </div>:null}
     </div>
     )
