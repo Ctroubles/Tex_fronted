@@ -8,7 +8,7 @@ const LoggingButton = () =>{
     return(
         <div  className={style.LinkCreate}  onClick={() => loginWithRedirect()}
         >
-            Inicar sesión
+            Iniciar sesión
         </div>
     )
 

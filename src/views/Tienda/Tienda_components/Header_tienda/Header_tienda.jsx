@@ -117,7 +117,7 @@ const Header_tienda =({setPopoutFinalizar})=>{
                         </div>
                         <p id={style.itemNumber}>{numberStatus}</p>
                     </div>
-                    <div style={{width:"150px"}}>
+                    <div style={{width:"155px"}}>
                         {isAuthenticated?(
                             <Logged img={usuario.img} name={usuario.name} />
                         ):(

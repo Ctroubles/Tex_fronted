@@ -21,6 +21,45 @@ export default function Sidebar(){
             <div id={style.Contenido} >
                   
                 <div  id={style.categoryContainer} >
+                    <div id={style.categoryTitle} onClick={() => open !== "Laptops"? setOpen("Laptops"): setOpen(!"Laptops")}>
+                        <div>
+                            { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
+                            Laptops    
+                        </div> 
+                        <img className={style.arrows} id={open === "Laptops"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
+                    </div>
+                    <div id={style.childsContaier} className={open === "Laptops" ? style.categoryActiveOneElement : style.categoryDesactive}>
+                        <span id={categoryFilter.label=== "Laptops" ? style.categoryPick : undefined}> 
+                            -&nbsp;
+                            <p onClick={()=>dispatch(filterByCategory('Laptops',"","Laptops"))}>
+                            Laptops
+                            </p>
+                         </span>      
+                                
+                    </div>
+                </div>   
+                                
+                <div  id={style.categoryContainer} >
+                    <div id={style.categoryTitle} onClick={() => open !== "Impresoras"? setOpen("Impresoras"): setOpen(!"Impresoras")}>
+                        <div>
+                            { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
+                            Impresoras    
+                        </div> 
+                        <img className={style.arrows} id={open === "Impresoras"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
+                    </div>
+                    <div id={style.childsContaier} className={open === "Impresoras" ? style.categoryActiveOneElement : style.categoryDesactive}>
+                        <span id={categoryFilter.label=== "Impresoras" ? style.categoryPick : undefined}> 
+                            -&nbsp;
+                            <p onClick={()=>dispatch(filterByCategory('impresoras',"","Impresoras"))}>
+                            Impresoras
+                            </p>
+                         </span>      
+                                
+                    </div>
+                </div>   
+                
+
+                <div  id={style.categoryContainer} >
                     <div id={style.categoryTitle} onClick={() => open !== "Procesadores"? setOpen("Procesadores"): setOpen(!"Procesadores")}>
                         <div>
                             { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
@@ -212,10 +251,10 @@ export default function Sidebar(){
                         <img className={style.arrows} id={open === "Auriculares"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
                     <div id={style.childsContaier} className={open === "Auriculares"? style.categoryActiveThreeElement : undefined}>
-                        <span id={categoryFilter.label=== "Auriculares" ? style.categoryPick : undefined}> 
+                        <span id={categoryFilter.label=== "Audifonos" ? style.categoryPick : undefined}> 
                             -&nbsp;
                             <p onClick={()=>dispatch(filterByCategory('Audifonos',"","Audifonos"))}>
-                                Auriculares
+                             Audifonos
                             </p>
                          </span>  
                          <span id={categoryFilter.label=== "Mouses" ? style.categoryPick : undefined}> 
@@ -241,8 +280,19 @@ export default function Sidebar(){
                         </div> 
                         <img className={style.arrows} id={open === "Mouses"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
-                    <div id={style.childsContaier} className={open === "Mouses"? style.categoryActiveOneElement : undefined}>
-                      
+                    <div id={style.childsContaier} className={open === "Mouses"? style.categoryActiveThreeElement : undefined}>
+                        <span id={categoryFilter.label=== "Audifonos" ? style.categoryPick : undefined}> 
+                                -&nbsp;
+                                <p onClick={()=>dispatch(filterByCategory('Audifonos',"","Audifonos"))}>
+                                Audifonos
+                                </p>
+                        </span>  
+                        <span id={categoryFilter.label=== "Microfonos" ? style.categoryPick : undefined}> 
+                                -&nbsp;
+                                <p onClick={()=>dispatch(filterByCategory('Microfonos',"","Microfonos"))}>
+                                    Microfonos
+                                </p>
+                        </span> 
                               
                     </div>
                 </div>     

@@ -2,12 +2,10 @@ import style from "./TiendaCard.module.css"
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../../redux/actions/actions";
-import { useState } from "react";
-import { useSpring, animated } from "react-spring";
+
 
 
 const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
-
 
   
     const handleLanzar = (event) => {
