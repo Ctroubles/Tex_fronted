@@ -11,11 +11,7 @@ import style from "./Card.module.css"
 const CardCart = (props)=>{
     const itmesToBuy = useSelector(e=>e.shoppingCart)
     const dispatch = useDispatch()
-
-
     const currentProduct = itmesToBuy.find(e=> e._id === props.id)
-
-
     const price = useMemo(() => {
         return currentProduct.price * currentProduct.quantity
       }, [currentProduct]);

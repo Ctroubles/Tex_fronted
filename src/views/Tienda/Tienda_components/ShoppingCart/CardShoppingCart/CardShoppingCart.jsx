@@ -24,7 +24,7 @@ const CardShoppingCart= (props) =>{
 
     return(
         <div id={style.CardShoppingCart}>
-            <div><img src={props.img} alt="Img de referencia del producto" /></div>
+            <div><img src={props.img} alt={props.title} /></div>
             <h1>{props.title}</h1>
             <div>
                 <span onClick={()=>dispatch(decrementCart(props.id))}>-</span>

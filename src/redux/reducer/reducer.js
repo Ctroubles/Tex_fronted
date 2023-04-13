@@ -1,6 +1,8 @@
 import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC, FILTER_BY_NAME, ADD_DELIVERY_INFORMATION, ADD_PAYMENT_METHOD } from "../actions/actions.types";
 import { getCurrentComponent } from "../../utils";
 import { sortByPrice,fusionarProductos } from "../../helpers/reducer.helpers";
+import axios from "axios";
+
 const pc_build= JSON.parse(window.localStorage.getItem("pc_build"))
 
 const initialState = {
@@ -122,29 +124,26 @@ const rootReducer = (state = initialState, { type, payload }) =>{
             }
 
         case ADD_TO_CART:
-
             const cart = state.shoppingCart.map(e=>e);
             const itemInCart = cart.find((item ,) => item._id === payload._id);
             let index;
-
             if (itemInCart) {
-                if(itemInCart.quantity<100){
+                if(itemInCart.quantity<payload.stock){
                     cart.forEach((e,i)=>{
                         if (e._id === itemInCart._id) 
                         index = i
                     })
-    
                     const newob={
-                        ...itemInCart,
+                        ...payload,
                         quantity:itemInCart.quantity+1
                     }
                     cart.splice(index,1,newob)
                 }
                 
             } else {
-                // if(payload.quantityStock>0){
+                if(payload.stock>0){
                     cart.push({ ...payload, quantity: 1 });
-                // }
+                }
             }
 
             window.localStorage.setItem('carrito', JSON.stringify(cart))
@@ -154,62 +153,21 @@ const rootReducer = (state = initialState, { type, payload }) =>{
               };
       
         case INCREMENT_CART:
-            let cartt = state.shoppingCart.map(e=>e);
-            const itemPlus = cartt.find((item) => item._id === payload);
-            if (itemPlus.quantity < itemPlus.quantityStock) {
-            
-            let indexx;
-
-            cartt.forEach((e,i)=>{
-                if (e._id === itemPlus._id) indexx = i
-            })
-            const newob={
-                ...itemPlus,
-                quantity:itemPlus.quantity+1
+            return{
+                ...state,
+                shoppingCart:payload,
             }
-            cartt.splice(indexx,1,newob)
-            window.localStorage.setItem('carrito', JSON.stringify(cartt))
-
-                return{
-                    ...state,
-                    shoppingCart: cartt,
-                }
-            }else{
-                return{
-                    ...state,
-                }
-            }
-
         case DECREMENT_CART:
-                 let carttt = state.shoppingCart.map(e=>e);
-                const itemLess = carttt.find((item) => item._id === payload);
-                if (itemLess.quantity> 1) {
-                let indexxx;
-
-                carttt.forEach((e,i)=>{
-                    if (e._id === itemLess._id) indexxx = i
-                })
-                const newobb={
-                    ...itemLess,
-                    quantity:itemLess.quantity-1
-                }
-                carttt.splice(indexxx,1,newobb)
-                window.localStorage.setItem('carrito', JSON.stringify(carttt))
-
-                return{
-                    ...state,
-                    shoppingCart: carttt,
-                }
-            }else{
-                return{
-                    ...state
-                }
+            return{
+                ...state,
+                shoppingCart:payload,
             }
             
         case REMOVE_ITEM_CART:
             const cartttt= state.shoppingCart.map(e=>e)
             const arrFiltrado = cartttt.filter((item) => item._id !== payload);    
-            window.localStorage.setItem('carrito', JSON.stringify(arrFiltrado))      
+            window.localStorage.setItem('carrito', JSON.stringify(arrFiltrado))   
+   
             return{
                 ...state,
                 shoppingCart: arrFiltrado,

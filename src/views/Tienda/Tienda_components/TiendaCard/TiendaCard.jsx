@@ -2,14 +2,16 @@ import style from "./TiendaCard.module.css"
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../../redux/actions/actions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
 const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
+    const distpatch = useDispatch()
 
     const [overStock, setOverStock]=useState(false)
     const carrito = useSelector(e=>e.shoppingCart)
+    const [cuurrentStatusProduct, setCurrentStatusProduct] =useState({})
 
 
   
@@ -39,23 +41,23 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
           imgClone.remove();
         }, 750);
       };
+    useEffect(()=>{
+    const updateStock = async()=>{
+        const itemInCart = carrito.find(producto => producto._id === id);
+        if(itemInCart?.quantity>=cuurrentStatusProduct.stock)setOverStock(true)
+        else setOverStock(false)
 
-
-    const distpatch = useDispatch()
-
+    }
+    updateStock()
+    
+    },[carrito])
 
     const addToCartHandler = (e)=>{
         const getProductById = async(e) =>{
             handleLanzar(e)
             const {data}= await axios.get(`/id/${id}`);
-            const itemInCart = carrito.find(producto => producto._id === data._id);
-            if (itemInCart) {
-                if(itemInCart.quantity<data.stock){
-                    distpatch(addToCart(data))
-                }else setOverStock(true)
-            }else{
-                distpatch(addToCart(data))
-            }
+            setCurrentStatusProduct(data)
+            distpatch(addToCart(data))            
         };
         getProductById(e)
     };
@@ -86,7 +88,7 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
                 <button onClick={()=>seeDetails(id)}>Ver detalles</button>
             </div>   
             <div id={style.buy}>
-                <button onClick={stock>0?overStock?()=>alert("limite de stock"):(e)=>{addToCartHandler(e)}:undefined} className="buttonSumarCart" >Comprar</button>  {/*este es el botón que se clickea */}
+                <button onClick={stock<=0?undefined:overStock?()=>alert("limite de stock"):(e)=>{addToCartHandler(e)}} className="buttonSumarCart" >Comprar</button>  {/*este es el botón que se clickea */}
             </div>
         </div>
     )

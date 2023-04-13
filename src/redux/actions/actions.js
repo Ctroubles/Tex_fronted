@@ -83,16 +83,68 @@ const addToCart = (payload) => {
     }
 }
 const incrementCart = (payload) => {
-    return{
-        type: INCREMENT_CART,
-        payload
-    }
+    return async (dispatch, getState) => {
+        try {
+            const { data } = await axios.get(`/id/${payload}`);
+            const { shoppingCart } = getState();
+            const indexItem = shoppingCart.findIndex((item) => item._id === payload);
+
+            if (shoppingCart[indexItem]?.quantity < data.stock) {
+                const newob = {
+                    ...data,
+                    quantity: shoppingCart[indexItem].quantity + 1,
+                };
+
+                const newCart = [...shoppingCart];
+                newCart.splice(indexItem, 1, newob);
+                window.localStorage.setItem('carrito', JSON.stringify(newCart));
+                console.log(newCart);
+                dispatch({
+                    type: INCREMENT_CART,
+                    payload: newCart,
+                });
+            } else {
+                dispatch({
+                    type: INCREMENT_CART,
+                    payload: shoppingCart,
+                });
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
 }
 const decrementCart = (payload) => {
-    return{
-        type: DECREMENT_CART,
-        payload
-    }
+    return async (dispatch, getState) => {
+        try {
+            const { data } = await axios.get(`/id/${payload}`);
+            const { shoppingCart } = getState();
+            const indexItem = shoppingCart.findIndex((item) => item._id === payload);
+
+            if (shoppingCart[indexItem]?.quantity > 0) {
+                const newob = {
+                    ...data,
+                    quantity: shoppingCart[indexItem].quantity - 1,
+                };
+
+                const newCart = [...shoppingCart];
+                newCart.splice(indexItem, 1, newob);
+                window.localStorage.setItem('carrito', JSON.stringify(newCart));
+                dispatch({
+                    type: INCREMENT_CART,
+                    payload: newCart,
+                });
+            } else {
+                console.log(shoppingCart);
+                dispatch({
+                    type: DECREMENT_CART,
+                    payload: shoppingCart,
+                });
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
 }
 const removeItemCart = (payload) => {
     return{
