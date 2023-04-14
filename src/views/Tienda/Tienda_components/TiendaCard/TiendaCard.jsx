@@ -69,7 +69,7 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
             </div>
             <div id={style.title}>
                 <label>
-                    <h1>
+                    <h1 style={{cursor:"pointer"}} onClick={()=>seeDetails(id)}>
                         {name}
                     </h1>
                 </label>
@@ -84,9 +84,9 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
                     <span> {Math.floor(price)}</span> <span style={{fontSize:"11px", marginLeft:"2px"}}>.99</span>
                 </label>
             </div>
-            <div id={style.seeDetails}>
-                <button onClick={()=>seeDetails(id)}>Ver detalles</button>
-            </div>   
+            {/* <div id={style.seeDetails}>
+                 <button onClick={()=>seeDetails(id)}>Ver detalles</button> 
+            </div>    */}
             <div id={style.buy}>
                 <button onClick={stock<=0?undefined:overStock?()=>alert("limite de stock"):(e)=>{addToCartHandler(e)}} className="buttonSumarCart" >Comprar</button>  {/*este es el botón que se clickea */}
             </div>
