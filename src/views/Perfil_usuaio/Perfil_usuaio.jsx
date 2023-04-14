@@ -34,7 +34,7 @@ const Perfil_usuario = ()=>{
                                 {usuario.name}
                             </h1>
                         </div>                        
-                        <div>
+                        <div style={{display:"flex", justifyContent:"center"}}>
                             <p>
                                 {usuario.email}
                             </p>
