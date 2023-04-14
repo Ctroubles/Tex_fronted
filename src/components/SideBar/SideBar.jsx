@@ -250,13 +250,13 @@ export default function Sidebar(){
                         </div> 
                         <img className={style.arrows} id={open === "Auriculares"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
-                    <div id={style.childsContaier} className={open === "Auriculares"? style.categoryActiveThreeElement : undefined}>
-                        <span id={categoryFilter.label=== "Audifonos" ? style.categoryPick : undefined}> 
+                    <div id={style.childsContaier} className={open === "Auriculares"? style.categoryActive : undefined}>
+                        {/* <span id={categoryFilter.label=== "Audifonos" ? style.categoryPick : undefined}> 
                             -&nbsp;
                             <p onClick={()=>dispatch(filterByCategory('Audifonos',"","Audifonos"))}>
                              Audifonos
                             </p>
-                         </span>  
+                         </span>   */}
                          <span id={categoryFilter.label=== "Mouses" ? style.categoryPick : undefined}> 
                             -&nbsp;
                             <p onClick={()=>dispatch(filterByCategory('Mouses',"","Mouses"))}>

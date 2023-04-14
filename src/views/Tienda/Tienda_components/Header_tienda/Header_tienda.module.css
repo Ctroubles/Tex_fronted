@@ -134,6 +134,7 @@
     transition: opacity 0.6s ease-out;
     color: #fefefe;
     text-decoration: none;
+    z-index: 100;
 }
 #finalizarCompre h3{
     padding: 8px 10px;
