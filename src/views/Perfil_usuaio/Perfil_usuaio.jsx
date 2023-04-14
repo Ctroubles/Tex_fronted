@@ -12,7 +12,7 @@ const Perfil_usuario = ()=>{
 
     useEffect(()=>{
         const setting = async()=>{
-            const {data} = await axios.get(`/users`,{email:user.email}).catch(err=>alert(err))
+            const { data } = await axios.get(`/users?email=${user.email}`).catch(err => alert(err));
             if (data) setUsuario(data)   
             console.log(data);
         }
