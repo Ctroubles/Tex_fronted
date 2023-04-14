@@ -2,12 +2,13 @@
 
 #SidebarContainer{
     width: 300px;
-    font-family: 'Nasalization', sans-serif;
+    /* font-family: 'Nasalization', sans-serif; */
     color: #fefefefe;
     transition: all 2s;
     cursor: auto;
     overflow: hidden;
     padding: 15px 5px 15px 0;
+    font-family: 'Exo 2', sans-serif;
 }
 #title{
   display: flex;

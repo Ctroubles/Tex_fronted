@@ -1,5 +1,5 @@
 .LinkCreate{
-    font-family: 'Nasalization', sans-serif;
+    /* font-family: 'Nasalization', sans-serif; */
     position: relative;
     display: flex;
     align-items: center;
@@ -14,8 +14,9 @@
     border-radius: 5px;
     background-color: rgb(111, 62, 111);
     box-shadow: 0 0 5px rgb(111, 62, 111);
-    text-transform: capitalize;
     cursor: pointer;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 400;
 }
 
 

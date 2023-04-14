@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
     const distpatch = useDispatch()
 
+    const [priceFormated, setPriceFormated] = useState('')
+
     const [overStock, setOverStock]=useState(false)
     const carrito = useSelector(e=>e.shoppingCart)
     const [cuurrentStatusProduct, setCurrentStatusProduct] =useState({})
@@ -41,6 +43,8 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
           imgClone.remove();
         }, 750);
       };
+
+
     useEffect(()=>{
     const updateStock = async()=>{
         const itemInCart = carrito.find(producto => producto._id === id);
@@ -51,6 +55,32 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
     updateStock()
     
     },[carrito])
+
+
+    
+useEffect(() => {
+    const formatter = new Intl.NumberFormat('es-PE', {
+        style: 'currency',
+        currency: 'PEN',
+        minimumFractionDigits: 2
+    });
+
+    const parts = formatter.formatToParts(price);
+    const integerParts = parts.slice(0, parts.findIndex(part => part.type === 'decimal'))
+    .map(part => part.value)
+    .join('');  
+
+    //const decimalPart = parts.find(part => part.type === 'decimal').value;
+    const fractionPart = parts.find(part => part.type === 'fraction').value;
+
+    setPriceFormated(
+        <span>
+        <span>{integerParts}.</span>
+        <span style={{fontSize:"12px", marginLeft:"2px"}}>{fractionPart}</span>
+        </span>
+    );
+    },[])
+
 
     const addToCartHandler = (e)=>{
         const getProductById = async(e) =>{
@@ -64,7 +94,7 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
 
     return(
         <div id={style.Card} style={stock<=0?{opacity:0.5}:undefined}>
-            <div id={style.imageContainer}>
+            <div id={style.imageContainer} onClick={()=>seeDetails(id)}>
                  <img src={img} alt={name} id={style.imgToThrow} />  {/*esta es la imagén que se lanza cuando el botón se clickea */}
             </div>
             <div id={style.title}>
@@ -75,20 +105,15 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
                 </label>
             </div>            
             <div id={style.price}>
-                {/* <label id={style.original}>
-                    <span>s/ </span>
-                    <span> {Math.ceil(price+50)}</span>
-                </label>  */}
                 <label id={style.discount}>
-                    <span>s/. &nbsp;</span>
-                    <span> {Math.floor(price)}</span> <span style={{fontSize:"11px", marginLeft:"2px"}}>.99</span>
+                    {priceFormated}
                 </label>
             </div>
             {/* <div id={style.seeDetails}>
                  <button onClick={()=>seeDetails(id)}>Ver detalles</button> 
             </div>    */}
             <div id={style.buy}>
-                <button onClick={stock<=0?undefined:overStock?()=>alert("limite de stock"):(e)=>{addToCartHandler(e)}} className="buttonSumarCart" >Comprar</button>  {/*este es el botón que se clickea */}
+                <button  onClick={stock<=0?undefined:overStock?()=>alert("limite de stock"):(e)=>{addToCartHandler(e)}} className="buttonSumarCart" style={{cursor:stock<=0?"not-allowed":undefined}} >Comprar</button>  {/*este es el botón que se clickea */}
             </div>
         </div>
     )

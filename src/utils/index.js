@@ -1,8 +1,13 @@
-function cleanPathname(string){;
+function cleanPathname(string){
     const result = string[string.length-1] === "/" ? string.slice(0,-1) : string;
     return result
 };
 
+function capitalize(str) {
+  if (typeof(str)==="string") {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }else return str
+}
 
 
 
@@ -25,6 +30,7 @@ const getCurrentComponent = {
 export{
     getCurrentComponent,
     cleanPathname,
+    capitalize,
 }
 
 

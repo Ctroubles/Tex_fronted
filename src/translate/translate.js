@@ -19,7 +19,8 @@ const caracteristicasEnToEs ={
     conectividad:"Conectividad",
     os:"OS",
     tecladoBacklit:"Teclado retroiluminado",
-    fingerPrint:"Lector de huella"
+    fingerPrint:"Lector de huella",
+    cod:"Cod"
 };
 
 export {
