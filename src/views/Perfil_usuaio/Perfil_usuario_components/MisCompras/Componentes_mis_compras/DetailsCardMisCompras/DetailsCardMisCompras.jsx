@@ -49,6 +49,14 @@ const DetailsCardMisCompras = ({setOrderFocus,orderFocus})=>{
                             <span className={style.values}>+51&nbsp;{orderFocus.phone}</span>
                         </label>
                     </div>
+                </div>  
+                <div>
+                    <div id={style.montoTotal}>
+                        <label>
+                            <span className={style.atributtes}>Email de contacto:</span>
+                            <span className={style.values}>{orderFocus.email}</span>
+                        </label>
+                    </div>
                 </div>
                 <div id={style.directionPropiedadesContainer}>
                     <label className={style.directionPropiedades} style={{marginTop:"15px"}}><span>Departamento: </span><span className={style.values} >{orderFocus?.department}</span></label>
