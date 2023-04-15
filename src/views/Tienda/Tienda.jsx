@@ -137,6 +137,7 @@ const Tienda = () =>{
           }, []);
           if(orderPrice==="3")filtrado.sort((a, b) => a.price - b.price);
           if(orderPrice==="1")filtrado.sort((a, b) => b.price - a.price);
+          filtrado.sort(compararProductos)
           setProductsFilteredBySearchBar(filtrado)
         }
     },[searchBarStatus])
