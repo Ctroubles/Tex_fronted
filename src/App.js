@@ -63,7 +63,7 @@ function App() {
       <div id={style.AbsoluteContaier}>
           <Route exact path={"/"} render={()=> <Landing/>}/>
           <Route  path={"/tienda"} render={()=> <Tienda/>}/>
-          <Route exact path={"/perfil"} render={()=>!isAuthenticated?loginWithRedirect():<PerfilUsuario/>}/>
+          <Route exact path={"/perfil"} render={()=>!isAuthenticated?loginWithRedirect():<PerfilUsuario userEmail={currentUser.email}/>}/>
           <Route exact path={"/forja"} render={()=> <Forja/>}/>
           <Route exact path={"/finalizar"} render={()=> <ShoppingView userId={currentUser._id}/>}/>
           <Route exact path={"/finalizar/checkout"} render={()=> <Checkout userId={currentUser._id}/>}/>

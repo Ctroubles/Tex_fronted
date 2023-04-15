@@ -1,11 +1,16 @@
 @import '../../fonts/fonts.css';
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600;700&display=swap');
+
+
+
 #Perfil_usuario{
     width: 100%;
     background-color: #111111;
     min-height: 100vh;
     color: #fefefe;
-    font-family: 'Nasalization', sans-serif;
+    /* font-family: 'Nasalization', sans-serif; */
     display: flex;
+    font-family: 'Exo 2', sans-serif;
 }
 #main{
     display: flex;
@@ -56,7 +61,6 @@
 #informationContainer{
     padding: 15px;
     background-color: #302f2f;
-
 }
 #informationContainer>h1{
     font-size: 20px;
@@ -73,13 +77,14 @@
     flex-grow: 0;
     padding: 0 15px;
     margin-bottom: 10px;
-    font-size: 11.5px;
+    font-size: 14.5px;
     color: #bbbbbb;
 }
 .row label span{
-    width: 100px;
+    /* width: 100px; */
+    margin-right: 15px;
     display: inline-block;
-    font-size: 12.5px;
+    font-size: 14.5px;
     color: #fefefe;
 }
 #admirationBirthday{
@@ -111,6 +116,7 @@
 #sideOptions{
     list-style: none;
     background-color: #302f2f;
+    border-bottom-right-radius: 10px;
 }
 #sideOptions li{
     padding: 10px 15px;
@@ -118,7 +124,7 @@
     font-size: 13px;
 }
 #sideOptions li:hover{
-    background-color: #222121;
+    background-color: #313131;
     cursor: pointer;
 }
 #sideOptions >:nth-child(1)>:nth-child(1)>:nth-child(1){

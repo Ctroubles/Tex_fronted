@@ -1,26 +1,21 @@
 import style from "./Perfil_usuaio.module.css";
-import { useAuth0 } from "@auth0/auth0-react";
 import iconAdmiration from "../../assets/icons/admiration_icon_smokeWhite.png";
 import MisCompras from "./Perfil_usuario_components/MisCompras/MisCompras";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Perfil_usuario = ()=>{
+const Perfil_usuario = ({userEmail})=>{
 
-    const {user} = useAuth0()
-    const [usuario, setUsuario] = useState({})
+    const [user, setUser] = useState({})
 
     useEffect(()=>{
-        const setting = async()=>{
-            const { data } = await axios.get(`/users?email=${user.email}`).catch(err => alert(err));
-            if (data) setUsuario(data)   
-            console.log(data);
+        const getUser = async()=>{
+            const {data}= await axios.get(`/users?email=${userEmail}`)
+            if (data)setUser(data)
         }
-        setting()
-       
-      },[])
-
-    // console.log(user);
+       getUser()
+      },[userEmail])
+console.log(user);
     return(
         <div id={style.Perfil_usuario}>
            <div id={style.main}>
@@ -31,12 +26,12 @@ const Perfil_usuario = ()=>{
                         </div>                       
                         <div>
                             <h1>
-                                {usuario.name}
+                                {/* {user.name} */}
                             </h1>
                         </div>                        
                         <div style={{display:"flex", justifyContent:"center"}}>
                             <p>
-                                {usuario.email}
+                                {user.email}
                             </p>
                         </div>
                     </div> 
@@ -53,33 +48,33 @@ const Perfil_usuario = ()=>{
                     <div id={style.pointsSection}>
                         <label>
                             <span>TEXpoints: </span>
-                            <span>{usuario.texPoints}</span>
+                            <span>{user.texPoints}</span>
                         </label>
                     </div>
                     <div id={style.informationContainer}>
                         <h1>Información</h1>
                         <div id={style.userData}>
                             <div className={style.row}>
-                                <label><span>Nombres: </span>{usuario.name}</label>
-                                <label><span>Apellidos:</span>{usuario.surname}</label>
+                                <label><span>Nombres: </span>{user.name}</label>
+                                <label><span>Apellidos:</span>{user.surname}</label>
                             </div>
                             <div className={style.row}>
                                 <label><span>Ciudad: </span>Trujillo</label>
                                 <label><span>Dirección:</span>Jr. La piedra</label>
                             </div>   
                             <div className={style.row}>
-                                <label><span>Dni: </span>{usuario.DNI}</label>
-                                <label><span>Cumpleaños:</span>{usuario.birthday} <span id={style.admirationBirthday}><img src={iconAdmiration} alt="" /></span></label>
+                                <label><span>Dni: </span>{user.DNI}</label>
+                                <label><span>Cumpleaños:</span>{user.birthday} <span id={style.admirationBirthday}><img src={iconAdmiration} alt="" /></span></label>
                             </div>
                             <div className={style.row}>
-                                <label><span>Celular:</span>{usuario.phoneNumber}</label>
+                                <label><span>Celular:</span>{user.phoneNumber}</label>
                             </div> 
                       
                         </div>
                     </div>
 
                     <div>
-                        <MisCompras/>
+                        <MisCompras ordenes={user.purchaseOrders}/>
                     </div>
                 </div>
            </div>

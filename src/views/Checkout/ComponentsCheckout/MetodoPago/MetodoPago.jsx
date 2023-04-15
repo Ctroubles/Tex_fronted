@@ -7,10 +7,11 @@ import { cleanShoppingCart } from "../../../../redux/actions/actions";
 
 
 
-const MetodoPago = ()=>{
+const MetodoPago = ({userId})=>{
     const history = useHistory()
     const dispatch = useDispatch()
 
+    console.log(userId);
 
     const yapeRef = useRef(null)
     const plinRef = useRef(null)
@@ -46,6 +47,7 @@ const MetodoPago = ()=>{
 
                 const sendOrder = async() =>{
                 const orderToSend={
+                    user:userId,
                     fullName: purchaseOrder.deliveryData.name,
                     DNI: purchaseOrder.deliveryData.dni,
                     phone: purchaseOrder.deliveryData.phone,

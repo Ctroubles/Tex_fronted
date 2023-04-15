@@ -4,11 +4,12 @@
     background-color: #222121;
     margin: 20px 0;
     /* font-family: 'Poppins', sans-serif; */
-    font-family: 'Nasalization', sans-serif;
+    /* font-family: 'Nasalization', sans-serif; */
+    font-family: 'Exo 2', sans-serif;
 
 }
 #fechaContainer{
-    border-bottom: 1px solid rgba(86, 85, 85, 0.314);
+    border-bottom: 1px solid #808080;
     font-size: 14px;
 }
 #fechaContainer >:nth-child(1){
@@ -35,8 +36,9 @@
 
 }
 #fecha{
-    padding: 16px 24px;
-    width: 75%;
+    padding: 16px 24px 16px 0px;
+    /* width: 75%; */
+    display: inline-block;
 }
 
 #mainCardMisCompras{
@@ -48,7 +50,6 @@
 }
 #precioSection{
     width: 25%;
-    text-align: end;
 }
 #precioSection label{
     text-align: center;
@@ -66,12 +67,16 @@
 }
 #productosCantidad{
     width: 25%;
+    display: flex;
+    justify-content: center;
 }
 #productosCantidad label span{
     margin-left: 5px;
 }
 #direction{
     width: 25%;
+    display: flex;
+    justify-content: center;
 }
 #direction label span{
     margin-left: 5px;
@@ -107,10 +112,16 @@
 }
 
 .attribute{
-    font-size: 12.5px;
+    font-size: 13.5px;
     color: #fefefe;
 }
 .value{
-    font-size: 11.5px;
+    font-size: 12.5px;
     color: #bbbbbb;
+    padding-top: 1px;
+}
+
+#nOrden{
+    padding-left: 10px;
+    font-size: 14.5px;
 }
