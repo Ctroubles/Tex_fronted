@@ -15,8 +15,6 @@
 #aNombreDeContainer{
     flex-grow: 1;
 }
-#aNombreDe{
-}
 #aNombreDe :nth-child(1){
     font-size: 18px;
     font-weight: 500;

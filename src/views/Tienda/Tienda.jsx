@@ -92,6 +92,19 @@ const Tienda = ({picture}) =>{
                         setProducts(filtrado)
                         setLoadingStatus(false)
                     }
+                    else if(categoryFilter.categoryPick === "Laptops"){
+                        const filtrado = data.reduce((acumulador, product) => {
+                            if (product.procesador.toLowerCase().includes(categoryFilter.specificity.toLowerCase())) {
+                            acumulador.push(product);
+                            }
+                            return acumulador;
+                        }, []);                        
+                        if(orderPrice==="3")filtrado.sort((a, b) => a.price - b.price);
+                        if(orderPrice==="1")filtrado.sort((a, b) => b.price - a.price);
+                        filtrado.sort(compararProductos);
+                        setProducts(filtrado)
+                        setLoadingStatus(false)
+                    }
                     else if(typeof categoryFilter.specificity === "string"){
                         const filtrado = data.reduce((acumulador, product) => {
                             if (product.name.toLowerCase().includes(categoryFilter.specificity.toLowerCase())) {

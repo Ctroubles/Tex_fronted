@@ -23,6 +23,10 @@
     font-size: 17px;
     text-align: center;
     font-weight: 300;
+    transition: all 0.08s ease;
+}
+#title h1:hover{
+    transform: scale(1.025);
 }
 #price{
     display: flex;

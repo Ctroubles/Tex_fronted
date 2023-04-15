@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../../../redux/actions/actions";
 import axios from "axios";
 import { capitalize } from "../../../../utils";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 const DetailProduct = ({product})=>{
@@ -69,6 +69,12 @@ useEffect(() => {
 
     }, [product]);
 
+    const popOutRef = useRef()
+    useEffect(()=>{
+        console.log(popOutRef.current);
+        popOutRef.current.classList.add(style.visible);
+
+    },[])
 
     const {id,_id,__v,img,name,price,category,warranty,...description} = product;
     const descriptionArray = Object.entries(description);
@@ -82,7 +88,7 @@ useEffect(() => {
 
     return(
         <div id={style.Detail} className="cover" onClick={(e)=>functionToClose(e)}>
-            <div id={style.pupoutDetail}>
+            <div id={style.pupoutDetail} ref={popOutRef}>
                 <div id={style.titleProduct}><h1>{product.name}</h1></div>
                 <main id={style.ContainerDetailsProduct}>
                      <div id={style.top}>

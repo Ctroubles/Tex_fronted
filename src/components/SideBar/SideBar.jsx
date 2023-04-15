@@ -28,13 +28,25 @@ export default function Sidebar(){
                         </div> 
                         <img className={style.arrows} id={open === "Laptops"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
-                    <div id={style.childsContaier} className={open === "Laptops" ? style.categoryActiveOneElement : style.categoryDesactive}>
-                        <span id={categoryFilter.label=== "Laptops" ? style.categoryPick : undefined}> 
+                    <div id={style.childsContaier} className={open === "Laptops" ? style.categoryActiveThreeElement : style.categoryDesactive}>
+                        <span id={categoryFilter.label=== "Todas las Laptops" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Laptops',"","Laptops"))}>
-                            Laptops
+                            <p onClick={()=>dispatch(filterByCategory('Laptops',"","Todas las Laptops"))}>
+                            Todas
+                            </p>
+                         </span>  
+                         <span id={categoryFilter.label=== "Laptops Intel" ? style.categoryPick : undefined}> 
+                            -&nbsp;
+                            <p onClick={()=>dispatch(filterByCategory('Laptops',"INTEL","Laptops Intel"))}>
+                            Laptops Intel
                             </p>
                          </span>      
+                         <span id={categoryFilter.label=== "Laptops AMD" ? style.categoryPick : undefined}> 
+                            -&nbsp;
+                            <p onClick={()=>dispatch(filterByCategory('Laptops',"AMD","Laptops AMD"))}>
+                            Laptops AMD
+                            </p>
+                         </span>                                
                                 
                     </div>
                 </div>   
@@ -96,24 +108,30 @@ export default function Sidebar(){
                 </div>  
 
                 <div  id={style.categoryContainer} >
-                    <div id={style.categoryTitle} onClick={() => open !== "MotherBoards"? setOpen("MotherBoards"): setOpen(!"MotherBoards")}>
+                    <div id={style.categoryTitle} onClick={() => open !== "Motherboards"? setOpen("Motherboards"): setOpen(!"Motherboards")}>
                         <div>
                             { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
-                            MotherBoards    
+                            Motherboards    
                         </div> 
-                        <img className={style.arrows} id={open === "MotherBoards" ?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
+                        <img className={style.arrows} id={open === "Motherboards" ?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
-                    <div id={style.childsContaier} className={open === "MotherBoards" ? style.categoryActive : style.categoryDesactive}>
-                        <span id={categoryFilter.label=== "MotherBoards INTEL" ? style.categoryPick : undefined}> 
+                    <div id={style.childsContaier} className={open === "Motherboards" ? style.categoryActiveThreeElement : style.categoryDesactive}>
+                        <span id={categoryFilter.label=== "Motherboards INTEL" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("Motherboards","INTEL","MotherBoards INTEL"))}>
-                            MotherBoards INTEL
+                            <p onClick={()=>dispatch(filterByCategory("Motherboards","INTEL","Todas las Motherboards"))}>
+                            Todas
+                            </p>
+                         </span>         
+                         <span id={categoryFilter.label=== "Motherboards INTEL" ? style.categoryPick : undefined}> 
+                            -&nbsp;
+                            <p onClick={()=>dispatch(filterByCategory("Motherboards","INTEL","Motherboards INTEL"))}>
+                            Motherboards INTEL
                             </p>
                          </span>  
-                         <span id={categoryFilter.label=== "MotherBoards AMD" ? style.categoryPick : undefined}> 
+                         <span id={categoryFilter.label=== "Motherboards AMD" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("Motherboards","AMD","MotherBoards AMD"))}>
-                            MotherBoards AMD
+                            <p onClick={()=>dispatch(filterByCategory("Motherboards","AMD","Motherboards AMD"))}>
+                            Motherboards AMD
                             </p>
                          </span> 
                                 
@@ -127,16 +145,22 @@ export default function Sidebar(){
                         </div> 
                         <img className={style.arrows} id={open=== "Tarjetas de Video"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
-                    <div id={style.childsContaier} className={open=== "Tarjetas de Video" ? style.categoryActive : undefined}>
-                        <span id={categoryFilter.label=== "Tarjetas de Video GeForce" ? style.categoryPick : undefined}> 
+                    <div id={style.childsContaier} className={open=== "Tarjetas de Video" ? style.categoryActiveThreeElement : undefined}>
+                        <span id={categoryFilter.label=== "Todas las Gráficas" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Graficas',"GeForce","Tarjetas de Video GeForce"))}>
-                            Tarjetas de Video GeForce
+                            <p onClick={()=>dispatch(filterByCategory('Graficas',"","Todas las Gráficas"))}>
+                            Todas
+                            </p>
+                         </span>  
+                         <span id={categoryFilter.label=== "Tarjetas de Video GeForce" ? style.categoryPick : undefined}> 
+                            -&nbsp;
+                            <p onClick={()=>dispatch(filterByCategory('Graficas',"GeForce","Tarjetas de Video NVIDIA"))}>
+                            Tarjetas de Video NVIDIA
                             </p>
                          </span>  
                          <span id={categoryFilter.label=== "Tarjetas de Video Radeon AMD" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("Graficas","Radeon","Tarjetas de Video Radeon AMD"))}>
+                            <p onClick={()=>dispatch(filterByCategory("Graficas","Radeon","Tarjetas de Video AMD"))}>
                             Tarjetas de Video AMD
                             </p>
                          </span> 
@@ -195,7 +219,7 @@ export default function Sidebar(){
                     <div id={style.categoryTitle} onClick={() => open !== "Fuentes"? setOpen("Fuentes"): setOpen(!"Fuentes")}>
                         <div>
                             { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
-                            Fuentes 
+                            Fuentes de Alimentación 
                         </div> 
                         <img className={style.arrows} id={open === "Fuentes"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
