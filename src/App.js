@@ -57,12 +57,13 @@ function App() {
 
   })
   
+  console.log(currentUser);
 
   if (!loadinStatus) {
     return (
       <div id={style.AbsoluteContaier}>
           <Route exact path={"/"} render={()=> <Landing/>}/>
-          <Route  path={"/tienda"} render={()=> <Tienda/>}/>
+          <Route  path={"/tienda"} render={()=> <Tienda picture={currentUser?.picture}/>}/>
           <Route exact path={"/perfil"} render={()=>!isAuthenticated?loginWithRedirect():<PerfilUsuario userEmail={currentUser.email}/>}/>
           <Route exact path={"/forja"} render={()=> <Forja/>}/>
           <Route exact path={"/finalizar"} render={()=> <ShoppingView userId={currentUser._id}/>}/>

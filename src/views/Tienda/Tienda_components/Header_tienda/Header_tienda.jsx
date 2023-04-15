@@ -13,7 +13,7 @@ import { el } from "date-fns/locale";
 
 
 
-const Header_tienda =({setPopoutFinalizar})=>{
+const Header_tienda =({setPopoutFinalizar,picture})=>{
     const { user,isAuthenticated,loginWithRedirect,isLoading} = useAuth0()
     const history = useHistory()
 
@@ -21,7 +21,6 @@ const Header_tienda =({setPopoutFinalizar})=>{
     const cartIconRef = useRef(null);
     const containerRef = useRef(null)
     const buttonComprarRef = useRef(null)
-
 
 
 
@@ -119,7 +118,7 @@ const Header_tienda =({setPopoutFinalizar})=>{
                     </div>
                     <div style={{width:"155px"}}>
                         {isAuthenticated?(
-                            <Logged img={usuario.img} name={usuario.name} />
+                            <Logged img={picture} name={usuario.name} />
                         ):(
                             <LoggingButton/>
                         )}

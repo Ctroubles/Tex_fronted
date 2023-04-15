@@ -28,7 +28,7 @@ function compararProductos(a, b) {
 }
 
 
-const Tienda = () =>{
+const Tienda = ({picture}) =>{
 
     const {pathname} =useLocation()
     const history = useHistory()
@@ -177,7 +177,7 @@ const Tienda = () =>{
 
     return(
         <div id={style.Tienda}>
-                <Header setPopoutFinalizar={setPopoutFinalizar}/>
+                <Header setPopoutFinalizar={setPopoutFinalizar} picture={picture} />
             <div id={style.body}>
                 <div id={style.sideBar}>
                 <SideBar/>

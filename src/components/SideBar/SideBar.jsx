@@ -47,14 +47,19 @@ export default function Sidebar(){
                         </div> 
                         <img className={style.arrows} id={open === "Impresoras"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
-                    <div id={style.childsContaier} className={open === "Impresoras" ? style.categoryActiveOneElement : style.categoryDesactive}>
+                    <div id={style.childsContaier} className={open === "Impresoras" ? style.categoryActive : style.categoryDesactive}>
                         <span id={categoryFilter.label=== "Impresoras" ? style.categoryPick : undefined}> 
                             -&nbsp;
                             <p onClick={()=>dispatch(filterByCategory('impresoras',"","Impresoras"))}>
                             Impresoras
                             </p>
                          </span>      
-                                
+                         <span id={categoryFilter.label=== "Suministros de impresora" ? style.categoryPick : undefined}> 
+                            -&nbsp;
+                            <p onClick={()=>dispatch(filterByCategory('Impresorasuministor',"","Suministros de impresora"))}>
+                                Suministros
+                            </p>
+                         </span> 
                     </div>
                 </div>   
                 
