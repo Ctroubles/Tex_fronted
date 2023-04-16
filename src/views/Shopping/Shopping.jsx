@@ -45,10 +45,7 @@ const Shopping = (props) =>{
     }
 
 
-    useEffect(()=>{
-        // console.log(errorsForm);
-
-    },[errorsForm])
+ 
 
 
     return(

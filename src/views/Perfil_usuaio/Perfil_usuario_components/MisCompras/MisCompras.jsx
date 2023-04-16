@@ -10,7 +10,6 @@ const MisCompras = ({ordenes}) =>{
     const [orderFocus, setOrderFocus] = useState({visible:false})
 
 
-    console.log(orderFocus);
     return(
         <div id={style.MisComprasContaier}>
             <div>

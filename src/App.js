@@ -16,8 +16,8 @@ import OrdenGenerada from "./views/OrdenGenerada/OrdenGenerada.jsx";
 import axios from 'axios';
 
 
-axios.defaults.baseURL = 'https://tex-api.vercel.app/';
-// axios.defaults.baseURL = 'http://localhost:3001/';
+// axios.defaults.baseURL = 'https://tex-api.vercel.app/';
+axios.defaults.baseURL = 'http://localhost:3001/';
 
 
 function App() {
@@ -57,7 +57,6 @@ function App() {
 
   })
   
-  console.log(currentUser);
 
   if (!loadinStatus) {
     return (

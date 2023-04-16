@@ -6,7 +6,8 @@ const validators = (target,value) =>{
             value.length<45?result=true:result=false;
             var regex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$/;
             if(regex.test(value))result = true
-            else if(value.length===0)result = true
+            else result = false
+            if(value.length===0)result = true
             break;
         case "dni":
                 if (!isNaN(value) && value.length<=8) result=true;
@@ -56,6 +57,7 @@ const validatorsLevel2 = (setErrorsForm, currentForm) =>{
                     break;     
             case "phone":
                     if (isNaN(currentForm[prop]) || currentForm[prop].length!==9) errors[prop]=true;
+                    if (currentForm[prop].charAt(0)!=="9") errors[prop]=true;
                 break;      
             case "email":
                 const expresionRegular = /\S+@\S+\.\S+/;

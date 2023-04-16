@@ -3,7 +3,6 @@ import { useEffect, useState, useRef } from 'react';
 import React from 'react';
 import style from "./FormularioShopping.module.css"
 import { useSelector } from 'react-redux';
-import { setShoppingForm } from '../../../../redux/actions/actions';
 import black_arrow from "../../../../assets/icons/black_arrow.svg"
 import  regions  from '../../../../delivery/ciudades_departamentos';
 
@@ -51,7 +50,6 @@ const Formulario = ({statusForm,errorsForm, setErrorsForm}) =>{
         }else{
             alert("Tu carrito está vacío")
         }
- 
       }
 
       useEffect(()=>{

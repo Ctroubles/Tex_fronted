@@ -11,11 +11,6 @@ const CardMisCompras = ({onClickk , orden}) =>{
     const productosCantidad = orden.products.length
 
 
-
-    console.log(orden);
-
-
-
     return(
         <div id={style.CardMisComprasContainer}>
             <div id={style.fechaContainer}>
