@@ -13,6 +13,7 @@ import redX from "../../../../assets/icons/red-x.svg"
 
 
 const DetailProduct = ({product})=>{
+    console.log(product);
     const [precioFormatedo, setPrecioFormateado] = useState('');
     const [ofertaFormated, setOfertaFormated] = useState('');
 
@@ -52,9 +53,8 @@ useEffect(() => {
     );
 
 /////////////////////////Oferta
-
     const partsOffer = formatter.formatToParts((Math.ceil(product.price+375)));
-    const integerPartsOffer = partsOffer.slice(0, parts.findIndex(part => part.type === 'decimal'))
+    const integerPartsOffer = partsOffer.slice(0, partsOffer.findIndex(part => part.type === 'decimal'))
     .map(part => part.value)
     .join('');  
 

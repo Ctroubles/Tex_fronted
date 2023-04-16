@@ -55,22 +55,26 @@ console.log(user);
                         <h1>Información</h1>
                         <div id={style.userData}>
                             <div className={style.row}>
-                                <label><span>Nombres: </span>{user.name}</label>
-                                <label><span>Apellidos:</span>{user.surname}</label>
+                                <label><span>Nombres: </span><span contentEditable={'true'} className={style.valueData}>{user.name}</span></label>
+                                <label><span>Apellidos:</span> <span contentEditable={'true'} className={style.valueData}>{user.surname}</span></label>
                             </div>
                             <div className={style.row}>
-                                <label><span>Ciudad: </span>Trujillo</label>
-                                <label><span>Dirección:</span>Jr. La piedra</label>
+                                <label><span>Ciudad: </span> <span contentEditable={'true'} className={style.valueData}>{user.city}</span> </label>
+                                <label><span>Dirección:</span> <span contentEditable={'true'} className={style.valueData}>{user.address}</span></label>
                             </div>   
                             <div className={style.row}>
-                                <label><span>Dni: </span>{user.DNI}</label>
-                                <label><span>Cumpleaños:</span>{user.birthday} <span id={style.admirationBirthday}><img src={iconAdmiration} alt="" /></span></label>
+                                <label><span>Dni: </span> <span contentEditable={'true'} className={style.valueData}>{user.DNI}</span></label>
+                                <label><span>Cumpleaños:</span> <span contentEditable={'true'} className={style.valueData}>{user.birthday}</span> <span id={style.admirationBirthday}><img src={iconAdmiration} alt="" /></span></label>
                             </div>
                             <div className={style.row}>
-                                <label><span>Celular:</span>{user.phoneNumber}</label>
+                                <label><span>Celular:</span> <span contentEditable={'true'} className={style.valueData}>{user.phoneNumber}</span> </label>
+                                <div id={style.guardar}>
+                                  <label><span>Guradar</span></label>
+                                </div>
                             </div> 
                       
                         </div>
+                      
                     </div>
 
                     <div>
