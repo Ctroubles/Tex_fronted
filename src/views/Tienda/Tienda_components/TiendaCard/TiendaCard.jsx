@@ -3,11 +3,13 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../../redux/actions/actions";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 
 
-const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
+const TiendaCard = ({id, name, price, img, stock})=>{
     const distpatch = useDispatch()
+    const history = useHistory()
 
     const [priceFormated, setPriceFormated] = useState('')
 
@@ -15,6 +17,10 @@ const TiendaCard = ({id, name, price, img, stock, seeDetails})=>{
     const carrito = useSelector(e=>e.shoppingCart)
     const [cuurrentStatusProduct, setCurrentStatusProduct] =useState({})
 
+
+    const seeDetails=(id)=>{
+        history.push(`/tienda/${id}`)
+    }
 
   
     const handleLanzar = (event) => {

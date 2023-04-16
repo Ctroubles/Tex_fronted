@@ -31,6 +31,7 @@
 #price{
     display: flex;
     justify-content: center;
+    min-height: 19px;
 }
 #price>label{
     text-align: center;

@@ -2,7 +2,7 @@
 
 
 #Detail{
-    background-color: rgba(0, 0, 0, 0.596);
+    /* background-color: rgba(0, 0, 0, 0.596);
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -12,7 +12,7 @@
     justify-content: center;
     z-index: 12;
     backdrop-filter: blur(1px);
-    animation: intro 0.3s ease;
+    animation: intro 0.3s ease; */
 }
 #pupoutDetail{
     width: 1200px;
@@ -211,16 +211,7 @@
     font-size: 15px;
 }
 
-@keyframes intro{
-    0%{
-        background-color: rgba(0, 0, 0, 0);
-        backdrop-filter: blur(0px);
-    }
-    100%{
-        background-color: rgba(0, 0, 0, 0.596);
-        backdrop-filter: blur(1px);
-    }
-}
+
 
 @keyframes intro2{
     0%{

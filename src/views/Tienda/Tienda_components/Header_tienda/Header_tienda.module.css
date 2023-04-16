@@ -11,9 +11,10 @@
     flex-grow: 0;
     padding: 1px 3px 0px 2px;
     cursor: pointer;
+    width: 50px;
 }
 #logoTexContainer img{
-    max-width: 100px;
+    height: 50px;
 }
 #header>:nth-child(2){
     display: flex;

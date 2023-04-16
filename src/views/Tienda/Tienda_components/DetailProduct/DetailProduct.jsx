@@ -9,6 +9,7 @@ import { addToCart } from "../../../../redux/actions/actions";
 import axios from "axios";
 import { capitalize } from "../../../../utils";
 import { useEffect, useRef, useState } from "react";
+import redX from "../../../../assets/icons/red-x.svg"
 
 
 const DetailProduct = ({product})=>{
@@ -17,15 +18,15 @@ const DetailProduct = ({product})=>{
 
 
     const dispatch = useDispatch()
- const history = useHistory()
+    const history = useHistory()
 
- const addToCartHandler = ()=>{
-    const getProductById = async() =>{
-        const {data}= await axios.get(`/id/${product._id}`);
-        dispatch(addToCart(data))
+    const addToCartHandler = ()=>{
+        const getProductById = async() =>{
+            const {data}= await axios.get(`/id/${product._id}`);
+            dispatch(addToCart(data))
+        };
+        getProductById()
     };
-    getProductById()
-};
 
 
 useEffect(() => {
@@ -69,26 +70,20 @@ useEffect(() => {
 
     }, [product]);
 
-    const popOutRef = useRef()
     useEffect(()=>{
-        console.log(popOutRef.current);
-        popOutRef.current.classList.add(style.visible);
 
     },[])
 
-    const {id,_id,__v,img,name,price,category,warranty,...description} = product;
+    const {id,_id,__v,img,name,price,category,warranty,stock,...description} = product;
     const descriptionArray = Object.entries(description);
 
 
-    const functionToClose = (e)=>{
-        if (e.target === e.currentTarget) {
-            history.push("/tienda")
-          }
-    }
+ 
+
 
     return(
-        <div id={style.Detail} className="cover" onClick={(e)=>functionToClose(e)}>
-            <div id={style.pupoutDetail} ref={popOutRef}>
+        <div id={style.Detail} className="cover">
+            <div id={style.pupoutDetail} >
                 <div id={style.titleProduct}><h1>{product.name}</h1></div>
                 <main id={style.ContainerDetailsProduct}>
                      <div id={style.top}>
@@ -99,7 +94,22 @@ useEffect(() => {
                      <div>
                         
                     </div>
-                    <span id={style.category}>  {'> '} {category?.replace(/^\w/, (letra) => letra.toUpperCase())}</span>
+                    <span id={style.category} style={{
+                            color: '#fefefeac',
+                            }}> 
+                        <span
+                            style={{
+                            display: 'inline-block',
+                            width: '7.5px',
+                            height: '7.5px',
+                            borderRadius: '50%',
+                            backgroundColor: '#fefefe8d',
+                            textAlign: 'center',
+                            lineHeight: '20px',
+                            }}
+                        >
+                        </span>{' '} 
+                        {category?.replace(/^\w/, (letra) => letra.toUpperCase())}</span>
 
                     <div id={style.pricesZone}>
                         <div>
@@ -115,8 +125,9 @@ useEffect(() => {
                             <div>
                                 <ul>
                                     <li><div><img src={shield} alt="Shield Protection" /></div> Garantía - {capitalize(product.warranty)}</li>
-                                    <li><div><img src={check} alt="Green Check" id={style.check} /></div> Stock disponible</li>
                                     <li><div><img src={truck} alt="Delivery truck" id={style.truck} /></div> Envíos a todo el Perú</li>
+                                    {product.stock?<li><div><img src={check} alt="Green Check" id={style.check} /></div>Stock disponible - {product.stock} unidades</li>
+                                    :<li style={{color:"#e51818"}}><div><img src={redX} alt="X error" id={style.check} /></div>Sin Stock</li>}
                                 </ul>
                             </div>
                             <button className={2 <= 0 ? style.noStock : undefined} onClick={()=>addToCartHandler()}>SUMAR AL CARRITO</button>
