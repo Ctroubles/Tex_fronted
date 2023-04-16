@@ -88,6 +88,22 @@ const Perfil_usuario = ({userEmail})=>{
         }
     }
 
+    const cancelEdit = ()=>{
+        const { name, surname, DNI, region, city, address, phoneNumber, birthday } = user;
+            const personalData = {
+                name: name ? name : '',
+                surname: surname ? surname : '',
+                DNI: DNI ? DNI.toString() : '',
+                region: region ? region : '',
+                city: city ? city : '',
+                address: address ? address : '',
+                phoneNumber: phoneNumber ? phoneNumber.toString() : '',
+                birthday: birthday ? birthday : '',
+            };
+            setUserData(personalData)
+            setEditable(false)
+        }
+
     return(
         <div id={style.Perfil_usuario}>
            <div id={style.main}>
@@ -122,24 +138,27 @@ const Perfil_usuario = ({userEmail})=>{
                         <h1>Información</h1>
                         <div id={style.userData}>
                             <div className={style.row}>
-                                <label><span className={style.attributeData} >Nombres :</span> <input onChange={handlerChange} name="name" className={style.valueData} style={editable?editableStyle:undefined} value={userData.name} readOnly={!editable}  spellCheck="false"/>  </label>
-                                <label><span className={style.attributeData} >Apellidos :</span> <input onChange={handlerChange} name="surname" className={style.valueData} style={editable?editableStyle:undefined} value={userData.surname} readOnly={!editable} spellCheck="false" />  </label>
+                                <label><span className={style.attributeData} >Nombres :</span> <input id={errorsForm.name?style.error:undefined} onChange={handlerChange} name="name" className={style.valueData} style={editable?editableStyle:undefined} value={userData.name} readOnly={!editable}  spellCheck="false"/>  </label>
+                                <label><span className={style.attributeData} >Apellidos :</span> <input id={errorsForm.surname?style.error:undefined} onChange={handlerChange} name="surname" className={style.valueData} style={editable?editableStyle:undefined} value={userData.surname} readOnly={!editable} spellCheck="false" />  </label>
                             </div>
                             <div className={style.row}>
-                                <label><span className={style.attributeData} >DNI : </span> <input onChange={handlerChange} name="DNI" className={style.valueData} style={editable?editableStyle:undefined} value={userData.DNI} readOnly={!editable}  spellCheck="false" />  </label>
-                                <label><span className={style.attributeData} >Región :</span> <input onChange={handlerChange} name="region" className={style.valueData} style={editable?editableStyle:undefined} value={userData.region} readOnly={!editable} spellCheck="false" />  </label>
+                                <label><span className={style.attributeData} >DNI : </span> <input id={errorsForm.DNI?style.error:undefined} onChange={handlerChange} name="DNI" className={style.valueData} style={editable?editableStyle:undefined} value={userData.DNI} readOnly={!editable}  spellCheck="false" />  </label>
+                                <label><span className={style.attributeData} >Región :</span> <input id={errorsForm.region?style.error:undefined} onChange={handlerChange} name="region" className={style.valueData} style={editable?editableStyle:undefined} value={userData.region} readOnly={!editable} spellCheck="false" />  </label>
                             </div>   
                             <div className={style.row}>
-                                <label><span className={style.attributeData} >Ciudad : </span> <input onChange={handlerChange} name="city" className={style.valueData} style={editable?editableStyle:undefined} value={userData.city} readOnly={!editable} spellCheck="false" />  </label>
-                                <label><span className={style.attributeData} >Dirección :</span> <input onChange={handlerChange} name="address" className={style.valueData} style={editable?editableStyle:undefined} value={userData.address} readOnly={!editable} spellCheck="false" />  </label>
+                                <label><span className={style.attributeData} >Ciudad : </span> <input id={errorsForm.city?style.error:undefined} onChange={handlerChange} name="city" className={style.valueData} style={editable?editableStyle:undefined} value={userData.city} readOnly={!editable} spellCheck="false" />  </label>
+                                <label><span className={style.attributeData} >Dirección :</span> <input id={errorsForm.address?style.error:undefined} onChange={handlerChange} name="address" className={style.valueData} style={editable?editableStyle:undefined} value={userData.address} readOnly={!editable} spellCheck="false" />  </label>
                             </div>
                             <div className={style.row}>
-                                <label><span className={style.attributeData} >Celular :</span> <input onChange={handlerChange} name="phoneNumber" className={style.valueData} style={editable?editableStyle:undefined} value={userData.phoneNumber} readOnly={!editable} spellCheck="false" />  </label>                           
-                                <label><span className={style.attributeData} >Cumpleaños :</span> <input id={style.my_date_input} onChange={handlerChange} name="birthday" type={"date"} className={style.valueData} style={editable?editableStyle:undefined} value={userData.birthday} readOnly={!editable} spellCheck="false" />  <span id={style.admirationBirthday}><img src={iconAdmiration} alt="" /></span></label>
+                                <label><span className={style.attributeData} >Celular :</span> <input id={errorsForm.phoneNumber?style.error:undefined} onChange={handlerChange} name="phoneNumber" className={style.valueData} style={editable?editableStyle:undefined} value={userData.phoneNumber} readOnly={!editable} spellCheck="false" />  </label>                           
+                                <label><span className={style.attributeData} >Cumpleaños :</span> <input className={errorsForm.birthday?style.error:undefined} id={style.my_date_input} onChange={handlerChange} name="birthday" type={"date"}  style={editable?editableStyle:undefined} value={userData.birthday} readOnly={!editable} spellCheck="false" />  <span id={style.admirationBirthday}><img src={iconAdmiration} alt="" /></span></label>
                             </div> 
-                            {editable? <div id={style.guardar}>
+                            {editable?
+                             <div id={style.guardar}>
+                                  <label><p onClick={()=>cancelEdit()}>Cancelar</p></label>
                                   <label><span onClick={()=>handleSave()}>Guardar</span></label>
-                                </div>:null}
+                            </div>:null
+                            }
                       
                         </div>
                       
