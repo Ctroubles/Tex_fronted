@@ -116,7 +116,7 @@ export default function Sidebar(){
                         <img className={style.arrows} id={open === "Motherboards" ?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
                     <div id={style.childsContaier} className={open === "Motherboards" ? style.categoryActiveThreeElement : style.categoryDesactive}>
-                        <span id={categoryFilter.label=== "Motherboards INTEL" ? style.categoryPick : undefined}> 
+                        <span id={categoryFilter.label=== "Todas las Motherboards" ? style.categoryPick : undefined}> 
                             -&nbsp;
                             <p onClick={()=>dispatch(filterByCategory("Motherboards","INTEL","Todas las Motherboards"))}>
                             Todas

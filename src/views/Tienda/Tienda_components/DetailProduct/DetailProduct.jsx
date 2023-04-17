@@ -74,7 +74,7 @@ useEffect(() => {
 
     },[])
 
-    const {id,_id,__v,img,name,price,category,warranty,stock,...description} = product;
+    const {id,_id,__v,img,name,price,category,warranty,stock,audifonosType,...description} = product;
     const descriptionArray = Object.entries(description);
 
 
