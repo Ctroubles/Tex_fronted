@@ -126,3 +126,7 @@
 #status >span{
     color: yellow;
 }
+#accounts p{
+    display: block;
+    padding: 1px 20px;
+}

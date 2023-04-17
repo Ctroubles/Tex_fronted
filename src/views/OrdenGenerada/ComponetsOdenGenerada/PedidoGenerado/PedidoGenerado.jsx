@@ -189,9 +189,24 @@ if (loading) {
                             </div>
                             <div>
                                 <div >
-                                <span>
-                                 {pedido.paymentMethod}: 902038984
-                                </span>
+                                    {pedido.paymentMethod==="YAPE"||pedido.paymentMethod==="PLIN"?(
+                                    <span>
+                                        {pedido.paymentMethod}: 902038984
+                                    </span>)
+                                    :pedido.paymentMethod==="Interbank"?(
+                                    <span id={style.accounts}>
+                                        <span >{pedido.paymentMethod}:</span>
+                                            <p>Simple soles: 8983231287495</p> 
+                                            <p style={{paddingBottom:"3px"}} > CCI: 00389801323128749542</p> 
+                                    </span>
+                                    )
+                                    :pedido.paymentMethod==="BCP"?(
+                                    <span id={style.accounts}>
+                                        <span>{pedido.paymentMethod}:</span>
+                                            <p> Simple soles:  8983231287495</p> 
+                                            <p style={{paddingBottom:"3px"}} > CCI: 00389801323128749542</p> 
+                                    </span>
+                                    ):undefined}
                                 </div>
                                 <div>
                             

@@ -54,7 +54,7 @@ const Shopping = (props) =>{
                 <div id={style.headerShopping}>
                     <div>
                         <img onClick={()=>history.push("/tienda")} src={logoTex} alt="" />
-                        <Link to={"/tienda"} tabIndex="1">Volver atras</Link>
+                        <Link to={"/tienda"} tabIndex="1">Volver</Link>
                     </div>
                 </div>
                 <div id={style.mainShopping}>

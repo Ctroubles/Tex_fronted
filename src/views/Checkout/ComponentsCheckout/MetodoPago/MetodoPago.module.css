@@ -75,3 +75,16 @@
     background-color: rgb(235, 207, 53);
     transform: scale(1.05);
 }
+#montoSection{
+    padding: 15px 0 0px 0;
+}
+#montoSection label{
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffffe0;
+}
+#montoSection span{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(105, 230, 33);
+}

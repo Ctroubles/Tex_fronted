@@ -27,7 +27,7 @@
 }
 #sideBar{
     min-height: calc(100vh - 91.5px);
-    width: 320px;
+    width: 250px;
     flex-shrink: 0;
     background-color: #171717;
     overflow: hidden;

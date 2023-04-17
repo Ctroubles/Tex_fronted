@@ -255,6 +255,7 @@ const getData2 =async()=>{
 
     useEffect(()=>{
         const getProductById =async()=>{
+          try {
             setProductStatus(true)
             const cleanPathName = cleanPathname(pathname)
             const urlArr = cleanPathName.split("/")
@@ -266,6 +267,11 @@ const getData2 =async()=>{
                 history.push(`/tienda`)
                 setProductOnFocus(null)
             }
+            
+          } catch (error) {
+            history.push(`/tienda`)
+            console.log(error);
+          }
         }
 
         if (cleanPathname(pathname)!=="/tienda")getProductById()
