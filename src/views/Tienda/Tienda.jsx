@@ -277,14 +277,18 @@ const getData2 =async()=>{
     },[pathname])
 
 ////////////////////////////////////////////////////////OJOOOOOOO
-
-
       const functionToClose = (e)=>{
         if (e.target === e.currentTarget) {
-            setProductOnFocus(null)
+          const productOnFocus = e.currentTarget
+          if (!productOnFocus) return;
+          productOnFocus.style.transition = 'opacity 0.4s'; 
+          productOnFocus.style.opacity = '0'; 
+          setTimeout(() => {
+            setProductOnFocus(null);
             history.push("/tienda")
-          }
+          }, 400); 
         }
+      }
 
     useEffect(()=>{
         setLoadingStatus(true)

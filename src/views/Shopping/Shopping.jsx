@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Paypal from "./ShoppingComponents/PasarelaPago/PasarelaPago";
 import Form from "./ShoppingComponents/FormularioShopping/FormularioShopping";
 import ShoppingCart from './ShoppingComponents/ShoppingCart/ShoppingCart';
-import {  useEffect, useRef, useState, } from "react";
+import { useRef, useState, } from "react";
 import style from "./Shopping.module.css";
 import CompraExitosa from "./ShoppingComponents/PasarelaPago/AlertsPasarela/CompraExitosa";
 import logoTex from "../../assets/logos/logo_tex_modern.png";
@@ -53,7 +53,7 @@ const Shopping = (props) =>{
             <div id={style.ContainerShopping}>
                 <div id={style.headerShopping}>
                     <div>
-                        <img src={logoTex} alt="" />
+                        <img onClick={()=>history.push("/tienda")} src={logoTex} alt="" />
                         <Link to={"/tienda"} tabIndex="1">Volver atras</Link>
                     </div>
                 </div>

@@ -35,22 +35,20 @@
     justify-content: center;
     overflow: auto;
 }
-
+#comprasContainerAbsolute.dentroPopout{
+    transform: translateY(0px) !important;
+    opacity: 1;
+    transition: all 0.3s ease-out ;
+}
+.fueraPopout #comprasContainerAbsolute{
+    transform: translateY(780px) !important;
+    background-color: red !important;
+}
 #comprasContainerAbsolute{
-    transform: translateY(0px);
-    animation: intro 0.4s ease;
+    transform: translateY(-780px);
+    transition: all 0.4s ease-out ;
+    opacity: 0.2;
 }
-
-@keyframes intro{
-    0%{
-        transform: translateY(-780px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
-}
-
-
 #verMasButton{
     text-align: center;
 }

@@ -36,48 +36,6 @@
 #shoppingCartContainer:hover:not(div img){
     background-color: #ffdf58;
 }
-
-@keyframes shaking {
-    5%{
-        transform: translate(0px, 0);
-    }
-    10%{
-        transform: translate(2px, 0);
-    }
-    15%{
-        transform: translate(0px, 0);
-    }
-    20%{
-        transform: translate(2px, 0);
-
-    }
-    25%{
-        transform: translate(0px, 0);
-    }
-    30%{
-        transform: translate(2px, 0);
-
-    }
-    35%{
-        transform: translate(0px, 0);
-
-    }
-    40%{
-        transform: translate(2px, 0);
-
-    }
-    45%{
-        transform: translate(0px, 0);
-
-    }
-    50%{
-        transform: translate(2px, 0);
-    }
-    55%{
-        transform: translate(0px, 0);
-    } 
-}
-
 #shoppingCartContainer >:nth-child(1){
     width: 40px;
     height: 40px;
@@ -136,6 +94,7 @@
     text-decoration: none;
     z-index: 100;
     font-family: 'Exo 2', sans-serif;
+    animation: fadeIn 0.3s ease-out;
 }
 #finalizarCompre h3{
     padding: 8px 10px;
@@ -144,4 +103,13 @@
 }
 #carritoContenedor{ 
     height: 0;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }   
+    100%{
+        opacity: 1;
+    }
 }

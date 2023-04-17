@@ -58,6 +58,7 @@
 
 #headerShopping img{
     height: 40px;
+    cursor: pointer;
 }
 
 #headerShopping div{

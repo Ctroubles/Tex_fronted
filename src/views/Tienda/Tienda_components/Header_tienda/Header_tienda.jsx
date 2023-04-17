@@ -125,11 +125,11 @@ const Header_tienda =({setPopoutFinalizar,picture})=>{
                     </div>
                     
                 </label>
-                <span onClick={()=>finalizarHanlder()} id={style.finalizarCompre} style={{opacity: itemsToBuy.length ? 1 : 0,}}>
+                {itemsToBuy.length ?<span onClick={(e)=>finalizarHanlder(e)} id={style.finalizarCompre}>
                     <label>
                         <h3>Finalizar compra</h3>
                     </label>
-                </span>
+                </span>:undefined}
             </div>
     )
 };

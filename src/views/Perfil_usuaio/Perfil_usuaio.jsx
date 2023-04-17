@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { validators, validatorsLevel2 } from "./validators.js";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -18,6 +19,8 @@ const editableStyle = {
 
 
 const Perfil_usuario = ({userEmail})=>{
+
+    const history = useHistory()
 
     const {logout}=useAuth0()
 
@@ -121,6 +124,7 @@ const Perfil_usuario = ({userEmail})=>{
                     <div id={style.sideOptions}>
                         <div>
                             <ul>
+                                <li onClick={()=>history.push("/tienda")} >Ir a tienda</li>
                                 <li onClick={()=>setEditable(true)} >Editar perfil</li>
                                 <li onClick={()=>logout()} >Cerrar sesión</li>
                             </ul>

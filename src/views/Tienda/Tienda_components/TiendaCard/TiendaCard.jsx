@@ -14,8 +14,11 @@ const TiendaCard = ({id, name, price, img, stock})=>{
     const [priceFormated, setPriceFormated] = useState('')
 
     const [overStock, setOverStock]=useState(false)
-    const carrito = useSelector(e=>e.shoppingCart)
     const [cuurrentStatusProduct, setCurrentStatusProduct] =useState({})
+
+
+    const carrito = useSelector(e=>e.shoppingCart)
+
 
 
     const seeDetails=(id)=>{
@@ -43,8 +46,6 @@ const TiendaCard = ({id, name, price, img, stock})=>{
         card.children[0].appendChild(imgClone);
         imgClone.style.setProperty('--destino-x', styles.destinoX['--destino-x']);
         imgClone.style.setProperty('--destino-y', styles.destinoY['--destino-y']);
-
-
         setTimeout(() => {
           imgClone.remove();
         }, 750);

@@ -1,19 +1,6 @@
 @import '../../../../fonts/fonts.css';
 
 
-#Detail{
-    /* background-color: rgba(0, 0, 0, 0.596);
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 12;
-    backdrop-filter: blur(1px);
-    animation: intro 0.3s ease; */
-}
 #pupoutDetail{
     width: 1200px;
     padding: 10px 0px 30px 0;
@@ -46,7 +33,6 @@
     justify-content: center;
     flex-direction: column;
     padding: 0px 0 30px 0;
-    font-family: 'Nasalization', sans-serif;
 }
 #top {
     width: 1200px;
@@ -61,6 +47,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+#addingProduct{
+    position: absolute;
+    top: 50px;
+    right: 65px;
+    font-size: 22px;
+    color: #4caf50;
+    font-weight: 600;
+    font-family: 'Exo 8', sans-serif;
+    z-index: 15;
+    animation: cart-counter 1000ms ease-out;
+    opacity: 0;
 }
 #imageContainer img{
     width: 400px;
@@ -124,7 +123,6 @@
     align-items: start;
     justify-content: space-between;
     flex-direction: column;
-    border-bottom: 1px solid #696967;;
 }
 
 #mainInfo > :nth-child(4) > ul > li {
@@ -132,7 +130,7 @@
     align-items: center;
     justify-content: start;
     font-size: 14px;
-    color: #4caf50;
+    color: #37b63b;
     font-family: 'Exo 2', sans-serif;
     font-weight: 300;
 }
@@ -178,12 +176,12 @@
 
 #mainInfo > :nth-child(5):active{
     background-color: #ff8330;
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 
 .noStock{
-    opacity: 0.6 !important;
+    opacity: 0.7 !important;
     cursor: not-allowed !important; 
 }
 
@@ -221,3 +219,14 @@
         opacity: 1;
     }
 }
+
+@keyframes cart-counter {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(0, -40px) scale(1.5);
+    }
+  }

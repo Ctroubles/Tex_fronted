@@ -54,6 +54,15 @@ const caracteristicasEnToEs ={
     frecuencia:"Frecuencia",
     sensibilidad:"Sensibilidad",
     intervalo:"Intervalo",
+    funciones:"Funcionalidades",
+    technology:"Tecnología",
+    papel:"Papel soportado",
+    tinta:"Tinta",
+    compatibilidad:"Compatibilidad",
+    modelo:"Modelo",
+    tipo:"Tipo",
+    color:"Color",
+    cantidad:"Cantidad",
     cod:"Cod"
 };
 
