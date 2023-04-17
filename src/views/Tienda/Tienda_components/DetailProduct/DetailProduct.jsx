@@ -85,7 +85,7 @@ const DetailProduct = ({product})=>{
     }, [product]);
 
 
-
+console.log(product);
       
     useEffect(()=>{
         const updateStock = async()=>{
