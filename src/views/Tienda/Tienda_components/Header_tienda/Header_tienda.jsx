@@ -8,14 +8,19 @@ import shoppingCart from "../../../../assets/icons/black-shopping-cart.svg"
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { el } from "date-fns/locale";
+import { useMediaQuery } from '@material-ui/core';
+import menuLine from "../../../../assets/icons/menu-icon.svg";
 
 
 
 
-const Header_tienda =({setPopoutFinalizar,picture})=>{
-    const { user,isAuthenticated,loginWithRedirect,isLoading} = useAuth0()
+
+const Header_tienda =({setPopoutFinalizar,picture,setSidebarPosition,sidebarPosition})=>{
+    const { user,isAuthenticated,} = useAuth0()
     const history = useHistory()
+    const widthMobile = useMediaQuery('(max-width: 680px)');
+
+
 
     const cartRef = useRef(null);
     const cartIconRef = useRef(null);
@@ -101,10 +106,13 @@ const Header_tienda =({setPopoutFinalizar,picture})=>{
 
     return(
             <div id={style.header}>
+                {widthMobile?(<label id={style.menuLine} onClick={()=>setSidebarPosition(!sidebarPosition)}>
+                    <img src={menuLine} alt="menu lines" />
+                </label>):null}
                 <Link to={"/"} id={style.logoTexContainer}>
                     <img src={text_logo_modern} alt="" />
                 </Link>  
-                <label>
+                <label id={style.buttonsRight}>
                     <div id={style.shoppingCartContainer}  style={shoppingCartStatus ? { backgroundColor: '#ffdf58' } : undefined} >
                         <div ref={cartIconRef}  onClick={()=>setShoppingCart(!shoppingCartStatus)} >
                             <img src={shoppingCart} alt="shoping Cart"/>
@@ -116,7 +124,7 @@ const Header_tienda =({setPopoutFinalizar,picture})=>{
                         </div>
                         <p id={style.itemNumber}>{numberStatus}</p>
                     </div>
-                    <div style={{width:"155px"}}>
+                    <div id={style.logMenuContainer} >
                         {isAuthenticated?(
                             <Logged img={picture} name={usuario.name} />
                         ):(

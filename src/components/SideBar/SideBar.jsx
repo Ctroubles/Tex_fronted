@@ -24,7 +24,7 @@ export default function Sidebar(){
                     <div id={style.categoryTitle} onClick={() => open !== "Laptops"? setOpen("Laptops"): setOpen(!"Laptops")}>
                         <div>
                             { items.icon && <i id={style.categoryIcon} className={items.icon}></i> }
-                            Laptops    
+                             Laptops    
                         </div> 
                         <img className={style.arrows} id={open === "Laptops"?style.arrowActive:undefined} src={arrow} alt="Arrow"  ></img>
                     </div>
@@ -32,19 +32,19 @@ export default function Sidebar(){
                         <span id={categoryFilter.label=== "Todas las Laptops" ? style.categoryPick : undefined}> 
                             -&nbsp;
                             <p onClick={()=>dispatch(filterByCategory('Laptops',"","Todas las Laptops"))}>
-                            Todas
+                              Todas
                             </p>
                          </span>  
                          <span id={categoryFilter.label=== "Laptops Intel" ? style.categoryPick : undefined}> 
                             -&nbsp;
                             <p onClick={()=>dispatch(filterByCategory('Laptops',"INTEL","Laptops Intel"))}>
-                            Laptops Intel
+                             Laptops Intel
                             </p>
                          </span>      
                          <span id={categoryFilter.label=== "Laptops AMD" ? style.categoryPick : undefined}> 
                             -&nbsp;
                             <p onClick={()=>dispatch(filterByCategory('Laptops',"AMD","Laptops AMD"))}>
-                            Laptops AMD
+                              Laptops AMD
                             </p>
                          </span>                                
                                 
@@ -73,9 +73,7 @@ export default function Sidebar(){
                             </p>
                          </span> 
                     </div>
-                </div>   
-                
-
+                </div>     
                 <div  id={style.categoryContainer} >
                     <div id={style.categoryTitle} onClick={() => open !== "Procesadores"? setOpen("Procesadores"): setOpen(!"Procesadores")}>
                         <div>

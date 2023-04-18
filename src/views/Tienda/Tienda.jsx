@@ -46,7 +46,10 @@ const Tienda = ({picture}) =>{
     const [popoutFinalizar, setPopoutFinalizar] = useState()
     const [focusProductStatus, setProductStatus] = useState(false)
     const [orderPrice, setOrderPrice] = useState("2")
+    const [sidebarPosition, setSidebarPosition] = useState(false)
     
+
+
 
 
 ///////////////////////FUNCIONESSS////////////////
@@ -314,11 +317,11 @@ const getData2 =async()=>{
 
     return(
         <div id={style.Tienda}>
-                <Header setPopoutFinalizar={setPopoutFinalizar} picture={picture} />
+                <Header setPopoutFinalizar={setPopoutFinalizar} picture={picture} setSidebarPosition={setSidebarPosition} sidebarPosition={sidebarPosition}/>
             <div id={style.body}>
-                <div id={style.sideBar}>
-                <SideBar/>
-                {/* <Filtros/> */}
+                <div id={style.sideBar} style={sidebarPosition?{left:"0px"}:{left: "-250px"}}>
+                  <SideBar/>
+                  {/* <Filtros/> */}
                 </div>
                 <div id={style.mainContent}>
                         <div id={style.searchBarContainer}>
@@ -331,9 +334,9 @@ const getData2 =async()=>{
                                <div id={style.priceFilter}>
                                     <label></label>
                                     <div> 
-                                        <span id={style.priceLess} style={orderPrice==="1"?{color:"#ffbf00",transform:"scale(1.1)"}:undefined} onClick={()=>setOrderPrice("1")} >&#9650;</span>  
+                                        {orderPrice==="1"&& <span id={style.priceLess} style={orderPrice==="1"?{color:"#ffbf00",transform:"scale(1.1)"}:undefined} onClick={()=>setOrderPrice("1")} >&#9650;</span>}
                                         <input id={style.switchInput} type="range"  onChange={(e)=>setOrderPrice(e.target.value)} min='1' max='3' value={orderPrice} style={orderPrice!=="2"?{backgroundColor:"rgba(209, 30, 209, 0.655)"}:undefined}/> 
-                                        <span id={style.priceMore} style={orderPrice==="3"?{color:"#ffbf00",transform:"scale(1.15)"}:undefined} onClick={()=>setOrderPrice("3")}  >&#9660;</span>  
+                                        {orderPrice==="3"&& <span id={style.priceMore} style={orderPrice==="3"?{color:"#ffbf00",transform:"scale(1.15)"}:undefined} onClick={()=>setOrderPrice("3")}  >&#9660;</span>}
                                     </div>
                                 </div>
                             </label>

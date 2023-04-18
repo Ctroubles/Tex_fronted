@@ -65,3 +65,10 @@
     border: 1px solid rgb(47, 47, 47);
     margin-right: 8px !important;
 }
+
+
+@media screen and (max-width: 400px) {
+    #name{
+        display: none !important;
+    }
+}

@@ -17,9 +17,6 @@
 #Tienda>#body{
     padding: 0px 0px;
 }
-#Tienda>div>label{
-    /* flex-grow: 1; */
-}
 #body{
     width: 100%;
     height: calc(100vh - 92.5px);
@@ -32,6 +29,7 @@
     background-color: #171717;
     overflow: hidden;
     padding: 5px 15px;
+    z-index: 10;
 }
 #searchBarContainer{
     width: 100%;
@@ -166,4 +164,40 @@
         background-color: rgba(0, 0, 0, 0.596);
         backdrop-filter: blur(1px);
     }
+}
+
+
+
+@media screen and (max-width: 680px) {
+#body{
+    height: calc(100vh - 60px);
+}
+  #sideBar{
+    position: fixed;
+    left: -250px;
+    min-height: calc(100vh - 60px);
+    bottom: 0;
+    transition: all 0.3s ease-out;
+}
+  #searchBarContainer{
+    /* background-color: rgba(255, 0, 0, 0.315); */
+    padding: 0 5px 40px 5px;
+  }
+  #mainContent{
+    padding-top: 10px;
+    height: 100%;
+  }
+  #switchContainer{
+    bottom: 5px;
+    left: 20px;
+  }
+  #categoryPick{
+    bottom: 12px;
+    right: 20px;
+    left: initial;
+  }
+  #cardContainer{
+    max-height: calc(100vh - 142px);
+    height: calc(100vh - 142px);
+   }
 }

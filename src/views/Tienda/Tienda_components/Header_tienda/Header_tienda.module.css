@@ -20,7 +20,6 @@
     display: flex;
     justify-content: end;
 }
-
 #shoppingCartContainer{
     background-color: rgb(161, 163, 165);
     border-radius: 50%;
@@ -104,6 +103,9 @@
 #carritoContenedor{ 
     height: 0;
 }
+#logMenuContainer{
+    width: 155px;
+}
 
 @keyframes fadeIn {
     0%{
@@ -111,5 +113,49 @@
     }   
     100%{
         opacity: 1;
+    }
+}
+#menuLine img{
+    height: 22px;
+}
+
+@media screen and (max-width: 680px) {
+    #header{
+        padding: 10px 10px;
+        display: flex;
+        align-items: center;
+    }
+    #logoTexContainer{
+        padding-left: 100px;
+    }
+    #logoTexContainer img {
+        height: 35px;
+    } 
+    #logMenuContainer{
+        width: 40px;
+        flex-shrink: 0;
+        display: flex;
+    }    
+    #shoppingCartContainer{
+        margin-right: 15px;
+    }
+    #buttonsRight{
+        display: flex;
+        align-items: center;
+        width: 38%;
+        justify-content: space-between;
+    }
+    #shoppingCartContainer{
+        width: 32px;
+        height: 32px;
+    }
+    #shoppingCartContainer >:nth-child(1) img{
+        width: 24px; 
+    }
+    #itemNumber{
+        font-size: 14px;
+        width: 17px;
+        height: 17px;
+        top: -11px;
     }
 }

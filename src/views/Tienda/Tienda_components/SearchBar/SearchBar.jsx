@@ -15,14 +15,12 @@ const SearchBar = ()=>{
 
     return(
         <div id={style.SearchBar}>
-            <label>
                 <div id={style.SearchBarContainer}>
                     <div className={style.divSearchBar}>
                         <input onChange={(e)=>handlerChange(e)} type="text" placeholder="Busca..." name="name" autoComplete='off' value={searchBarStatus} />
                     </div>
                     <button id={style.button}  type="submit"><img src={logoLupa} alt="Lupa logo" /></button>
                 </div>
-            </label>
         </div>  
     )
 };

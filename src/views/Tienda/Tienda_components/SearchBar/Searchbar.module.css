@@ -1,5 +1,6 @@
 #SearchBar{
     display: inline-block;
+    width: 100%;
 }
 
 #SearchBarContainer{
@@ -17,17 +18,17 @@
     display: flex;
     align-items: center;
     border-radius: 60px;
-    margin-right: 20px;
 }
 .divSearchBar input{
     background: transparent;
     width: 100%;
     border: 0;
     outline: none;
-    padding: 10px 0 10px 20px;
+    padding: 10px 45px 10px 20px;
     font-size: 18px;
     color: #cac7ff;
-    font-family: 'Nasalization', sans-serif;
+    font-family: 'Exo 2', sans-serif;
+    border-radius: 60px;
 }
 
 .divSearchBar input::placeholder{
@@ -37,7 +38,7 @@
 
 #button{
     position: absolute;
-    right: 20px;
+    right: 0px;
     border: 0;
     border-radius: 50%;
     width: 40px;
@@ -61,17 +62,13 @@
 /* RSPONSIVE DESIGN */
 
 
-@media screen and (max-width : 400px){
+@media screen and (max-width : 450px){
     #SearchBarContainer {
         width: 100%;
     }
-
-
-
- 
 }
 
- @media screen and (max-width : 1024px ) and (min-width :400px) {
+@media screen and (max-width : 1024px ) and (min-width :450px) {
     #SearchBarContainer{
         width: 450px;
         /* background-color: yellow; */

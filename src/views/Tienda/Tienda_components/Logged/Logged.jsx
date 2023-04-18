@@ -9,7 +9,7 @@ const Logged = ({img,name})=>{
     <div id={style.Logged}>
         <div id={style.toButton}>
             <label id={style.imgProfileContainer}><img src={img} alt="" /></label>
-            <label><span>{name}</span></label>
+            <label id={style.name}><span>{name}</span></label>
             <div id={style.menu_desplegable}>
             <Link className={style.options} to="/perfil" >
                 <label>
