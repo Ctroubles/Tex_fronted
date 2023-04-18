@@ -173,12 +173,11 @@
     height: calc(100vh - 60px);
 }
   #sideBar{
-    position: fixed;
+    position: absolute;
     left: -250px;
     height: calc(100vh - 60px);
     bottom: 0;
     transition: all 0.3s ease-out;
-    
 }
   #searchBarContainer{
     /* background-color: rgba(255, 0, 0, 0.315); */
