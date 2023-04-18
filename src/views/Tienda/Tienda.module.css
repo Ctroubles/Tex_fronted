@@ -175,7 +175,7 @@
   #sideBar{
     position: fixed;
     left: -250px;
-    min-height: calc(100vh - 60px);
+    height: calc(100vh - 60px);
     bottom: 0;
     transition: all 0.3s ease-out;
 }
