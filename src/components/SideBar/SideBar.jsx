@@ -6,7 +6,7 @@ import {useDispatch} from 'react-redux';
 import { filterByCategory } from "../../redux/actions/actions";
 import { useSelector } from "react-redux";
 
-export default function Sidebar(){
+export default function Sidebar({setSidebarPosition}){
     const dispatch = useDispatch()
     const [open, setOpen] = useState()
 
@@ -31,19 +31,19 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open === "Laptops" ? style.categoryActiveThreeElement : style.categoryDesactive}>
                         <span id={categoryFilter.label=== "Todas las Laptops" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Laptops',"","Todas las Laptops"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Laptops',"","Todas las Laptops"));setSidebarPosition(0)}}>
                               Todas
                             </p>
                          </span>  
                          <span id={categoryFilter.label=== "Laptops Intel" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Laptops',"INTEL","Laptops Intel"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Laptops',"INTEL","Laptops Intel"));setSidebarPosition(0)}}>
                              Laptops Intel
                             </p>
                          </span>      
                          <span id={categoryFilter.label=== "Laptops AMD" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Laptops',"AMD","Laptops AMD"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Laptops',"AMD","Laptops AMD"));setSidebarPosition(0)}}>
                               Laptops AMD
                             </p>
                          </span>                                
@@ -62,13 +62,13 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open === "Impresoras" ? style.categoryActive : style.categoryDesactive}>
                         <span id={categoryFilter.label=== "Impresoras" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('impresoras',"","Impresoras"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('impresoras',"","Impresoras"));setSidebarPosition(0)}}>
                             Impresoras
                             </p>
                          </span>      
                          <span id={categoryFilter.label=== "Suministros de impresora" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Impresorasuministor',"","Suministros de impresora"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Impresorasuministor',"","Suministros de impresora"));setSidebarPosition(0)}}>
                                 Suministros
                             </p>
                          </span> 
@@ -85,19 +85,19 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open === "Procesadores" ? style.categoryActiveThreeElement : style.categoryDesactive}>
                         <span id={categoryFilter.label=== "Todos los procesadores" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Procesadores',"","Todos los procesadores"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Procesadores',"","Todos los procesadores"));setSidebarPosition(0)}}>
                             Todos
                             </p>
                          </span>      
                          <span id={categoryFilter.label=== "Procesadores INTEL" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Procesadores',"INTEL","Procesadores INTEL"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Procesadores',"INTEL","Procesadores INTEL"));setSidebarPosition(0)}}>
                             Procesadores INTEL
                             </p>
                          </span>  
                          <span id={categoryFilter.label=== "Procesadores AMD" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("Procesadores","AMD","Procesadores AMD"))}>
+                            <p onClick={()=>{dispatch(filterByCategory("Procesadores","AMD","Procesadores AMD"));setSidebarPosition(0)}}>
                             Procesadores AMD
                             </p>
                          </span> 
@@ -116,19 +116,19 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open === "Motherboards" ? style.categoryActiveThreeElement : style.categoryDesactive}>
                         <span id={categoryFilter.label=== "Todas las Motherboards" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("Motherboards","INTEL","Todas las Motherboards"))}>
+                            <p onClick={()=>{dispatch(filterByCategory("Motherboards","INTEL","Todas las Motherboards"));setSidebarPosition(0)}}>
                             Todas
                             </p>
                          </span>         
                          <span id={categoryFilter.label=== "Motherboards INTEL" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("Motherboards","INTEL","Motherboards INTEL"))}>
+                            <p onClick={()=>{dispatch(filterByCategory("Motherboards","INTEL","Motherboards INTEL"));setSidebarPosition(0)}}>
                             Motherboards INTEL
                             </p>
                          </span>  
                          <span id={categoryFilter.label=== "Motherboards AMD" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("Motherboards","AMD","Motherboards AMD"))}>
+                            <p onClick={()=>{dispatch(filterByCategory("Motherboards","AMD","Motherboards AMD"));setSidebarPosition(0)}}>
                             Motherboards AMD
                             </p>
                          </span> 
@@ -146,19 +146,19 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open=== "Tarjetas de Video" ? style.categoryActiveThreeElement : undefined}>
                         <span id={categoryFilter.label=== "Todas las Gráficas" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Graficas',"","Todas las Gráficas"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Graficas',"","Todas las Gráficas"));setSidebarPosition(0)}}>
                             Todas
                             </p>
                          </span>  
                          <span id={categoryFilter.label=== "Tarjetas de Video GeForce" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Graficas',"GeForce","Tarjetas de Video NVIDIA"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Graficas',"GeForce","Tarjetas de Video NVIDIA"));setSidebarPosition(0)}}>
                             Tarjetas de Video NVIDIA
                             </p>
                          </span>  
                          <span id={categoryFilter.label=== "Tarjetas de Video Radeon AMD" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("Graficas","Radeon","Tarjetas de Video AMD"))}>
+                            <p onClick={()=>{dispatch(filterByCategory("Graficas","Radeon","Tarjetas de Video AMD"));setSidebarPosition(0)}}>
                             Tarjetas de Video AMD
                             </p>
                          </span> 
@@ -176,7 +176,7 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open === "Memorias RAM" ? style.categoryActiveOneElement : undefined}>
                         <span id={categoryFilter.label=== "Memorias RAM" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('RAM',"","Memorias RAM"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('RAM',"","Memorias RAM"));setSidebarPosition(0)}}>
                                 Memorias RAM
                             </p>
                          </span>  
@@ -200,13 +200,13 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open==="Almacenamiento" ? style.categoryActive : style.categoryDesactive}>
                         <span id={categoryFilter.label=== "Discos Duros" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Almacenamiento',"HDD","Discos Duros"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Almacenamiento',"HDD","Discos Duros"));setSidebarPosition(0)}}>
                             Discos Duros
                             </p>
                          </span>  
                          <span id={categoryFilter.label=== "Discos Solidos SDD" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory("Almacenamiento",["SSD","NVMe"],"Discos Solidos SDD"))}>
+                            <p onClick={()=>{dispatch(filterByCategory("Almacenamiento",["SSD","NVMe"],"Discos Solidos SDD"));setSidebarPosition(0)}}>
                             Discos Solidos  
                             </p>
                          </span> 
@@ -224,7 +224,7 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open === "Fuentes"? style.categoryActiveOneElement : undefined}>
                         <span id={categoryFilter.label=== "Fuentes de Alimentación" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Fuentes',"","Fuentes de Alimentación"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Fuentes',"","Fuentes de Alimentación"));setSidebarPosition(0)}}>
                             Fuentes de Alimentación
                             </p>
                          </span>  
@@ -242,7 +242,7 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open==="Gabinetes" ? style.categoryActiveOneElement : undefined}>
                         <span id={categoryFilter.label=== "Gabinetes" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Gabinetes',"","Gabinetes"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Gabinetes',"","Gabinetes"));setSidebarPosition(0)}}>
                             Gabinetes
                             </p>
                          </span>  
@@ -261,7 +261,7 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open === "Monitores"? style.categoryActiveOneElement : undefined}>
                         <span id={categoryFilter.label=== "Monitores" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Monitores',"","Monitores"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Monitores',"","Monitores"));setSidebarPosition(0)}}>
                             Monitores
                             </p>
                          </span>  
@@ -286,13 +286,13 @@ export default function Sidebar(){
                          </span>   */}
                          <span id={categoryFilter.label=== "Mouses" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Mouses',"","Mouses"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Mouses',"","Mouses"));setSidebarPosition(0)}}>
                                 Mouses
                             </p>
                          </span>  
                          <span id={categoryFilter.label=== "Teclados" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>dispatch(filterByCategory('Teclados',"","Teclados"))}>
+                            <p onClick={()=>{dispatch(filterByCategory('Teclados',"","Teclados"));setSidebarPosition(0)}}>
                             Teclados
                             </p>
                          </span> 
@@ -310,13 +310,13 @@ export default function Sidebar(){
                     <div id={style.childsContaier} className={open === "Mouses"? style.categoryActiveThreeElement : undefined}>
                         <span id={categoryFilter.label=== "Audifonos" ? style.categoryPick : undefined}> 
                                 -&nbsp;
-                                <p onClick={()=>dispatch(filterByCategory('Audifonos',"","Audifonos"))}>
+                                <p onClick={()=>{dispatch(filterByCategory('Audifonos',"","Audifonos"));setSidebarPosition(0)}}>
                                 Audifonos
                                 </p>
                         </span>  
                         <span id={categoryFilter.label=== "Microfonos" ? style.categoryPick : undefined}> 
                                 -&nbsp;
-                                <p onClick={()=>dispatch(filterByCategory('Microfonos',"","Microfonos"))}>
+                                <p onClick={()=>{dispatch(filterByCategory('Microfonos',"","Microfonos"));setSidebarPosition(0)}}>
                                     Microfonos
                                 </p>
                         </span> 

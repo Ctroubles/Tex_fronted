@@ -88,3 +88,12 @@
     font-weight: 500;
     color: rgb(105, 230, 33);
 }
+
+@media screen and (max-width: 510px) {
+    #title{
+        width: 90vw;
+    }
+    #squarePayment{
+        width: 90vw;
+    }
+}

@@ -26,9 +26,9 @@ const MetodoPago = ({userId})=>{
     const [totalPriceNumber, setTotalPriceNumber] = useState([])
 
     useEffect(()=>{
-        if(!carritoCompras.length || !purchaseOrder.deliveryData){
-            history.push("/finalizar")
-        }
+        // if(!carritoCompras.length || !purchaseOrder.deliveryData){
+            // history.push("/finalizar")
+        // }
     },[])
 
     const confirmarHandler=()=>{

@@ -25,6 +25,7 @@
 #product h2{
     font-size: 18px;
     font-weight: 300;
+    text-align: center;
 }
 #precio{
     flex-shrink: 1;

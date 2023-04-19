@@ -130,3 +130,45 @@
     display: block;
     padding: 1px 20px;
 }
+
+@media screen and (max-width: 680px) {
+    #PedidoGenerado{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #main{
+        width: 100vw;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #dataClient{
+        width: 100%;
+        max-width: initial;
+    }
+    #containerBox{
+        display: block;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+    #dataOrder{
+        width: 100%;
+        max-width: initial;
+    }
+    #top img{
+        position: static;
+        transform: initial;
+    }
+    #top{
+        flex-direction: column;
+    }
+    #shoppingCart{
+        width: 100vw;
+        margin-top: 50px;
+        height: auto;
+    }
+}

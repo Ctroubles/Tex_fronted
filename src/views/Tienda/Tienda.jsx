@@ -320,7 +320,7 @@ const getData2 =async()=>{
                 <Header setPopoutFinalizar={setPopoutFinalizar} picture={picture} setSidebarPosition={setSidebarPosition} sidebarPosition={sidebarPosition}/>
             <div id={style.body}>
                 <div id={style.sideBar} style={sidebarPosition?{left:"0px"}:{left: "-250px"}}>
-                  <SideBar/>
+                  <SideBar setSidebarPosition={setSidebarPosition}/>
                   {/* <Filtros/> */}
                 </div>
                 <div id={style.mainContent}>

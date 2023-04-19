@@ -79,7 +79,7 @@ if (loading) {
                         </label>
                     </div>
                 </header>
-            <div> 
+            <div id={style.containerBox}> 
                 <div id={style.top}>
                     <img src={timeLeft>0?checkGreen:xOver} alt="" />
                     <div>
