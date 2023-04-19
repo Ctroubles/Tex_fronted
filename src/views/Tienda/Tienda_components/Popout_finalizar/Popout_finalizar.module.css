@@ -10,6 +10,7 @@
     justify-content: center;
     font-family: 'Nasalization', sans-serif;
     background-color: #11111146;
+    text-align: center;
 }
 
 #popout{
@@ -45,4 +46,18 @@
     background-color: #fd611a;
     text-decoration: none;
     color: #fefefe;
+}
+
+@media screen and (max-width: 680px) {
+    #popout{
+        padding: 10px;
+        width: 300px;
+    }
+    #popout>:nth-child(1){
+        font-size: 16px
+    }
+    #popout>:nth-child(2) button,
+    #popout>:nth-child(2) a{
+       font-size: 14px;
+    }
 }

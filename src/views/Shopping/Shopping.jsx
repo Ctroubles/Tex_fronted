@@ -94,17 +94,6 @@ const Shopping = (props) =>{
                         </div>
                     </div>
                 </div>
-                <div id={style.maxCotainerP} style={estadoPasarela===1?{display:"flex"}:{display:"none"}}>
-                    <div id={style.containerPaypal}>
-                        <h1>Finaliza tu compra</h1>
-                        <Paypal userId={props.userId} statusForm={statusForm} cerrarPasarela={setEstadoPasarela}></Paypal>
-                        <p onClick={()=>setEstadoPasarela(0)} id={style.exitPasarela}>X</p>
-                    </div>
-                </div>
-                
-                <div id={style.AlertaExitosa}  style={estadoPasarela===2?{display:"flex"}:{display:"none"}}>
-                    <CompraExitosa/>
-                </div>
             </div>
         </>
     )

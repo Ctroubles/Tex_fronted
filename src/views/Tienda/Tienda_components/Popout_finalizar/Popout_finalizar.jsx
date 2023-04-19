@@ -17,7 +17,7 @@ const Popout_finalizar = ({setPopoutFinalizar})=>{
                 </div>  
                 <div>
                     <label>
-                        <button id={style.logging} onClick={() => loginWithRedirect()}>Iniciar Sesión</button>
+                        <button id={style.logging} onClick={() => loginWithRedirect()}>Iniciar sesión</button>
                     </label>       
                     <label>
                         <Link to={"/finalizar"} id={style.ivited}>Como invitado</Link>

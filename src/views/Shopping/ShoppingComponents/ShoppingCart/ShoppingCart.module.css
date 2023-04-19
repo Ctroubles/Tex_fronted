@@ -32,3 +32,11 @@
 #totalSection>:nth-child(2)span{
     font-size: 17px;
 }
+
+@media screen and (max-width: 680px) {
+    #cartContainer{
+        width: 90vw;
+        padding: 20px 15px;
+        border-radius: 6px;
+    }
+}

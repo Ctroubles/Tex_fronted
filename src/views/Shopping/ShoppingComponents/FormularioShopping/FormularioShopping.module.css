@@ -275,3 +275,41 @@
 .inputsContainer:focus-within {
     outline: 1px solid #8a8b91bb;
 }
+
+@media screen and (max-width: 680px) {
+    #FormCotainer{
+        width: 90vw;
+    }
+    #identification{
+        flex-direction: column;
+    }
+    #FormCotainer >#firstChild{
+        padding: 10px 10px;
+    }
+    #firstChild .firstLabel{
+        width: 90%;
+        margin-bottom: 15px;
+    }
+    #firstChild #id{
+        width: 70%;
+    }
+    #contactoSection{
+        flex-direction: column;
+    }
+    #contactoDiv{
+        width: 90%;
+        padding-top: 15px;
+    }
+    #childOneSecondDivChildOne{
+        flex-direction: column;
+    }
+    #label2{
+        width: 70%;
+        margin-bottom: 15px;
+    }
+    #secondDiv>#childOneSecondDiv{
+        padding-bottom: 0;
+        padding-top: 15px;
+    }
+   
+}
