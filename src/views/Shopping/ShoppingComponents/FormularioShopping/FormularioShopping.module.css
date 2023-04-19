@@ -304,12 +304,14 @@
         flex-direction: column;
     }
     #label2{
-        width: 70%;
+        width: 75%;
         margin-bottom: 15px;
     }
     #secondDiv>#childOneSecondDiv{
         padding-bottom: 0;
         padding-top: 15px;
     }
-   
+    #label2 #divLabelTwo{
+        height: auto;
+    }
 }
