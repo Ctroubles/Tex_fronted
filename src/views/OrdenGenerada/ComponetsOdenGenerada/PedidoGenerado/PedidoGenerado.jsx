@@ -85,7 +85,7 @@ if (loading) {
                     <div>
                         <label>
                             {timeLeft>0?(<h2>¡Felicitaciones tu orden ha sido generada!</h2>)
-                            :(<h2>Se acabo el tiempo para validar tu compra</h2>)}
+                            :(<h2>Se acabó el tiempo para validar tu compra</h2>)}
                             <p>Orden N° {pedido.nOrden}</p>
                         </label>
                     </div>

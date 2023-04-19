@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const Landing = ()=>{
     return(
         <div id={style.LandingContainer}>
-            <Link to={"/tienda"} className={style.ways}>
+            {/* <Link to={"/tienda"} className={style.ways}>
                 <div id={style.img_ways}>
                     <img src={bolsaTienda} alt="" />
                 </div>
@@ -25,16 +25,29 @@ const Landing = ()=>{
                 </h1>
             </Link>
             <div id={style.logoTex}>
-                {/* <img src={text_logo} alt="" /> */}
                 <h1>TEX</h1>
-            </div>
+            </div> */}
 
-            <div id={style.social}>
+            {/* <div id={style.social}>
                 <img src={facebook} alt="" />
                 <img src={instagram} alt="" />
                 <img src={facebook} alt="" />
-            </div>
-
+            </div> */}
+                <video autoplay="" muted="" loop="" >
+                    <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1681928902/Videos/BANNERS_MAIN_3_ruze89.mp4" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1681929558/Videos/BANNERS-MAIN_3__ndl2tu.webm" type="video/webm" />
+                    <p>Tu navegador no soporta la etiqueta de video HTML5.</p>
+                </video>
+                <label id={style.linkContainer}>
+                    <Link to='/tienda' className={style.LinkCreate}>
+                        <span className={style.span1}></span>
+                        <span className={style.span2}></span>
+                        <span className={style.span3}></span>
+                        <span className={style.span4}></span>
+                        TIENDA
+                    </Link>
+                </label>
+  
         </div>
     )
 };

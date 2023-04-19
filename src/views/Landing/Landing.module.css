@@ -1,17 +1,25 @@
 @import '../../fonts/fonts.css';
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&family=Roboto+Condensed:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&display=swap');
+
+
+
 
 #LandingContainer{
-    background-color: #111111;
+    /* background-color: #111111; */
+    background-color: #4a2657;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    width: 100vw;
+    overflow: hidden;
 }
-.ways{
-    /* width: 300px; */
-    /* height: 500px; */
+#LandingContainer video{
+    height: 100%;
+}
+/* .ways{
+
     background-color: #1c1c1c;
     margin: 20px;
     padding-bottom: 30px;
@@ -31,7 +39,6 @@
     color: #ffffff;
 }
 #social{
-    /* width: 45px; */
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -61,4 +68,120 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-style: italic;
     font-size: 45px;
+} */
+
+
+#linkContainer{
+    position: absolute;
+    bottom: 50px;
+}
+.LinkCreate{
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 900;
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #fefefefe;
+    letter-spacing: 1px;
+    font-size: 24px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.2s;
+    border-radius: 5px;
+    box-shadow: 0 0 120px rgba(245, 245, 245, 0.432);
+    z-index: 1000;
+    background: #a945c7;
+    box-shadow: 0 0 10px #a945c7, 0 0 40px #a945c7, 0 0 80px #a945c7;
+    animation: introFadeIn 1.5s ease-out;
+}
+
+.LinkCreate:hover{
+    background: #a945c7;
+    box-shadow: 0 0 10px #a945c7, 0 0 40px #a945c7, 0 0 80px #a945c7;
+    transform: scale(1.1);
+}
+
+.LinkCreate span{
+    position: absolute;
+    display: block;
+}
+.span1{
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 5px;
+    border-radius: 50%;
+    background: linear-gradient(90deg,transparent,#a945c7);
+}
+
+.LinkCreate:hover .span1{
+    left: 100%;
+    transition: 0.5s;
+}
+
+.span2{
+    top: -100%;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(180deg,transparent,#a945c7);
+}
+
+.LinkCreate:hover .span2{
+    top: 100%;
+    transition: 0.5s;
+    transition-delay: 0.125s;
+}
+
+
+.span3{
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 5px;
+    border-radius: 50%;
+    background: linear-gradient(270deg,transparent,#a945c7);
+}
+
+.LinkCreate:hover .span3{
+    right: 100%;
+    transition: 0.5s;
+    transition-delay: 0.125s;
+}
+
+.span4{
+    bottom: -100%;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(360deg,transparent,#a945c7);
+}
+
+.LinkCreate:hover .span4{
+    bottom: 100%;
+    transition: 0.5s;
+    transition-delay: 0.375s;
+}
+
+
+@media screen and (max-width: 500px){
+
+    .LinkCreate{
+        background: #a945c7;
+        box-shadow: 0 0 10px #a945c7, 0 0 40px #a945c7, 0 0 80px #a945c7;
+        transition-delay: 0.5s;
+    }
+}
+
+
+
+@keyframes introFadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
