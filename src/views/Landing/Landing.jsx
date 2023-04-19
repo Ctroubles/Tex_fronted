@@ -33,9 +33,9 @@ const Landing = ()=>{
                 <img src={instagram} alt="" />
                 <img src={facebook} alt="" />
             </div> */}
-                <video autoplay="" muted="" loop="" >
-                    <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1681928902/Videos/BANNERS_MAIN_3_ruze89.mp4" type="video/mp4" />
-                    <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1681929558/Videos/BANNERS-MAIN_3__ndl2tu.webm" type="video/webm" />
+                <video autoplay="autoplay" muted="muted" loop="loop">
+                    <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1681933574/Videos/BANNERS_MAIN_3_1_jvgjup.mp4" type="video/mp4" />
+                    {/* <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1681929558/Videos/BANNERS-MAIN_3__ndl2tu.webm" type="video/webm" /> */}
                     <p>Tu navegador no soporta la etiqueta de video HTML5.</p>
                 </video>
                 <label id={style.linkContainer}>
