@@ -22,7 +22,7 @@ ReactDOM.render(
       <Auth0Provider
       domain={domain}
       clientId={clientId}
-      redirectUri={document.referrer}
+      redirectUri={window.location.origin}
       options={options}
 
       >
