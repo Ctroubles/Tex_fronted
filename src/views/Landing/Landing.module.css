@@ -185,3 +185,20 @@
         opacity: 1;
     }
 }
+
+#privTerms{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Exo 2', sans-serif;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    font-size: 13px;
+    color: #bebebe7c;
+}
+#privTerms span{
+    cursor: pointer;
+}

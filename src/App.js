@@ -14,6 +14,8 @@ import Forja from "./views/Forja/Forja.jsx"
 import Checkout from "./views/Checkout/Checkout";
 import OrdenGenerada from "./views/OrdenGenerada/OrdenGenerada.jsx";
 import axios from 'axios';
+import PrivacidadView from "./views/Privacidad/Privacidad";
+import TermsConditions from "./views/TermsCondi/TermsConditions";
 
 
 axios.defaults.baseURL = 'https://tex-api.vercel.app/';
@@ -68,6 +70,8 @@ function App() {
           <Route exact path={"/finalizar"} render={()=> <ShoppingView userId={currentUser._id}/>}/>
           <Route exact path={"/finalizar/checkout"} render={()=> <Checkout userId={currentUser._id}/>}/>
           <Route exact path={"/pedidos/:norden/:id"} render={()=> <OrdenGenerada/>}/>
+          <Route exact path={"/politica-de-privacidad"} render={()=> <PrivacidadView/>}/>
+          <Route exact path={"/terminos&condiciones"} render={()=> <TermsConditions/>}/>
           {/* { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') && location.pathname!=='/shoppingcart' && <Header headerRef={headerRef} isAdmin={currentUser?.isAdmin}/>}
           { location.pathname!=='/' &&  !location.pathname.toLowerCase().includes('/admin') && location.pathname!=='/shoppingcart' &&<div id={style.bodyMain} style={{paddingTop:`${paddingMain}px`}}>
           <Route exact path={"/productos"} render={()=> <Productos/>} />

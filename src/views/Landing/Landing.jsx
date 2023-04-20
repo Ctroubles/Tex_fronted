@@ -4,8 +4,13 @@ import instagram from "../../assets/redes-sociaes_icons/Instagram_transparent.sv
 import caseForja from "../../assets/landing_assets/image_forge-way.webp";
 import bolsaTienda from "../../assets/landing_assets/bag_tex.png"
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 
 const Landing = ()=>{
+    const history = useHistory();
+
+
     return(
         <div id={style.LandingContainer}>
             {/* <Link to={"/tienda"} className={style.ways}>
@@ -35,8 +40,7 @@ const Landing = ()=>{
             </div> */}
                 <video autoplay="autoplay" muted="muted" loop="loop">
                     <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1681933574/Videos/BANNERS_MAIN_3_1_jvgjup.mp4" type="video/mp4" />
-                    {/* <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1681929558/Videos/BANNERS-MAIN_3__ndl2tu.webm" type="video/webm" /> */}
-                    <p>Tu navegador no soporta la etiqueta de video HTML5.</p>
+                    <p>Tu navegador no este video.</p>
                 </video>
                 <label id={style.linkContainer}>
                     <Link to='/tienda' className={style.LinkCreate}>
@@ -46,6 +50,10 @@ const Landing = ()=>{
                         <span className={style.span4}></span>
                         TIENDA
                     </Link>
+                </label>
+                <label id={style.privTerms}>
+                    <span onClick={()=>history.push("/terminos&condiciones")} >Terminos y condiciones</span>
+                    <span onClick={()=>history.push("/politica-de-privacidad")}>Política privacidad</span>
                 </label>
   
         </div>

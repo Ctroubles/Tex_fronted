@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { cleanPathname } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteFilterCategory, filterByName, orderByPrice } from "../../redux/actions/actions";
+import { deleteFilterCategory, filterByName } from "../../redux/actions/actions";
 import SideBar from "../../components/SideBar/SideBar.jsx";
 import Card from "./Tienda_components/TiendaCard/TiendaCard"
 import DetailProduct from "./Tienda_components/DetailProduct/DetailProduct";
