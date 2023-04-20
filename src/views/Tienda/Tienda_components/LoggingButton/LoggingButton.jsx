@@ -16,7 +16,7 @@ const LoggingButton = () =>{
             >
                 INICIAR SESIÓN
                 
-            </div> : <img id={style.imgLogIN} src={userimg} alt="imagen" />}
+            </div> : <img  onClick={() => loginWithRedirect()} id={style.imgLogIN} src={userimg} alt="imagen" />}
        </label>
     )
 
