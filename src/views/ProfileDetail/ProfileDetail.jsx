@@ -89,7 +89,7 @@ const ProfileDetail = () => {
                                                  <div id={style.precioSection}>
                                                      <label>
                                                          <span>Monto total:</span>
-                                                         <span>${e.totalPrice}</span>
+                                                         <span>${e.totalPrice.fixedTo(2)}</span>
                                                      </label>
                                                  </div>
                                              </div>

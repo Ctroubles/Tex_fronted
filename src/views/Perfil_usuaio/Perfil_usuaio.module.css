@@ -231,3 +231,31 @@
 .error{
     border: 1px solid #ff0000 !important;
 }
+
+@media screen and (max-width: 680px) {
+    #main{
+        flex-direction: column;
+        width: 100vw;
+    }
+    #side{
+        width: 100%;
+    }
+    #pricipal{
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    .row{
+        flex-direction: column;
+    }
+    .row label{
+        width: 100%;
+    }
+    .attributeData{
+        width: 90px;
+        font-size: 14px;
+    }
+    .valueData{
+        font-size: 13px;
+    }
+
+}

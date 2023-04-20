@@ -3,8 +3,6 @@
 #CardMisComprasContainer{
     background-color: #222121;
     margin: 20px 0;
-    /* font-family: 'Poppins', sans-serif; */
-    /* font-family: 'Nasalization', sans-serif; */
     font-family: 'Exo 2', sans-serif;
 
 }
@@ -124,4 +122,58 @@
 #nOrden{
     padding-left: 10px;
     font-size: 14.5px;
+}
+
+
+@media screen and (max-width: 680px) {
+    #fecha{
+        padding: 0;
+    }
+    #fechaContainer{
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        justify-content: space-between;
+    }
+    #nOrden{
+        padding: 0;
+    }
+    #fechaContainer >:nth-child(1){
+        width: 200px;
+        display: inline-block;
+    }
+    #fechaContainer >:nth-child(1) span{
+        font-size: 14px;
+        display: block;
+    }
+    #fechaContainer >:nth-child(1) p{
+        font-size: 12px;
+        display: block;
+    }
+    #fechaContainer >:nth-child(2){
+        text-align: center;
+        width: auto;
+    }
+    #fechaContainer >:nth-child(2) button{
+        padding: 0;
+    }
+    #fechaContainer >:nth-child(2) button span{
+        padding: 2px 5px;
+        display: inline-block;
+    }
+    #mainCardMisCompras{
+        padding: 10px;
+    }
+    #mainCardMisCompras>:first-child{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #deliveryStatus{
+        width: 100px;
+        flex-shrink: 0;
+    }
+    #precioSection{
+        width: 100%;
+    }
 }

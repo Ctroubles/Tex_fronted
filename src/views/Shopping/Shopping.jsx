@@ -24,9 +24,6 @@ const Shopping = (props) =>{
 
     // const itemsInCart = useSelector(e=>e.shoppingCart);
 
-
-
-    const [estadoPasarela,setEstadoPasarela] = useState(0)
     const [errorsForm,setErrorsForm] = useState({})
 
 
@@ -38,10 +35,10 @@ const Shopping = (props) =>{
         for(let i in errores){
             if(errores[i])approved=false;
         }
-        // if (approved){
+        if (approved){
             dispatch(addDeliveryInformation(statusForm.current))
             history.push("/finalizar/checkout")
-        // }
+        }
     }
 
     return(

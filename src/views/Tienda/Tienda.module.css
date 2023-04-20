@@ -9,6 +9,7 @@
     color: #fefefe;
     font-family: 'Nasalization', sans-serif;
     overflow: hidden;
+    animation: introTineda 1.5s ease-out;
 }
 #Tienda>div{
     display: flex;
@@ -200,4 +201,13 @@
     max-height: calc(100vh - 142px);
     height: calc(100vh - 142px);
    }
+}
+
+@keyframes introTineda {
+    0%{
+        filter: brightness(0%) opacity(1);
+    }
+    100%{
+        filter: brightness(100%) opacity(1);
+    }
 }

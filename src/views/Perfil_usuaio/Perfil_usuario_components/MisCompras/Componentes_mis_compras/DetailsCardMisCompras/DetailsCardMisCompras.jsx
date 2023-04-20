@@ -93,14 +93,14 @@ const DetailsCardMisCompras = ({setOrderFocus,orderFocus})=>{
                                                                     </label>
                                                                     <label>
                                                                         <span>Precio unitario:</span>
-                                                                        <span>s/&nbsp;{e.price}</span>
+                                                                        <span>s/&nbsp;{e.price.toFixed(2)}</span>
                                                                     </label>
                                                                 </div>
                                                             </div>
                                                             <div id={style.thirdDiv} className={style.contenedores} style={{alignItems:"end"}}>  
                                                                     <label>
                                                                         <span>Precio Total: </span>
-                                                                        <span>&nbsp;s/&nbsp;{e.price*e.quantity}</span>
+                                                                        <span>&nbsp;s/&nbsp;{(e.price*e.quantity).toFixed(2)}</span>
                                                                     </label>
                                                             </div>                
                                                         </label>
