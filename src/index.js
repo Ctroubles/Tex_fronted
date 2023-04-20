@@ -24,7 +24,6 @@ ReactDOM.render(
       clientId={clientId}
       redirectUri={window.location.origin}
       options={options}
-
       >
          <BrowserRouter>
             <App />
