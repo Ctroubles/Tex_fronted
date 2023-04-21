@@ -151,7 +151,7 @@ if (loading) {
                         </div>
                         <div className={style.rowBox}>
                             <span className={style.property}>Metodo de pago:</span>
-                            <span className={style.value}>{pedido.paymentMethod} 902038984</span>
+                            <span className={style.value}>{pedido.paymentMethod}</span>
                         </div>
                         <div className={style.rowBox}>
                             <span className={style.property}>Monto total:</span>

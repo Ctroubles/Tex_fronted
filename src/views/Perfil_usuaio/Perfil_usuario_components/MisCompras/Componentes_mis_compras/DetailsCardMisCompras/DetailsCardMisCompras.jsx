@@ -45,7 +45,7 @@ const DetailsCardMisCompras = ({setOrderFocus,orderFocus})=>{
                 <div>
                     <div id={style.montoTotal}>
                         <label>
-                            <span className={style.atributtes}>Numero de Contacto:</span>
+                            <span className={style.atributtes}>Numero de contacto:</span>
                             <span className={style.values}>+51&nbsp;{orderFocus.phone}</span>
                         </label>
                     </div>
@@ -85,7 +85,7 @@ const DetailsCardMisCompras = ({setOrderFocus,orderFocus})=>{
                                                                 <div className={style.imgContainer}><img className={style.img} src={e.img} alt="" /></div>
                                                                 <div className={style.titleContainer}><span id={style.titleCard}>{e.name}</span></div>
                                                             </div>
-                                                            <div id={style.secondDiv} className={style.contenedores} style={{alignItems:"end"}}>
+                                                            <div id={style.secondDiv} className={style.contenedores}>
                                                                 <div className={style.divTwo}>
                                                                     <label>
                                                                         <span>Cantidad: </span>
@@ -97,7 +97,7 @@ const DetailsCardMisCompras = ({setOrderFocus,orderFocus})=>{
                                                                     </label>
                                                                 </div>
                                                             </div>
-                                                            <div id={style.thirdDiv} className={style.contenedores} style={{alignItems:"end"}}>  
+                                                            <div id={style.thirdDiv} className={style.contenedores}>  
                                                                     <label>
                                                                         <span>Precio Total: </span>
                                                                         <span>&nbsp;s/&nbsp;{(e.price*e.quantity).toFixed(2)}</span>
