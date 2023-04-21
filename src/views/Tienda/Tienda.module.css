@@ -190,11 +190,11 @@
     height: 100%;
   }
   #switchContainer{
-    bottom: 5px;
+    bottom: 10px;
     left: 20px;
   }
   #categoryPick{
-    bottom: 12px;
+    bottom: 20px;
     right: 20px;
     left: initial;
   }

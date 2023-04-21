@@ -304,6 +304,9 @@
     #mainInfo > :nth-child(5) button{
         width: 100%;
     }
+    #xIcon{
+        font-size: 18px;
+    }
 
 }
 
