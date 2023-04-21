@@ -34,3 +34,16 @@
     font-size: 13.5px;
     color: #fefefe;
 }
+
+
+
+@media screen  and (max-width: 500px) {
+    .row {
+        width: 100%;
+    }
+    .row label{
+        width: 100%;
+        display: inline-block;
+    }
+
+}

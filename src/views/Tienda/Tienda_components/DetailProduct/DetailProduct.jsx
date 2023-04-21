@@ -115,7 +115,7 @@ console.log(product);
                 <main id={style.ContainerDetailsProduct}>
                      <div id={style.top}>
                         <div id={style.imageContainer} ref={spanCountRef} >
-                            <img src={product.img} alt="" />
+                            <img src={product.img} alt={product.name} />
                         </div>
                      <div id={style.mainInfo}>
                      <div>
@@ -141,11 +141,10 @@ console.log(product);
                     <div id={style.pricesZone}>
                         <div>
                             <p>PRECIO OFERTA</p>
-                            {/* <h2>{(Math.floor(price)+0.99).toLocaleString('es-PE', { style: 'currency', currency: 'PEN' })}</h2> */}
                             <h2>{precioFormatedo}</h2>
                         </div>
                         <div>
-                            <p style={{color:"#a74c9a"}}>PRECIO NORMAL</p>
+                            <p id={style.discountPrice}>PRECIO NORMAL</p>
                             <h2 id={style.discountPrice}> {ofertaFormated}</h2>
                         </div>
                     </div>
@@ -157,7 +156,9 @@ console.log(product);
                                     :<li style={{color:"#e51818"}}><div><img src={redX} alt="X error" id={style.check} /></div>Sin stock</li>}
                                 </ul>
                             </div>
-                            <button className={product.stock <= 0 ? style.noStock : undefined} onClick={product.stock<=0?undefined:overStock?()=>alert("limite de stock"):()=>addToCartHandler()}>SUMAR AL CARRITO</button>
+                            <div>
+                                <button className={product.stock <= 0 ? style.noStock : undefined} onClick={product.stock<=0?undefined:overStock?()=>alert("limite de stock"):()=>addToCartHandler()}>SUMAR AL CARRITO</button>
+                            </div>
                         </div>
                         <div id={style.xIcon} onClick={()=>history.push("/tienda")}>X</div>
                      </div>
