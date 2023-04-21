@@ -99,7 +99,7 @@ const DetailsCardMisCompras = ({setOrderFocus,orderFocus})=>{
                                                             </div>
                                                             <div id={style.thirdDiv} className={style.contenedores}>  
                                                                     <label>
-                                                                        <span id={style.attributesCards}>Precio Total: </span>
+                                                                        <span id={style.attributesCardsTotal}>Precio Total: </span>
                                                                         <span id={style.valuesCards}>&nbsp;s/&nbsp;{(e.price*e.quantity).toFixed(2)}</span>
                                                                     </label>
                                                             </div>                

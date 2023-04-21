@@ -283,6 +283,9 @@
     #thirdDiv{
         width: 100%;
     }
+    #thirdDiv label{
+        display: flex;
+    }
     #cardsProductosOnDetailsContainer{
         border-top: 1px solid #808080;
         max-height: 400px;
@@ -291,9 +294,17 @@
     }
     #attributesCards{
         font-size: 13px;
-        display: inline-block;
+        display: block;
         width: 105px;
         margin: 0 !important;
+        flex-shrink: 0;
+    }    
+    #attributesCardsTotal{
+        font-size: 13px;
+        display: block;
+        width: 103px;
+        margin: 0 !important;
+        flex-shrink: 0;
     }
     #valuesCards{
         font-size: 12px;
