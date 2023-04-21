@@ -88,19 +88,19 @@ const DetailsCardMisCompras = ({setOrderFocus,orderFocus})=>{
                                                             <div id={style.secondDiv} className={style.contenedores}>
                                                                 <div className={style.divTwo}>
                                                                     <label>
-                                                                        <span>Cantidad: </span>
-                                                                        <span>{e.quantity}</span>
+                                                                        <span id={style.attributesCards}>Cantidad: </span>
+                                                                        <span id={style.valuesCards}>{e.quantity}</span>
                                                                     </label>
                                                                     <label>
-                                                                        <span>Precio unitario:</span>
-                                                                        <span>s/&nbsp;{e.price.toFixed(2)}</span>
+                                                                        <span id={style.attributesCards} >Precio unitario:</span>
+                                                                        <span id={style.valuesCards}>s/&nbsp;{e.price.toFixed(2)}</span>
                                                                     </label>
                                                                 </div>
                                                             </div>
                                                             <div id={style.thirdDiv} className={style.contenedores}>  
                                                                     <label>
-                                                                        <span>Precio Total: </span>
-                                                                        <span>&nbsp;s/&nbsp;{(e.price*e.quantity).toFixed(2)}</span>
+                                                                        <span id={style.attributesCards}>Precio Total: </span>
+                                                                        <span id={style.valuesCards}>&nbsp;s/&nbsp;{(e.price*e.quantity).toFixed(2)}</span>
                                                                     </label>
                                                             </div>                
                                                         </label>

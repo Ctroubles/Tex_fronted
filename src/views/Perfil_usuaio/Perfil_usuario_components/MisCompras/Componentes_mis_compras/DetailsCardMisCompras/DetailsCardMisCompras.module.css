@@ -289,4 +289,13 @@
         overflow: auto;
         padding: 0px 10px 10px 10px;
     }
+    #attributesCards{
+        font-size: 13px;
+        display: inline-block;
+        width: 105px;
+        margin: 0 !important;
+    }
+    #valuesCards{
+        font-size: 12px;
+    }
 }
