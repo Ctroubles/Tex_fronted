@@ -26,7 +26,7 @@ const Logged = ({img,name, email})=>{
                         <span>Mi perfil</span>
                     </label>
                 </Link>            
-                <div className={style.options} onClick={()=>logout()} style={{paddingBottom:"10px"}}>
+                <div className={style.options} onClick={()=>logout()} style={{paddingBottom:"5px", color:" #e61919 "}}>
                     <label>
                         <span>Cerrar sesión</span>
                     </label>
