@@ -252,7 +252,7 @@ const getData2 =async()=>{
             }else setProductsFilteredBySearchBar([])
         }
         getProducts()
-    },[searchBarStatus])
+    },[searchBarStatus, products])
 
 
 
