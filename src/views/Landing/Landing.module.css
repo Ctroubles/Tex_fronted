@@ -6,7 +6,7 @@
 
 #LandingContainer{
     /* background-color: #111111; */
-    background-color: #4a2657;
+    background-color: #482351;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@
     overflow: hidden;
 }
 #LandingContainer video{
-    height: 100%;
+    width: 90%;
 }
 /* .ways{
 
@@ -74,6 +74,8 @@
 #linkContainer{
     position: absolute;
     bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .LinkCreate{
     font-family: 'Exo 2', sans-serif;
@@ -201,4 +203,11 @@
 }
 #privTerms span{
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 680px) {
+    #LandingContainer video{
+        width: 200%;
+    }
 }

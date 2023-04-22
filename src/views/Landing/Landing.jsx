@@ -5,10 +5,14 @@ import caseForja from "../../assets/landing_assets/image_forge-way.webp";
 import bolsaTienda from "../../assets/landing_assets/bag_tex.png"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { useMediaQuery } from '@material-ui/core';
+
 
 
 const Landing = ()=>{
     const history = useHistory();
+
+    const widthMobile = useMediaQuery('(max-width: 680px)');
 
 
     return(
@@ -38,8 +42,9 @@ const Landing = ()=>{
                 <img src={instagram} alt="" />
                 <img src={facebook} alt="" />
             </div> */}
-                <video autoplay="autoplay" muted="muted" loop="loop">
-                    <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1681933574/Videos/BANNERS_MAIN_3_1_jvgjup.mp4" type="video/mp4" />
+                <video autoPlay ="autoPlay " muted="muted" loop="loop">
+                    {!widthMobile?<source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1682177803/Videos/pc_video_loop_tex_qb9xpb.mp4" type="video/mp4" />
+                    :<source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1682177806/Videos/mobile_video_loop_tex_yv3ta1.mp4" type="video/mp4" />}
                     <p>Tu navegador no este video.</p>
                 </video>
                 <label id={style.linkContainer}>

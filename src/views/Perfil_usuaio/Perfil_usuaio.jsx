@@ -139,7 +139,7 @@ const Perfil_usuario = ({userEmail})=>{
                         </label>
                     </div>
                     <div id={style.informationContainer}>
-                        <h1>Información</h1>
+                        <h1>Información:</h1>
                         <div id={style.userData}>
                             <div className={style.row}>
                                 <label><span className={style.attributeData} >Nombres :</span> <input id={errorsForm.name?style.error:undefined} onChange={handlerChange} name="name" className={style.valueData} style={editable?editableStyle:undefined} value={userData.name} readOnly={!editable}  spellCheck="false"/>  </label>

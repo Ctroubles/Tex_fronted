@@ -287,7 +287,7 @@ const getData2 =async()=>{
 
 ////////////////////////////////////////////////////////OJOOOOOOO
       const functionToClose = (e)=>{
-        if (e.target === e.currentTarget) {
+        if (e.target === e.currentTarget || e.target.classList.contains("cover")) {
           const productOnFocus = e.currentTarget
           if (!productOnFocus) return;
           productOnFocus.style.transition = 'opacity 0.4s'; 

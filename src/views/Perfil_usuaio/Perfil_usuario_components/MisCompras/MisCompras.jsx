@@ -35,7 +35,7 @@ const MisCompras = ({ordenes}) =>{
         <div id={style.MisComprasContaier}>
             <div>
                 <div id={style.titleMisCompras}>
-                    <h1>Mis compras</h1>
+                    <h1>Mis compras:</h1>
                 </div>
             <div id={style.comprasCardContainer}>
                 {
