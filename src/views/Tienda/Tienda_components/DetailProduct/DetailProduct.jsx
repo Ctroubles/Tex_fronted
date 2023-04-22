@@ -85,7 +85,7 @@ const DetailProduct = ({product})=>{
     }, [product]);
 
 
-      
+
     useEffect(()=>{
         const updateStock = async()=>{
             const itemInCart = carrito.find(producto => producto._id === id);

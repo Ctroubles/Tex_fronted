@@ -41,7 +41,7 @@ const Header_tienda =({setPopoutFinalizar,picture,setSidebarPosition,sidebarPosi
 
 
     useEffect(()=>{
-        if(user)setUsuario({name:user.given_name,img:user.picture})
+        if(user)setUsuario({name:user.given_name,img:user.picture, email:user.email})
     },[user,isAuthenticated])
 
 
@@ -126,7 +126,7 @@ const Header_tienda =({setPopoutFinalizar,picture,setSidebarPosition,sidebarPosi
                     </div>
                     <div id={style.logMenuContainer} >
                         {isAuthenticated?(
-                            <Logged img={picture} name={usuario.name} />
+                            <Logged img={picture} name={usuario.name} email={usuario.email}/>
                         ):(
                             <LoggingButton/>
                         )}
