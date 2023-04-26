@@ -48,7 +48,7 @@ const DetailProduct = ({product})=>{
         animationAdd()
         const getProductById = async() =>{
             const {data}= await axios.get(`/id/${product._id}`);
-            dispatch(addCountCartCustom({product:data,cantidad:inputStatus}))
+            dispatch(addCountCartCustom({product:data,cantidad:Number(inputStatus)}))
             setInputStatus(1)
         };
         getProductById()
