@@ -18,96 +18,24 @@
     width: 100%;
     max-width: 1200px;
     max-height: 90vh;
-    overflow: hidden;
+    overflow: visible;
 }
 
 
 
-.span1{
-    position: absolute;
-    display: block;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 5px;
-    border-radius: 50%;
-    background: linear-gradient(90deg,transparent,#a945c7);
-}
-
-#pupoutDetail:hover .span1{
-    left: 100%;
-    transition: 2s;
-}
-
-.span2{
-    position: absolute;
-    display: block;
-    top: -100%;
-    right: 0;
-    width: 5px;
-    height: 100%;
-    border-radius: 50%;
-    background: linear-gradient(180deg,transparent,#2ed32e);
-}
-
-#pupoutDetail:hover .span2{
-    top: 100%;
-    transition: 2s;
-    transition-delay: 0.5s;
-}
-
-
-.span3{
-    position: absolute;
-    display: block;
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 5px;
-    border-radius: 50%;
-    background: linear-gradient(270deg,transparent,#a945c7);
-}
-
-#pupoutDetail:hover .span3{
-    right: 100%;
-    transition: 2s;
-    transition-delay: 0s;
-}
-
-.span4{
-    position: absolute;
-    display: block;
-    bottom: -100%;
-    left: 0;
-    width: 5px;
-    height: 100%;
-    border-radius: 50%;
-    background: linear-gradient(360deg,transparent,#2ed32e);
-}
-
-#pupoutDetail:hover .span4{
-    bottom: 100%;
-    transition: 2s;
-    transition-delay: 0.5s;
-    height: 100%;
-}
-
-
-
-/* 
 #pupoutDetail::before{
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 60%;
-    height: 60%;
-    box-shadow: 0 0 17px 3px #ff01c0,0 0 4px 2px #282c42ef;
-    z-index: -1;
-    animation-name: yellow-shadow;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 17px 3px #0ff,0 0 4px 2px #ffff01;
+    z-index: -10;
+    /* animation-name: cyan-shadow;
     animation-timing-function: ease;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
+    animation-duration: 4s;
+    animation-iteration-count: infinite; */
     border-radius: 10px; 
 }
 #pupoutDetail::after{
@@ -115,16 +43,67 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 60%;
-    height: 60%;
-    box-shadow: 0 0 17px 3px #ffff01,0 0 4px 2px #282c42ef;
-    z-index: -1;
-    animation-name: cyan-shadow;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 17px 3px #e71fee,0 0 4px 2px #ffff01;
+    z-index: -10;
+    /* animation-name: yellow-shadow;
     animation-timing-function: ease;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
+    animation-duration: 4s;
+    animation-iteration-count: infinite; */
     border-radius: 10px; 
-} */
+}
+
+@keyframes yellow-shadow {
+    0% {
+      top: 0;
+      left: 0;
+    }
+    25% {
+      top: 50%;
+      left: 0;
+    }
+    50% {
+      top: 50%;
+      left: 50%;
+    }
+    75% {
+      top: 0;
+      left: 50%;
+    }
+    100% {
+      top: 0;
+      left: 0;
+    }
+  }
+  
+
+  
+  @keyframes cyan-shadow {
+    0% {
+      right: 0;
+      bottom: 0;
+    }
+    25% {
+      right: 0;
+      bottom: 50%;
+    }
+    50% {
+      right: 50%;
+      bottom: 50%;
+    }
+    75% {
+      right: 50%;
+      bottom: 0;
+    }
+    100% {
+      right: 0;
+      bottom: 0;
+    }
+  }
+  
+
+
 #pupoutDetail::-webkit-scrollbar {
     width: 5px;
 }
