@@ -47,9 +47,11 @@ const DetailProduct = ({product})=>{
     const addToCartHandler = ()=>{
         animationAdd()
         const getProductById = async() =>{
-            const {data}= await axios.get(`/id/${product._id}`);
-            dispatch(addCountCartCustom({product:data,cantidad:Number(inputStatus)}))
-            setInputStatus(1)
+            if(!isNaN(inputStatus.replace(/[^0-9]/g, ''))){
+                const {data}= await axios.get(`/id/${product._id}`);
+                dispatch(addCountCartCustom({product:data,cantidad:Number(inputStatus)}))
+                setInputStatus(1)
+            }
         };
         getProductById()
     };
@@ -108,9 +110,8 @@ const DetailProduct = ({product})=>{
 
  
     const handlerChange =(e)=>{
-        console.log(count);
         const value = e.target.value.replace(/[^0-9]/g, ''); 
-        if (value === "0"  || value ==="-" || value > product.stock-count || (isNaN(value) && value !== "")) {
+        if (value === "0"  || value ==="-"  || value ==="e" || value > product.stock-count || (isNaN(value) && value !== "")) {
            return
         }
         setInputStatus(value)
@@ -128,6 +129,7 @@ const DetailProduct = ({product})=>{
         }
     }
 
+    
 
     return(
         <div id={style.Detail} className="cover">
@@ -180,7 +182,7 @@ const DetailProduct = ({product})=>{
                             <div id={style.addersZone}>
                                 <div id={style.adderInput}>
                                     <span onClick={()=>restInputValue()} >-</span>
-                                    <input value={inputStatus} type="number" onChange={(e)=>handlerChange(e)} min={1}  max={product.stock}/>
+                                    <input value={inputStatus} type="text" onChange={(e)=>handlerChange(e)} min={1}  max={product.stock}/>
                                     <span onClick={()=>addInputValue()} >+</span>
                                 </div>
                                 <button className={product.stock <= 0 ? style.noStock : undefined} onClick={product.stock<=0?undefined:overStock?()=>alert("limite de stock"):()=>addToCartHandler()}>SUMAR AL CARRITO</button>
