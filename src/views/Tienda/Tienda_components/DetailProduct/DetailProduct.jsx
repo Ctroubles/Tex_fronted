@@ -133,66 +133,68 @@ const DetailProduct = ({product})=>{
 
     return(
         <div id={style.Detail} className="cover">
-            <div id={style.pupoutDetail} >
-                <div id={style.titleProduct}><h1>{product.name}</h1></div>
-                <main id={style.ContainerDetailsProduct}>
-                     <div id={style.top}>
-                        <div id={style.imageContainer} ref={spanCountRef} >
-                            <img src={product.img} alt={product.name} />
-                        </div>
-                     <div id={style.mainInfo}>
-                     <div>
-                        
-                    </div>
-                    <span id={style.category} style={{
-                            color: '#fefefeac',
-                            }}> 
-                        <span
-                            style={{
-                            display: 'inline-block',
-                            width: '7.5px',
-                            height: '7.5px',
-                            borderRadius: '50%',
-                            backgroundColor: '#fefefe8d',
-                            textAlign: 'center',
-                            lineHeight: '20px',
-                            }}
-                        >
-                        </span>{' '} 
-                        {category?.replace(/^\w/, (letra) => letra.toUpperCase())}</span>
-
-                    <div id={style.pricesZone}>
+            <div id={style.shadowContainer}>
+                <div id={style.pupoutDetail} >
+                    <div id={style.titleProduct}><h1>{product.name}</h1></div>
+                    <main id={style.ContainerDetailsProduct}>
+                        <div id={style.top}>
+                            <div id={style.imageContainer} ref={spanCountRef} >
+                                <img src={product.img} alt={product.name} />
+                            </div>
+                        <div id={style.mainInfo}>
                         <div>
-                            <p id={style.priceLabel}>PRECIO</p>
-                            <h2>{precioFormatedo}</h2>
+                            
                         </div>
-                        {/* <div>
-                            <p id={style.discountPrice}>PRECIO NORMAL</p>
-                            <h2 id={style.discountPrice}> {ofertaFormated}</h2>
-                        </div> */}
-                    </div>
+                        <span id={style.category} style={{
+                                color: '#fefefeac',
+                                }}> 
+                            <span
+                                style={{
+                                display: 'inline-block',
+                                width: '7.5px',
+                                height: '7.5px',
+                                borderRadius: '50%',
+                                backgroundColor: '#fefefe8d',
+                                textAlign: 'center',
+                                lineHeight: '20px',
+                                }}
+                            >
+                            </span>{' '} 
+                            {category?.replace(/^\w/, (letra) => letra.toUpperCase())}</span>
+
+                        <div id={style.pricesZone}>
                             <div>
-                                <ul>
-                                    <li><div><img src={shield} alt="Shield Protection" /></div> Garantía - {capitalize(product.warranty)}</li>
-                                    <li><div><img src={truck} alt="Delivery truck" id={style.truck} /></div> Envíos a todo el Perú</li>
-                                    {product.stock?<li><div><img src={check} alt="Green Check" id={style.check} /></div>Stock disponible - {product.stock} unidades</li>
-                                    :<li style={{color:"#e51818"}}><div><img src={redX} alt="X error" id={style.check} /></div>Sin stock</li>}
-                                </ul>
+                                <p id={style.priceLabel}>PRECIO</p>
+                                <h2>{precioFormatedo}</h2>
                             </div>
-                            <div id={style.addersZone}>
-                                <div id={style.adderInput}>
-                                    <span onClick={()=>restInputValue()} >-</span>
-                                    <input value={inputStatus} type="text" onChange={(e)=>handlerChange(e)} min={1}  max={product.stock}/>
-                                    <span onClick={()=>addInputValue()} >+</span>
-                                </div>
-                                <button className={product.stock <= 0 ? style.noStock : undefined} onClick={product.stock<=0?undefined:overStock?()=>alert("limite de stock"):()=>addToCartHandler()}>SUMAR AL CARRITO</button>
-                            </div>
+                            {/* <div>
+                                <p id={style.discountPrice}>PRECIO NORMAL</p>
+                                <h2 id={style.discountPrice}> {ofertaFormated}</h2>
+                            </div> */}
                         </div>
-                        <div id={style.xIcon} onClick={()=>history.push("/tienda")}>X</div>
-                     </div>
-                </main>
-                <div id={style.tableContainer}>
-                    <TableInformation description={descriptionArray}/>
+                                <div>
+                                    <ul>
+                                        <li><div><img src={shield} alt="Shield Protection" /></div> Garantía - {capitalize(product.warranty)}</li>
+                                        <li><div><img src={truck} alt="Delivery truck" id={style.truck} /></div> Envíos a todo el Perú</li>
+                                        {product.stock?<li><div><img src={check} alt="Green Check" id={style.check} /></div>Stock disponible - {product.stock} unidades</li>
+                                        :<li style={{color:"#e51818"}}><div><img src={redX} alt="X error" id={style.check} /></div>Sin stock</li>}
+                                    </ul>
+                                </div>
+                                <div id={style.addersZone}>
+                                    <div id={style.adderInput}>
+                                        <span onClick={()=>restInputValue()} >-</span>
+                                        <input value={inputStatus} type="text" onChange={(e)=>handlerChange(e)} min={1}  max={product.stock}/>
+                                        <span onClick={()=>addInputValue()} >+</span>
+                                    </div>
+                                    <button className={product.stock <= 0 ? style.noStock : undefined} onClick={product.stock<=0?undefined:overStock?()=>alert("limite de stock"):()=>addToCartHandler()}>SUMAR AL CARRITO</button>
+                                </div>
+                            </div>
+                            <div id={style.xIcon} onClick={()=>history.push("/tienda")}>X</div>
+                        </div>
+                    </main>
+                    <div id={style.tableContainer}>
+                        <TableInformation description={descriptionArray}/>
+                    </div>
                 </div>
             </div>
         </div>
