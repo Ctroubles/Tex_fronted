@@ -131,8 +131,11 @@
     margin-bottom: 3px;
     color: #e7e4e4;
 }
+#mainInfo > :nth-child(3){
+    color: #fefefebb;
+}
 #mainInfo > :nth-child(3) h2{
-    font-size: 32px;
+    font-size: 30px;
     font-family: 'Exo 2', sans-serif;
     font-weight: 500;
 }
