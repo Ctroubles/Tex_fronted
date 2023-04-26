@@ -134,6 +134,10 @@ const DetailProduct = ({product})=>{
     return(
         <div id={style.Detail} className="cover">
             <div id={style.pupoutDetail} >
+            <span className={style.span1}></span>
+            <span className={style.span2}></span>
+            <span className={style.span3}></span>
+            <span className={style.span4}></span>
                 <div id={style.titleProduct}><h1>{product.name}</h1></div>
                 <main id={style.ContainerDetailsProduct}>
                      <div id={style.top}>
