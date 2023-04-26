@@ -110,7 +110,7 @@ const Header_tienda =({setPopoutFinalizar,picture,setSidebarPosition,sidebarPosi
                     <img src={menuLine} alt="menu lines" />
                 </label>):null}
                 <Link to={"/"} id={style.logoTexContainer}>
-                    <img src={"https://res.cloudinary.com/dmv0gnlcu/image/upload/v1682526900/Tex_logos/TEXstore_BNF_hgqxd7.png"} alt="Logo TEX" />
+                    <img src={"https://res.cloudinary.com/dmv0gnlcu/image/upload/v1682527319/Tex_logos/TEXstore_BNF_jrl0qv.png"} alt="Logo TEX" />
                 </Link>  
                 <label id={style.buttonsRight}>
                     <div id={style.shoppingCartContainer}  style={shoppingCartStatus ? { backgroundColor: '#ffdf58' } : undefined} >
