@@ -1,4 +1,4 @@
-import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC, FILTER_BY_NAME, ADD_DELIVERY_INFORMATION, ADD_PAYMENT_METHOD } from "../actions/actions.types";
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC, FILTER_BY_NAME, ADD_DELIVERY_INFORMATION, ADD_PAYMENT_METHOD, ADD_COUNT_CART_CUSTOM } from "../actions/actions.types";
 import { getCurrentComponent } from "../../utils";
 import { sortByPrice,fusionarProductos } from "../../helpers/reducer.helpers";
 import axios from "axios";
@@ -210,7 +210,35 @@ const rootReducer = (state = initialState, { type, payload }) =>{
                     deliveryData:payload,
                 }
             };
+        
+        case ADD_COUNT_CART_CUSTOM:
+            const cart8 = state.shoppingCart.map(e=>e);
+            const itemInCart8 = cart8.find((item ,) => item._id === payload.product._id);
+            let index8;
+            if (itemInCart8) {
+                if(itemInCart8.quantity+payload.cantidad <= payload.product.stock){
+                    cart8.forEach((e,i)=>{
+                        if (e._id === itemInCart8._id) 
+                        index8 = i
+                    })
+                    const newob={
+                        ...payload.product,
+                        quantity:itemInCart8.quantity+payload.cantidad
+                    }
+                    cart8.splice(index8,1,newob)
+                }
+                
+            } else {
+                if(payload.product.stock>0 && payload.cantidad <= payload.product.stock){
+                    cart8.push({ ...payload.product, quantity: payload.cantidad });
+                }
+            }
 
+            window.localStorage.setItem('carrito', JSON.stringify(cart8))
+            return {
+                ...state,
+                shoppingCart: cart8,
+              };
 
         default:
             return{

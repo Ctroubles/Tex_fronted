@@ -10,6 +10,7 @@ export const PICK_ARMA_TU_PC = "PICK_ARMA_TU_PC";
 export const CLEAN_ARMA_TU_PC = "CLEAN_ARMA_TU_PC"
 export const EDIT_USER = "EDIT_USER"
 export const ADD_DELIVERY_INFORMATION = "ADD_DELIVERY_INFORMATION";
+export const ADD_COUNT_CART_CUSTOM = "ADD_COUNT_CART_CUSTOM";
 //Shopping cart
 export const ADD_TO_CART = "ADD_TO_CART";
 export const INCREMENT_CART = "INCREMENT_CART";

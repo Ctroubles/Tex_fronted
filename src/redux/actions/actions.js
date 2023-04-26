@@ -1,4 +1,4 @@
-import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, EDIT_USER, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC, FILTER_BY_NAME, ADD_DELIVERY_INFORMATION, ADD_PAYMENT_METHOD,} from "./actions.types"
+import { SET_STATE_VIEW_CARD, SET_STEP_BUILD_PC, ORDER_PRICE, GET_DETAIL_COMPONENT, FILTER_BY_CATEGORY, DELETE_FILTER_CATEGORY, PICK_ARMA_TU_PC, CLEAN_ARMA_TU_PC, ADD_COUNT_CART_CUSTOM, ADD_TO_CART, INCREMENT_CART, DECREMENT_CART, REMOVE_ITEM_CART, CLEAN_SHOPPING_CART, FINALIZAR_ARMA_TU_PC, FILTER_BY_NAME, ADD_DELIVERY_INFORMATION, ADD_PAYMENT_METHOD,} from "./actions.types"
 import axios from 'axios'
 import { filterCategoryParams } from "../../helpers/Filter.helpers";
 import url from "../../utils/deploy_back";
@@ -173,6 +173,13 @@ const addDeliveryInformation = (form) =>{
 };
 
 
+const addCountCartCustom  = (payload)=>{
+    return{
+        type: ADD_COUNT_CART_CUSTOM,
+        payload,
+    }
+}
+
 
 
 export {
@@ -193,4 +200,5 @@ export {
      cleanShoppingCart,
      finalizarArmaTuPc,
      addDeliveryInformation,
+     addCountCartCustom,
 };

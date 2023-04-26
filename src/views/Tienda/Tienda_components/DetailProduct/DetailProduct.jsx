@@ -5,7 +5,7 @@ import shield from "../../../../assets/detalles_componente/shield.svg";
 import { useHistory } from "react-router-dom";
 import TableInformation from "./Table_information/TableInformation";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../../../redux/actions/actions";
+import { addCountCartCustom, addToCart } from "../../../../redux/actions/actions";
 import axios from "axios";
 import { capitalize } from "../../../../utils";
 import { useEffect, useRef, useState } from "react";
@@ -18,6 +18,7 @@ const DetailProduct = ({product})=>{
     const [precioFormatedo, setPrecioFormateado] = useState('');
     const [ofertaFormated, setOfertaFormated] = useState('');
     const [count, setCount] = useState(0);
+    const [inputStatus, setInputStatus] = useState(1);
     const [overStock, setOverStock]=useState(false)
 
 
@@ -35,7 +36,7 @@ const DetailProduct = ({product})=>{
     const animationAdd = ()=> {
         const spanElement = document.createElement('span');
         spanElement.setAttribute('id', style.addingProduct);
-        spanElement.innerText="+1"
+        spanElement.innerText=`+${inputStatus}`
         spanCountRef.current?.appendChild(spanElement);
         setTimeout(() => {
             spanElement.remove();
@@ -47,7 +48,8 @@ const DetailProduct = ({product})=>{
         animationAdd()
         const getProductById = async() =>{
             const {data}= await axios.get(`/id/${product._id}`);
-            dispatch(addToCart(data))
+            dispatch(addCountCartCustom({product:data,cantidad:inputStatus}))
+            setInputStatus(1)
         };
         getProductById()
     };
@@ -105,6 +107,26 @@ const DetailProduct = ({product})=>{
 
 
  
+    const handlerChange =(e)=>{
+        console.log(count);
+        const value = e.target.value.replace(/[^0-9]/g, ''); 
+        if (value === "0"  || value ==="-" || value > product.stock-count || (isNaN(value) && value !== "")) {
+           return
+        }
+        setInputStatus(value)
+    }
+
+    const addInputValue = ()=>{
+        if (inputStatus < product.stock-count) {
+            setInputStatus(Number(inputStatus) + 1)
+        }
+    }
+
+    const restInputValue = ()=>{
+        if (inputStatus > 1) {
+            setInputStatus(Number(inputStatus) - 1)
+        }
+    }
 
 
     return(
@@ -139,13 +161,13 @@ const DetailProduct = ({product})=>{
 
                     <div id={style.pricesZone}>
                         <div>
-                            <p>PRECIO OFERTA</p>
+                            <p id={style.priceLabel}>PRECIO</p>
                             <h2>{precioFormatedo}</h2>
                         </div>
-                        <div>
+                        {/* <div>
                             <p id={style.discountPrice}>PRECIO NORMAL</p>
                             <h2 id={style.discountPrice}> {ofertaFormated}</h2>
-                        </div>
+                        </div> */}
                     </div>
                             <div>
                                 <ul>
@@ -155,7 +177,12 @@ const DetailProduct = ({product})=>{
                                     :<li style={{color:"#e51818"}}><div><img src={redX} alt="X error" id={style.check} /></div>Sin stock</li>}
                                 </ul>
                             </div>
-                            <div>
+                            <div id={style.addersZone}>
+                                <div id={style.adderInput}>
+                                    <span onClick={()=>restInputValue()} >-</span>
+                                    <input value={inputStatus} type="number" onChange={(e)=>handlerChange(e)} min={1}  max={product.stock}/>
+                                    <span onClick={()=>addInputValue()} >+</span>
+                                </div>
                                 <button className={product.stock <= 0 ? style.noStock : undefined} onClick={product.stock<=0?undefined:overStock?()=>alert("limite de stock"):()=>addToCartHandler()}>SUMAR AL CARRITO</button>
                             </div>
                         </div>

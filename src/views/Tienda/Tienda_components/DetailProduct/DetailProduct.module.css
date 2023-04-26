@@ -113,16 +113,24 @@
 
 #mainInfo > :nth-child(3){
     border-top: 1px solid #696967;
-    border-bottom: 1px solid #696967;
+    /* border-bottom: 1px solid #696967; */
     height: 75px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    color: #5ea0fc;
+    justify-content: start;
     padding-right: 50px;
+    padding-top: 10px;
 }
 
-
+#priceLabel{
+    background-color: #c96726;
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 15px !important;
+    margin-bottom: 3px;
+    color: #e7e4e4;
+}
 #mainInfo > :nth-child(3) h2{
     font-size: 32px;
     font-family: 'Exo 2', sans-serif;
@@ -188,7 +196,7 @@
 #mainInfo > :nth-child(5) button{
     background-color: #e4752b;
     height: 35px;
-    width: 300px;
+    width: 200px;
     border: none;
     font-size: 14px;
     font-weight: 500;
@@ -227,15 +235,45 @@
 }
 #pricesZone p {
     font-family: 'Exo 2', sans-serif;
-    font-size: 13px !important;
+    font-size: 13px ;
     font-weight: 600;
 }
 #small_decimals{
     font-size: 15px;
 }
-
-
-
+#addersZone{
+    border-bottom: 1px solid #696967;
+    padding-bottom: 20px;
+}
+#adderInput{
+    display: inline-block;
+    padding-right: 10px;
+}
+#adderInput span{
+    background-color: #e4752b;
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+}
+#adderInput input{
+    width: 35px;
+    margin: 0 4px 0 4px;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    height: 28px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+#adderInput input::-webkit-inner-spin-button,
+#adderInput input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 @keyframes intro2{
     0%{
         opacity: 0;
