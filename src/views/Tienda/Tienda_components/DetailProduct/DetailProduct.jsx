@@ -47,7 +47,7 @@ const DetailProduct = ({product})=>{
     const addToCartHandler = ()=>{
         animationAdd()
         const getProductById = async() =>{
-            if(!isNaN(inputStatus.replace(/[^0-9]/g, ''))){
+            if(!isNaN(inputStatus.toString().replace(/[^0-9]/g, ''))){
                 const {data}= await axios.get(`/id/${product._id}`);
                 dispatch(addCountCartCustom({product:data,cantidad:Number(inputStatus)}))
                 setInputStatus(1)
