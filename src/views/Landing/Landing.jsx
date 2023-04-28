@@ -43,8 +43,8 @@ const Landing = ()=>{
                 <img src={facebook} alt="" />
             </div> */}
                 <video autoPlay ="autoPlay " muted="muted" loop="loop">
-                    {!widthMobile?<source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1682177803/Videos/pc_video_loop_tex_qb9xpb.mp4" type="video/mp4" />
-                    :<source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1682177806/Videos/mobile_video_loop_tex_yv3ta1.mp4" type="video/mp4" />}
+                    {!widthMobile?<source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1682690748/Videos/H_PAGE_LOOP_a6c9iu.mp4" type="video/mp4" />
+                    :<source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1682690747/Videos/V_PAGE_LOOP_h6lggy.mp4" type="video/mp4" />}
                     <p>Tu navegador no este video.</p>
                 </video>
                 <label id={style.linkContainer}>
