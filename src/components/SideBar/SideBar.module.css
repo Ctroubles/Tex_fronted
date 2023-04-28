@@ -19,11 +19,11 @@
 }
 #title>h1{
   color: #fd611a;
-  font-style: italic;
-  font-weight: 600;
+  font-weight: 500;
   cursor: default;
   user-select: none;
   font-size: 20px;
+  font-family: 'Exo 2', sans-serif;
 }
 #categoryContainer{
   display: block;

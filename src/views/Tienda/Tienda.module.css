@@ -4,7 +4,7 @@
 
 
 #Tienda{
-    background-color: #111111;
+    background: linear-gradient(to bottom, #161616 40%, rgb(13, 54, 92));
     height: 100vh;
     color: #fefefe;
     font-family: 'Nasalization', sans-serif;
@@ -27,7 +27,7 @@
     min-height: calc(100vh - 91.5px);
     width: 250px;
     flex-shrink: 0;
-    background-color: #0a0a0a83;
+    background: linear-gradient(to bottom, #161616 20%, transparent);
     overflow: hidden;
     padding: 5px 15px;
     z-index: 10;

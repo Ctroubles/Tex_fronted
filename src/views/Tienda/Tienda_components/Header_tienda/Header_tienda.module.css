@@ -1,5 +1,6 @@
 #header{
-    background-color: #000000d0;
+    background: linear-gradient(to right, #361607, #111111 30%);
+    box-shadow: 0 10px 10px -10px #111111;
     padding: 20px 40px;
     display: flex;
     align-items: center;
@@ -38,7 +39,7 @@
 #shoppingCartContainer >:nth-child(1){
     width: 40px;
     height: 40px;
-    box-shadow: 0 0 50px 2px #fd611a;
+    /* box-shadow: 0 0 50px 2px #fd611a; */
     z-index: 11;
     border-radius: 50%;
     display: flex;
@@ -60,7 +61,7 @@
     right: -90px;
     top: 105%;
     z-index: 10;
-    box-shadow: 0 0 50px 1px #fd621ac3;
+    /* box-shadow: 0 0 50px 1px #fd621ac3; */
     overflow: hidden;
 }
 #shoppingCartContainer> :nth-child(2)>:first-child{
