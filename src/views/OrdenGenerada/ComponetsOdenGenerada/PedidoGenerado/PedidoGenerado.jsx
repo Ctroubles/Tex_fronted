@@ -91,11 +91,15 @@ if (loading) {
                     </div>
                 </div>
                 <div>
-                    <div id={style.statusAndTime}>
-                        <label id={style.status}>Estado: {timeLeft>0?(<span style={{color:!pedido.status?"yellow":"#31d13b"}} >{pedido.status?"Pagado":"Sin pagar"}</span>):(<span style={{color:"red"}} >Cancelada</span>)}</label>
-                        <label>{timeLeft>0?(<p style={{color:timeLeft<1800000?"#ff4040":timeLeft>3600000 ?"#31d13b":"yellow"}}>{getFormattedTime()}</p>)
+                    <div id={style.statusAndTime} style={pedido.status?{flexDirection:"column"}:undefined}>
+                        <label id={style.status}>Estado: {timeLeft>0?(<span style={!pedido.status?{color:"yellow"}:{color:"#31d13b"}} >{pedido.status?"Pagado":"Sin pagar"}</span>):(<span style={{color:"red"}} >Cancelada</span>)}</label>
+                        {!pedido.status?(<label>{timeLeft>0?(<p style={{color:timeLeft<1800000?"#ff4040":timeLeft>3600000 ?"#31d13b":"yellow"}}>{getFormattedTime()}</p>)
                             :(<p style={{color:"red"}}>00:00:00</p>)}
-                        </label>
+                        </label>)
+                            :(<label id={style.sentenceValidada}>
+                                Tu orden ha sido validada exitosamente y se encuentra en proceso de entrega!
+                            </label>)
+                        }
                     </div>
                 </div>
                 <div id={style.dataClient} style={{marginTop:"15px"}}>
