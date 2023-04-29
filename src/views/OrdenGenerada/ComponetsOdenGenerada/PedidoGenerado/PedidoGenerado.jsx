@@ -78,7 +78,8 @@ if (loading) {
                     </div>
                 </header>
             <div id={style.containerBox}> 
-                <div id={style.top}>
+            
+                {!pedido.status?(<div id={style.top}>
                     <img src={timeLeft>0?checkGreen:xOver} alt="" />
                     <div>
                         <label>
@@ -87,15 +88,27 @@ if (loading) {
                             <p>Orden N° {pedido.nOrden}</p>
                         </label>
                     </div>
-                </div>
+                </div>):
+                    (<div id={style.top}>
+                        <img src={checkGreen} alt="check Green" />
+                        <div>
+                            <label>
+                                <h2>¡Felicitaciones tu orden ha sido generada!</h2>
+                                <p>Orden N° {pedido.nOrden}</p>
+                            </label>
+                        </div>
+                    </div>)
+                }
+
                 <div>
                     <div id={style.statusAndTime} style={pedido.status?{flexDirection:"column"}:undefined}>
-                        <label id={style.status}>Estado: {timeLeft>0?(<span style={!pedido.status?{color:"yellow"}:{color:"#31d13b"}} >{pedido.status?pedido.delivered?"Entregado":"Pagado":"Sin pagar"}</span>):(<span style={{color:"red"}} >Cancelada</span>)}</label>
+                        <label id={style.status}>
+                            Estado: {!pedido.delivered? timeLeft>0? (<span style={!pedido.status?{color:"yellow"}:{color:"#31d13b"}} >{pedido.status?"Pagado":"Sin pagar"}</span>):(<span style={{color:"red"}} >Cancelada</span>) : <span style={{color:"#31d13b"}}> Entregado</span>}  </label>
                         {!pedido.status?(<label>{timeLeft>0?(<p style={{color:timeLeft<1800000?"#ff4040":timeLeft>3600000 ?"#31d13b":"yellow"}}>{getFormattedTime()}</p>)
                                              :(<p style={{color:"red"}}>00:00:00</p>)}
                                         </label>)
                             : (<label id={style.sentenceValidada} style={!pedido.delivered?{color:"#abf523"}:{color:"#31d13b"}}>
-                                    {!pedido.delivered?"Tu orden se encuentra en proceso de entrega.":"Tu pedido ha sido entregado."}
+                                    {!pedido.delivered?"Tu orden se encuentra en proceso de entrega.":"Tu orden ha sido entregada."}
                                 </label>)
                         }
                     </div>
