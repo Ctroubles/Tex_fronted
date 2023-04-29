@@ -32,7 +32,6 @@ const PedidoGenerado = () =>{
                 const dosHorasEnMilisegundos = 7200000;
                 const ahora = new Date();
                 if(data)setPedido(data)
-                console.log(data);
                 const tiempoRestanteEnMilisegundos = dosHorasEnMilisegundos - (ahora - new Date(data.date));
                 if(tiempoRestanteEnMilisegundos)setTimeLeft(tiempoRestanteEnMilisegundos)
                 setLoading(false)
@@ -61,7 +60,6 @@ const PedidoGenerado = () =>{
         return `${hours}:${minutes}:${seconds}`;
       };
     
-      
 if (loading) {
     return(
         <GeneralLoading/>
@@ -92,13 +90,13 @@ if (loading) {
                 </div>
                 <div>
                     <div id={style.statusAndTime} style={pedido.status?{flexDirection:"column"}:undefined}>
-                        <label id={style.status}>Estado: {timeLeft>0?(<span style={!pedido.status?{color:"yellow"}:{color:"#31d13b"}} >{pedido.status?"Pagado":"Sin pagar"}</span>):(<span style={{color:"red"}} >Cancelada</span>)}</label>
+                        <label id={style.status}>Estado: {timeLeft>0?(<span style={!pedido.status?{color:"yellow"}:{color:"#31d13b"}} >{pedido.status?pedido.delivered?"Entregado":"Pagado":"Sin pagar"}</span>):(<span style={{color:"red"}} >Cancelada</span>)}</label>
                         {!pedido.status?(<label>{timeLeft>0?(<p style={{color:timeLeft<1800000?"#ff4040":timeLeft>3600000 ?"#31d13b":"yellow"}}>{getFormattedTime()}</p>)
-                            :(<p style={{color:"red"}}>00:00:00</p>)}
-                        </label>)
-                            :(<label id={style.sentenceValidada}>
-                                Tu orden ha sido validada exitosamente y se encuentra en proceso de entrega!
-                            </label>)
+                                             :(<p style={{color:"red"}}>00:00:00</p>)}
+                                        </label>)
+                            : (<label id={style.sentenceValidada} style={!pedido.delivered?{color:"#abf523"}:{color:"#31d13b"}}>
+                                    {!pedido.delivered?"Tu orden se encuentra en proceso de entrega.":"Tu pedido ha sido entregado."}
+                                </label>)
                         }
                     </div>
                 </div>

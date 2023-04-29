@@ -134,6 +134,9 @@
     display: block;
     margin-top: 7px;
     max-width: 500px;
+    padding: 0 8px 0 8px;
+    text-align: end;
+    font-size: 15px;
 }
 
 @media screen and (max-width: 680px) {
