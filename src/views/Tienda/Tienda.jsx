@@ -329,13 +329,13 @@ const manageSideBar = ()=>{
                 <Header setPopoutFinalizar={setPopoutFinalizar} picture={picture} setSidebarPosition={setSidebarPosition} sidebarPosition={sidebarPosition}/>
             <div id={style.body}>
                 <div id={style.sideBar} className={sidebarPosition?style.active:undefined}   >
-                  <SideBar setSidebarPosition={setSidebarPosition}/>
-                  {!widthMobile?<span id={style.arroSideBar} onClick={()=>manageSideBar()}></span>:undefined}
-                  {/* <Filtros/> */}
+                    <SideBar setSidebarPosition={setSidebarPosition}/>
+                    {!widthMobile?<span id={style.arroSideBar} onClick={()=>manageSideBar()}></span>:undefined}
+                    {/* <Filtros/> */}
                 </div>
                 <div id={style.mainContent}>
-                        <div id={style.searchBarContainer}>
-                            <label style={{display:categoryFilter.label?"block":"none"}} id={style.categoryPick}>
+                        <div id={style.searchBarContainer} style={{justifyContent:categoryFilter.label?"space-between":"end"}}>
+                            <label style={{display:categoryFilter.label?"inline-block":"none"}} id={style.categoryPick}>
                                 <span>{categoryFilter.label}</span>
                                 <span onClick={()=>dispatch(deleteFilterCategory())} id={style.xIcon}>X</span>
                             </label>
