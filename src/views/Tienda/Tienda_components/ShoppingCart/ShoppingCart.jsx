@@ -26,7 +26,7 @@ const ShoppingCart = (props) =>{
 
     return(
     <div id={style.ShoppingCart} ref={props.refCart}>
-           <div>
+        <div>
             <h1>Carrito de compras</h1>
         </div>
        {itemsToBuy.length?<div style={{maxHeight: '560px',

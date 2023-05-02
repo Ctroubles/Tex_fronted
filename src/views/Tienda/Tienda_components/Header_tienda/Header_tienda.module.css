@@ -62,7 +62,7 @@
 }
 #shoppingCartContainer> :nth-child(2){
     border-radius: 10px;
-    background-color: #2c2c25;
+    background-color: #111111;
     width: 440px;
     position: absolute;
     right: -90px;
@@ -130,26 +130,30 @@
         opacity: 1;
     }
 }
-#menuLine img{
+#menuLine{
     height: 22px;
+    display: inline-block;
+}
+#menuLine img{
+    height: 100%;
 }
 
 @media screen and (max-width: 680px) {
     #header{
-        padding: 10px 10px 60px 10px;
+        padding: 12px 10px 75px 10px;
         display: flex;
         align-items: center;
     }
     #searchBarContainer{
         width: 90%;
         position: absolute;
-        bottom: 8px;
+        bottom: 3px;
         left: 50%;
         transform: translate(-50%, 0%);
     }
     #logoTexContainer{
         padding-left: 20px;
-        height: 40px;
+        height: 35px;
     }
     
     #logMenuContainer{
@@ -179,7 +183,67 @@
         height: 17px;
         top: -11px;
     }
-    #finalizarCompre{
-        
+    
+    #shoppingCartContainer> :nth-child(2){
+        right: initial;
+        left: 0%;
+        transform: translateX(-60%);
+        top: 105%;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    #header{
+        padding: 12px 10px 75px 10px;
+        display: flex;
+        align-items: center;
+    }
+    #searchBarContainer{
+        width: 90%;
+        position: absolute;
+        bottom: 3px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    #logoTexContainer{
+        padding-left: 20px;
+        height: 35px;
+    }
+    
+    #logMenuContainer{
+        width: 40px;
+        flex-shrink: 0;
+        display: flex;
+    }    
+    #shoppingCartContainer{
+        margin-right: 15px;
+    }
+    #buttonsRight{
+        display: flex;
+        align-items: center;
+        width: 38%;
+        justify-content: space-between;
+    }
+    #shoppingCartContainer{
+        width: 32px;
+        height: 32px;
+    }
+    #shoppingCartContainer >:nth-child(1) img{
+        width: 24px; 
+    }
+    #itemNumber{
+        font-size: 12px;
+        width: 17px;
+        height: 17px;
+        top: -11px;
+    }
+    
+    #shoppingCartContainer> :nth-child(2){
+        right: initial;
+        left: 0%;
+        transform: translateX(-60%);
+        top: 105%;
+        width: 300px;
     }
 }

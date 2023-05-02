@@ -115,7 +115,6 @@ const Header_tienda =({setPopoutFinalizar,picture,setSidebarPosition,sidebarPosi
                 </Link>  
                 <div id={style.searchBarContainer}>
                      <SearchBar/>
-
                 </div>
 
                 <label id={style.buttonsRight}>

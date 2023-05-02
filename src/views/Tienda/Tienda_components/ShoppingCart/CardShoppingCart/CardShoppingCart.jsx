@@ -24,15 +24,17 @@ const CardShoppingCart= (props) =>{
 
     return(
         <div id={style.CardShoppingCart}>
-            <div><img src={props.img} alt={props.title} /></div>
-            <h1>{props.title}</h1>
-            <div>
+            <div id={style.presentation}>
+                <div><img src={props.img} alt={props.title} /></div>
+                <h1>{props.title}</h1>
+            </div>
+            <div id={style.quantity} >
                 <span onClick={()=>dispatch(decrementCart(props.id))}>-</span>
                 <p>{props.cantidad}</p>
                 <span onClick={()=>dispatch(incrementCart(props.id))}>+</span>
             </div>
-            <h2>s/. {price.toFixed(2)}</h2>
-            <div ref={props.refToTrash} className="trash" onClick={()=>dispatch(removeItemCart(props.id))} id={style.trashIcon}><img src={trash_can} alt="Trash Can" /></div>
+            <h2 id={style.price} >s/. {price.toFixed(2)}</h2>
+            <div  id={style.trashIcon}ref={props.refToTrash} className="trash" onClick={()=>dispatch(removeItemCart(props.id))}><img src={trash_can} alt="Trash Can" /></div>
         </div>
     )
 };
