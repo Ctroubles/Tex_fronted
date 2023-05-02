@@ -1,25 +1,32 @@
 #header{
     background: linear-gradient(to right, #220e05, #111111 30%);
-    box-shadow: 0 10px 10px -10px #111111;
+    background: linear-gradient(to right, transparent, transparent 30%);
     padding: 20px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-family: 'Nasalization', sans-serif;
+    position: relative;
 }
 #logoTexContainer {
     display: inline-block;
     flex-grow: 0;
     padding: 1px 3px 0px 2px;
     cursor: pointer;
-    width: 50px;
+    height: 50px;
 }
 #logoTexContainer img{
-    height: 50px;
+    height: 100%;
 }
 #header>:nth-child(2){
     display: flex;
     justify-content: end;
+}
+#searchBarContainer{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
 }
 #shoppingCartContainer{
     background-color: rgb(161, 163, 165);
@@ -108,6 +115,13 @@
     width: 155px;
 }
 
+#buttonsRight{
+    display: flex;
+}
+
+
+
+
 @keyframes fadeIn {
     0%{
         opacity: 0;
@@ -122,16 +136,22 @@
 
 @media screen and (max-width: 680px) {
     #header{
-        padding: 10px 10px;
+        padding: 10px 10px 60px 10px;
         display: flex;
         align-items: center;
     }
-    #logoTexContainer{
-        padding-left: 100px;
+    #searchBarContainer{
+        width: 90%;
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translate(-50%, 0%);
     }
-    #logoTexContainer img {
-        height: 35px;
-    } 
+    #logoTexContainer{
+        padding-left: 20px;
+        height: 40px;
+    }
+    
     #logMenuContainer{
         width: 40px;
         flex-shrink: 0;

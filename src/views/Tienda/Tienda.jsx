@@ -2,7 +2,6 @@ import style from "./Tienda.module.css"
 import axios from "axios";
 import { useEffect } from "react";
 import Header from "./Tienda_components/Header_tienda/Header_tienda"
-import SearchBar from "./Tienda_components/SearchBar/SearchBar";
 import { useLocation } from 'react-router-dom';
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
@@ -14,6 +13,8 @@ import Card from "./Tienda_components/TiendaCard/TiendaCard"
 import DetailProduct from "./Tienda_components/DetailProduct/DetailProduct";
 import LoadingCardContainer from "./Tienda_components/LoadingCardContainer/LoadingCardContainer";
 import PopoutFinalizar from "./Tienda_components/Popout_finalizar/Popout_finalizar";
+import { useMediaQuery } from '@material-ui/core';
+
 
 
 
@@ -32,6 +33,8 @@ const Tienda = ({picture}) =>{
     const dispatch = useDispatch()
     const {pathname} =useLocation()
     const history = useHistory()
+    const widthMobile = useMediaQuery('(max-width: 680px)');
+
 
     const categoryFilter = useSelector(e=>e.categoryFilter)
     const searchBarStatus = useSelector(e=>e.searchBarStatus)
@@ -315,12 +318,19 @@ const getData2 =async()=>{
 
 
 
+
+
+const manageSideBar = ()=>{
+  setSidebarPosition(!sidebarPosition)
+}
+
     return(
         <div id={style.Tienda}>
                 <Header setPopoutFinalizar={setPopoutFinalizar} picture={picture} setSidebarPosition={setSidebarPosition} sidebarPosition={sidebarPosition}/>
             <div id={style.body}>
-                <div id={style.sideBar} style={sidebarPosition?{left:"0px"}:{left: "-250px"}}>
+                <div id={style.sideBar} className={sidebarPosition?style.active:undefined}   >
                   <SideBar setSidebarPosition={setSidebarPosition}/>
+                  {!widthMobile?<span id={style.arroSideBar} onClick={()=>manageSideBar()}></span>:undefined}
                   {/* <Filtros/> */}
                 </div>
                 <div id={style.mainContent}>
@@ -329,7 +339,6 @@ const getData2 =async()=>{
                                 <span>{categoryFilter.label}</span>
                                 <span onClick={()=>dispatch(deleteFilterCategory())} id={style.xIcon}>X</span>
                             </label>
-                            <SearchBar/>
                             <label id={style.switchContainer}>
                                <div id={style.priceFilter}>
                                     <label></label>

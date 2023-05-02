@@ -2,9 +2,11 @@
     width: 330px;
     font-family: 'Exo 2', sans-serif;
     color: #fefefe;
-    padding: 20px;
+    padding: 10px;
     margin: 20px;
     border-radius: 10px;
+    /* background-color: red; */
+    background-color: #fefefe17;
 }
 #imageContainer{
     width: 200px;

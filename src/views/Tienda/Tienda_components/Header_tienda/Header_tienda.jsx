@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { useMediaQuery } from '@material-ui/core';
 import menuLine from "../../../../assets/icons/menu-icon.svg";
+import SearchBar from "../SearchBar/SearchBar";
 
 
 
@@ -112,6 +113,11 @@ const Header_tienda =({setPopoutFinalizar,picture,setSidebarPosition,sidebarPosi
                 <Link to={"/"} id={style.logoTexContainer}>
                     <img src={"https://res.cloudinary.com/dmv0gnlcu/image/upload/v1682527319/Tex_logos/TEXstore_BNF_jrl0qv.png"} alt="Logo TEX" />
                 </Link>  
+                <div id={style.searchBarContainer}>
+                     <SearchBar/>
+
+                </div>
+
                 <label id={style.buttonsRight}>
                     <div id={style.shoppingCartContainer}  style={shoppingCartStatus ? { backgroundColor: '#ffdf58' } : undefined} >
                         <div ref={cartIconRef}  onClick={()=>setShoppingCart(!shoppingCartStatus)} >

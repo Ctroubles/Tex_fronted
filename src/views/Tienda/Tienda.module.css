@@ -5,6 +5,7 @@
 
 #Tienda{
     background: linear-gradient(to bottom, #161616 70%, rgb(13, 54, 92));
+    background: linear-gradient(to bottom,  rgb(4, 52, 97) , #161616);
     height: 100vh;
     color: #fefefe;
     font-family: 'Nasalization', sans-serif;
@@ -24,13 +25,38 @@
     overflow: hidden;
 }
 #sideBar{
-    min-height: calc(100vh - 91.5px);
-    width: 250px;
+    width: 275px;
     flex-shrink: 0;
-    background: linear-gradient(to bottom, #161616 20%, transparent);
+    background-color: #111111e5;
     overflow: hidden;
-    padding: 5px 15px;
+    padding: 20px 1px 20px 10px;
     z-index: 10;
+    position: absolute;
+    left: -250px;
+    transition: left 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#sideBar.active{
+    left: 0px;
+}
+#sideBar.active #arroSideBar{
+    transform: rotate(180deg);
+}
+#arroSideBar{
+    content: "";
+    height: 30px;
+    width: 30px;
+    display: block;
+    margin-left: 20px;
+    background-image: url(https://res.cloudinary.com/dmv0gnlcu/image/upload/v1682976671/icons/arrrow_yellow_z0fccv.png);
+    background-size: contain;
+    pointer-events: auto; 
+    transition: transform 0.4s ease;
+    transform: rotate(0deg);
 }
 #searchBarContainer{
     width: 100%;
@@ -68,6 +94,7 @@
     align-items: center;
     flex-direction: column;
     padding-top: 20px;
+    overflow-y: auto;
 }
 #cardContainer{
     display: flex;
@@ -76,7 +103,8 @@
     flex-shrink: 1;
     width: 100%;
     max-height: calc(100vh - 167.5px);
-    overflow: auto;
+    overflow: visible;
+    max-width: 1500px;
 }
 
 #noHayProductos{
@@ -180,6 +208,8 @@
     height: calc(100vh - 60px);
     bottom: 0;
     transition: all 0.3s ease-out;
+    width: 250px;
+    padding: 5px 15px;
 }
   #searchBarContainer{
     /* background-color: rgba(255, 0, 0, 0.315); */

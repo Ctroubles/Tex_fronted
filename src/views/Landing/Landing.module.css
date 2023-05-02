@@ -209,5 +209,11 @@
 @media screen and (max-width: 680px) {
     #LandingContainer video{
         width: 100%;
+    }    
+    #linkContainer {
+        bottom: 80px;
+    }
+    #privTerms{
+        bottom: 45px;
     }
 }
