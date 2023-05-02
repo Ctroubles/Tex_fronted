@@ -350,22 +350,24 @@ const manageSideBar = ()=>{
                                 </div>
                             </label>
                         </div>
-                        {showLoading && <LoadingCardContainer />}
-                                        
-                        {!loadingStatus && ( <div id={style.cardContainer}>
-                                               {!searchBarStatus?.length?   
-                                                    indexProducts.length && products.length?  indexProducts.map(indice=>(
-                                                            <Card  id={products[indice]?._id} key={indice} name={products[indice].name} img={products[indice].img} price={products[indice].price} stock={products[indice].stock}/>
-                                                        ))
-                                                        :(<p id={style.noHayProductos}>No hay Productos en esa categoría :c</p>)
+                        <div id={style.cotainerScroll}>
+                              {showLoading && <LoadingCardContainer />}
+                                              
+                                    {!loadingStatus && ( <div id={style.cardContainer}>
+                                          {!searchBarStatus?.length?   
+                                              indexProducts.length && products.length?  indexProducts.map(indice=>(
+                                                      <Card  id={products[indice]?._id} key={indice} name={products[indice].name} img={products[indice].img} price={products[indice].price} stock={products[indice].stock}/>
+                                                  ))
+                                                  :(<p id={style.noHayProductos}>No hay Productos en esa categoría :c</p>)
 
-                                                    : productsFilteredBySearchBar.length?productsFilteredBySearchBar.map(e=>(
-                                                            <Card  id={e._id} key={e._id} name={e.name} img={e.img} price={e.price} stock={e.stock} /> 
-                                                        ))
-                                                        :(<p id={style.noHayProductos}>No hay Productos con ese nombre :c</p>)
-                                                }
-                                        </div>)
-                        }
+                                              : productsFilteredBySearchBar.length?productsFilteredBySearchBar.map(e=>(
+                                                      <Card  id={e._id} key={e._id} name={e.name} img={e.img} price={e.price} stock={e.stock} /> 
+                                                  ))
+                                                  :(<p id={style.noHayProductos}>No hay Productos con ese nombre :c</p>)
+                                          }
+                                  </div>)
+                                }
+                        </div>
                 </div>
             </div>
             {focusProductStatus? <div id={style.detailProductContainer} onClick={(e)=>{functionToClose(e)}} >{productOnfocus?<DetailProduct product={productOnfocus}/>:null}</div>:undefined}
