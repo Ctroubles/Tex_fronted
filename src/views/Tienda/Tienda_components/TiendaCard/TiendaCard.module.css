@@ -2,16 +2,15 @@
     width: 330px;
     font-family: 'Exo 2', sans-serif;
     color: #fefefe;
-    padding: 10px;
+    padding: 5px 10px 15px 10px;
     margin: 20px;
     border-radius: 10px;
-    /* background-color: red; */
     background-color: #fefefe17;
 }
 #imageContainer{
-    width: 200px;
-    height: 200px;
-    margin: 20px auto 10px auto;
+    width: 190px;
+    height: 190px;
+    margin: 5px auto 10px auto;
     position: relative;
     cursor: pointer;
 }
@@ -20,6 +19,10 @@
 }
 #title{
     margin-bottom: 10px;
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #title h1{
     font-size: 17px;
@@ -81,7 +84,7 @@
 }
 #buy{
     text-align: center;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 #buy>button{
     padding: 5px 8px;
