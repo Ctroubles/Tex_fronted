@@ -19,32 +19,26 @@
 
 #presentation{
     height: 80px;
-    width: 110px;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    text-align: center;
 }
-
 #presentation>img{
     width: 60px;
     border-radius: 10px;
 }
-#CardShoppingCart>:nth-child(2){
-    width: 110px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
 
 #quantity{
     display: flex;
-    width: 110px;
+    width: 30%;
     height: 100%;
     align-items: center;
     justify-content: center;
     font-size: 16.5px;
+    flex-shrink: 0;
 }
 
 #quantity>span{
@@ -69,12 +63,13 @@
     font-size: 16.5px;
 }
 #price{
-    width: 110px;
+    width: 30%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 10px;
+    padding-right: 5px;
+    flex-shrink: 0;
 }
 #trashIcon{
     position: absolute;

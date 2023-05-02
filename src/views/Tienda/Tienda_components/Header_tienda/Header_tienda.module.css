@@ -1,5 +1,5 @@
 #header{
-    background: linear-gradient(to right, #220e05, #111111 30%);
+    /* background: linear-gradient(to right, #220e05, #111111 30%); */
     background: linear-gradient(to right, transparent, transparent 30%);
     padding: 20px 40px;
     display: flex;
@@ -62,7 +62,7 @@
 }
 #shoppingCartContainer> :nth-child(2){
     border-radius: 10px;
-    background-color: #111111d0;
+    background-color: #111111e0;
     width: 440px;
     position: absolute;
     right: -90px;
