@@ -124,15 +124,13 @@ const Perfil_usuario = ({userEmail})=>{
             <div id={style.Perfil_usuario}>
             <div id={style.main}>
                     <div id={style.side}>
-                        <div id={style.userPresentation}>
-                            <div>
-                                <Skeleton width={112} height={112} duration={0.8} circle={true}/>
-                                {/* <img src={user.picture} alt="" /> */}
-
+                        <div id={style.userPresentation} >
+                            <div style={{minHeight:"120px"}} >
+                                <Skeleton width={112} height={112} duration={0.5} circle={true}/>
                             </div>                                              
-                            <div style={{display:"flex", justifyContent:"center"}}>
+                            <div style={{display:"flex", justifyContent:"center", minHeight:"49px"}} >
                                 <p>
-                                    <Skeleton width={200} height={19} duration={0.8}/>
+                                    <Skeleton width={190} height={17} duration={0.5}/>
                                 </p>
                             </div>
                         </div> 
@@ -150,7 +148,7 @@ const Perfil_usuario = ({userEmail})=>{
                         <div id={style.pointsSection}>
                             <label>
                                 <h1>TEXpoints:&nbsp;</h1>
-                                <Skeleton width={100} height={24} duration={0.8} align="top"  />                                    
+                                <Skeleton width={100} height={24} duration={0.5} align="top"  />                                    
                             </label>
                         </div>
                         <div id={style.informationContainer}>
@@ -159,40 +157,40 @@ const Perfil_usuario = ({userEmail})=>{
                                 <div className={style.row}>
                                     <label>
                                         <span className={style.attributeData}>Nombres:</span>
-                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />
+                                        <Skeleton width={180} height={22} duration={0.5} align="top"  />
                                     </label>                                    
                                     <label>
                                         <span className={style.attributeData} >Apellidos :</span> 
-                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                
+                                        <Skeleton width={180} height={22} duration={0.5} align="top"  />                                
                                     </label>
                                 </div>
                                 <div className={style.row}>
                                     <label>
                                         <span className={style.attributeData} >DNI : </span> 
-                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                        <Skeleton width={180} height={22} duration={0.5} align="top"  />                                    
                                     </label>
                                     <label>
                                         <span className={style.attributeData} >Región :</span> 
-                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                        <Skeleton width={180} height={22} duration={0.5} align="top"  />                                    
                                     </label>                                
                                 </div>   
                                 <div className={style.row}>
                                     <label>
                                         <span className={style.attributeData} >Ciudad : </span> 
-                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                        <Skeleton width={180} height={22} duration={0.5} align="top"  />                                    
                                     </label>                                    
                                     <label>
                                         <span className={style.attributeData} >Dirección :</span> 
-                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                        <Skeleton width={180} height={22} duration={0.5} align="top"  />                                    
                                     </label>                                </div>
                                 <div className={style.row}>
                                     <label>
                                         <span className={style.attributeData} >Celular :</span> 
-                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                        <Skeleton width={180} height={22} duration={0.5} align="top"  />                                    
                                     </label>                                    
                                     <label>
                                         <span className={style.attributeData} >Cumpleaños :</span> 
-                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                        <Skeleton width={180} height={22} duration={0.5} align="top"  />                                    
                                     </label>                                
                                 </div> 
                                 {editable?
@@ -222,7 +220,7 @@ const Perfil_usuario = ({userEmail})=>{
             <div id={style.main}>
                     <div id={style.side}>
                         <div id={style.userPresentation}>
-                            <div>
+                            <div style={{minHeight:"120px"}}>
                                 <img src={user.picture} alt="" />
                             </div>                                              
                             <div style={{display:"flex", justifyContent:"center"}}>
