@@ -1,0 +1,28 @@
+.react-loading-skeleton {
+    background-color: #302f2f;
+    /* width: 100% !important; */
+}
+
+.react-loading-skeleton::after {
+    content: ' ';
+    display: var(--pseudo-element-display);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+      90deg,
+      #302f2f,
+      var(--highlight-color),
+      #302f2f
+    ) !important;
+    transform: translateX(-100%);
+  
+    animation-name: react-loading-skeleton;
+    animation-direction: var(--animation-direction);
+    animation-duration: var(--animation-duration);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }

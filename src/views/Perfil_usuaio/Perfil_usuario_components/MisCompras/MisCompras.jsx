@@ -3,11 +3,12 @@ import style from "./MisCompras.module.css"
 import CardMisCompras from "./Componentes_mis_compras/Card_misCompras/CardMisCompras"
 import DetailsCardMisCompras from "./Componentes_mis_compras/DetailsCardMisCompras/DetailsCardMisCompras";
 import { useRef } from "react";
+import LoadingMisCompras from "./Componentes_mis_compras/loading_misCompras/loading_misCompras";
 
 
 
 
-const MisCompras = ({ordenes}) =>{
+const MisCompras = ({ordenes,loading}) =>{
     const [orderFocus, setOrderFocus] = useState({visible:false})
 
     const popoutRef = useRef(null)
@@ -38,9 +39,11 @@ const MisCompras = ({ordenes}) =>{
                     <h1>Mis compras:</h1>
                 </div>
             <div id={style.comprasCardContainer}>
-                {
+                { !loading?
                    ordenes?.length? ordenes.map(e=> <CardMisCompras key={e._id} onClickk={setOrderFocus} orden={e}/>)
-                   :<p id={style.sinCompras}>Aún no tienes compras realizadas.</p>
+                   :(<p id={style.sinCompras}>Aún no tienes compras realizadas.</p>)
+
+                   :(<LoadingMisCompras/>)
                 }
             </div>
             {/* <div id={style.verMasButton}>

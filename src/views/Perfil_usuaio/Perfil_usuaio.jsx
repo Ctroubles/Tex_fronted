@@ -6,6 +6,10 @@ import axios from "axios";
 import { validators, validatorsLevel2 } from "./validators.js";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useHistory } from "react-router-dom";
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import "./skeleton.css"
+
 
 
 
@@ -21,9 +25,9 @@ const editableStyle = {
 const Perfil_usuario = ({userEmail})=>{
 
     const history = useHistory()
-
     const {logout}=useAuth0()
 
+    const [loading ,setLoading] = useState(true)
     const [user, setUser] = useState({})
     const [userData, setUserData] = useState({
         name: "",
@@ -41,6 +45,8 @@ const Perfil_usuario = ({userEmail})=>{
 
     /////////////////////////////////FUNCIONESSS
     const getUser = async()=>{
+        setTimeout(async()=>{
+
         const {data}= await axios.get(`/users?email=${userEmail}`)
         if (data){
             setUser(data)
@@ -56,9 +62,12 @@ const Perfil_usuario = ({userEmail})=>{
                 birthday: birthday ? birthday : '',
             };
             setUserData(personalData)
+            setLoading(false)
+
         }
+    },500)
+
     }
-    ///////////////////////////////////////
 
     useEffect(()=>{
 
@@ -107,74 +116,176 @@ const Perfil_usuario = ({userEmail})=>{
             setEditable(false)
         }
 
-    return(
-        <div id={style.Perfil_usuario}>
-           <div id={style.main}>
-                <div id={style.side}>
-                    <div id={style.userPresentation}>
-                        <div>
-                            <img src={user.picture} alt="" />
-                        </div>                                              
-                        <div style={{display:"flex", justifyContent:"center"}}>
-                            <p>
-                                {user.email}
-                            </p>
-                        </div>
-                    </div> 
-                    <div id={style.sideOptions}>
-                        <div>
-                            <ul>
-                                <li onClick={()=>history.push("/tienda")} >Ir a tienda</li>
-                                <li onClick={()=>setEditable(true)} >Editar perfil</li>
-                                <li onClick={()=>logout()} >Cerrar sesión</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div id={style.pricipal}>
-                    <div id={style.pointsSection}>
-                        <label>
-                            <h1>TEXpoints:&nbsp;</h1>
-                            <p>{user.texPoints}</p>
-                        </label>
-                    </div>
-                    <div id={style.informationContainer}>
-                        <h1>Información:</h1>
-                        <div id={style.userData}>
-                            <div className={style.row}>
-                                <label><span className={style.attributeData} >Nombres :</span> <input id={errorsForm.name?style.error:undefined} onChange={handlerChange} name="name" className={style.valueData} style={editable?editableStyle:undefined} value={userData.name} readOnly={!editable}  spellCheck="false"/>  </label>
-                                <label><span className={style.attributeData} >Apellidos :</span> <input id={errorsForm.surname?style.error:undefined} onChange={handlerChange} name="surname" className={style.valueData} style={editable?editableStyle:undefined} value={userData.surname} readOnly={!editable} spellCheck="false" />  </label>
-                            </div>
-                            <div className={style.row}>
-                                <label><span className={style.attributeData} >DNI : </span> <input id={errorsForm.DNI?style.error:undefined} onChange={handlerChange} name="DNI" className={style.valueData} style={editable?editableStyle:undefined} value={userData.DNI} readOnly={!editable}  spellCheck="false" />  </label>
-                                <label><span className={style.attributeData} >Región :</span> <input id={errorsForm.region?style.error:undefined} onChange={handlerChange} name="region" className={style.valueData} style={editable?editableStyle:undefined} value={userData.region} readOnly={!editable} spellCheck="false" />  </label>
-                            </div>   
-                            <div className={style.row}>
-                                <label><span className={style.attributeData} >Ciudad : </span> <input id={errorsForm.city?style.error:undefined} onChange={handlerChange} name="city" className={style.valueData} style={editable?editableStyle:undefined} value={userData.city} readOnly={!editable} spellCheck="false" />  </label>
-                                <label><span className={style.attributeData} >Dirección :</span> <input id={errorsForm.address?style.error:undefined} onChange={handlerChange} name="address" className={style.valueData} style={editable?editableStyle:undefined} value={userData.address} readOnly={!editable} spellCheck="false" />  </label>
-                            </div>
-                            <div className={style.row}>
-                                <label><span className={style.attributeData} >Celular :</span> <input id={errorsForm.phoneNumber?style.error:undefined} onChange={handlerChange} name="phoneNumber" className={style.valueData} style={editable?editableStyle:undefined} value={userData.phoneNumber} readOnly={!editable} spellCheck="false" />  </label>                           
-                                <label><span className={style.attributeData} >Cumpleaños :</span> <input className={errorsForm.birthday?style.error:undefined} id={style.my_date_input} onChange={handlerChange} name="birthday" type={"date"}  style={editable?editableStyle:undefined} value={userData.birthday} readOnly={!editable} spellCheck="false" />  <span id={style.admirationBirthday}><img src={iconAdmiration} alt="" /></span></label>
-                            </div> 
-                            {editable?
-                             <div id={style.guardar}>
-                                  <label><p onClick={()=>cancelEdit()}>Cancelar</p></label>
-                                  <label><span onClick={()=>handleSave()}>Guardar</span></label>
-                            </div>:null
-                            }
-                      
-                        </div>
-                      
-                    </div>
 
-                    <div>
-                        <MisCompras ordenes={user.purchaseOrders}/>
+    if(loading){
+        return(
+            <SkeletonTheme color="#302f2f" highlightColor="#cccccc86" >
+
+            <div id={style.Perfil_usuario}>
+            <div id={style.main}>
+                    <div id={style.side}>
+                        <div id={style.userPresentation}>
+                            <div>
+                                <Skeleton width={112} height={112} duration={0.8} circle={true}/>
+                                {/* <img src={user.picture} alt="" /> */}
+
+                            </div>                                              
+                            <div style={{display:"flex", justifyContent:"center"}}>
+                                <p>
+                                    <Skeleton width={200} height={19} duration={0.8}/>
+                                </p>
+                            </div>
+                        </div> 
+                        <div id={style.sideOptions}>
+                            <div>
+                                <ul>
+                                    <li onClick={()=>history.push("/tienda")} >Ir a tienda</li>
+                                    <li onClick={()=>setEditable(true)} >Editar perfil</li>
+                                    <li onClick={()=>logout()} >Cerrar sesión</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
-           </div>
-        </div>
+                    <div id={style.pricipal}>
+                        <div id={style.pointsSection}>
+                            <label>
+                                <h1>TEXpoints:&nbsp;</h1>
+                                <Skeleton width={100} height={24} duration={0.8} align="top"  />                                    
+                            </label>
+                        </div>
+                        <div id={style.informationContainer}>
+                            <h1>Información:</h1>
+                            <div id={style.userData}>
+                                <div className={style.row}>
+                                    <label>
+                                        <span className={style.attributeData}>Nombres:</span>
+                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />
+                                    </label>                                    
+                                    <label>
+                                        <span className={style.attributeData} >Apellidos :</span> 
+                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                
+                                    </label>
+                                </div>
+                                <div className={style.row}>
+                                    <label>
+                                        <span className={style.attributeData} >DNI : </span> 
+                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                    </label>
+                                    <label>
+                                        <span className={style.attributeData} >Región :</span> 
+                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                    </label>                                
+                                </div>   
+                                <div className={style.row}>
+                                    <label>
+                                        <span className={style.attributeData} >Ciudad : </span> 
+                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                    </label>                                    
+                                    <label>
+                                        <span className={style.attributeData} >Dirección :</span> 
+                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                    </label>                                </div>
+                                <div className={style.row}>
+                                    <label>
+                                        <span className={style.attributeData} >Celular :</span> 
+                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                    </label>                                    
+                                    <label>
+                                        <span className={style.attributeData} >Cumpleaños :</span> 
+                                        <Skeleton width={180} height={22} duration={0.8} align="top"  />                                    
+                                    </label>                                
+                                </div> 
+                                {editable?
+                                <div id={style.guardar}>
+                                    <label><p onClick={()=>cancelEdit()}>Cancelar</p></label>
+                                    <label><span onClick={()=>handleSave()}>Guardar</span></label>
+                                </div>:null
+                                }
+                        
+                            </div>
+                        
+                        </div>
+
+                        <div>
+                            <MisCompras ordenes={user.purchaseOrders} loading={loading}/>
+                        </div>
+                    </div>
+            </div>
+            </div>
+            </SkeletonTheme>
+
     )
+    }
+    else{   
+        return(
+            <div id={style.Perfil_usuario}>
+            <div id={style.main}>
+                    <div id={style.side}>
+                        <div id={style.userPresentation}>
+                            <div>
+                                <img src={user.picture} alt="" />
+                            </div>                                              
+                            <div style={{display:"flex", justifyContent:"center"}}>
+                                <p>
+                                    {user.email}
+                                </p>
+                            </div>
+                        </div> 
+                        <div id={style.sideOptions}>
+                            <div>
+                                <ul>
+                                    <li onClick={()=>history.push("/tienda")} >Ir a tienda</li>
+                                    <li onClick={()=>setEditable(true)} >Editar perfil</li>
+                                    <li onClick={()=>logout()} >Cerrar sesión</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id={style.pricipal}>
+                        <div id={style.pointsSection}>
+                            <label>
+                                <h1>TEXpoints:&nbsp;</h1>
+                                <p style={{minWidth:"100px"}}>{user.texPoints}</p>
+                            </label>
+                        </div>
+                        <div id={style.informationContainer}>
+                            <h1>Información:</h1>
+                            <div id={style.userData}>
+                                <div className={style.row}>
+                                    <label><span className={style.attributeData} >Nombres :</span> <input id={errorsForm.name?style.error:undefined} onChange={handlerChange} name="name" className={style.valueData} style={editable?editableStyle:undefined} value={userData.name} readOnly={!editable}  spellCheck="false"/>  </label>
+                                    <label><span className={style.attributeData} >Apellidos :</span> <input id={errorsForm.surname?style.error:undefined} onChange={handlerChange} name="surname" className={style.valueData} style={editable?editableStyle:undefined} value={userData.surname} readOnly={!editable} spellCheck="false" />  </label>
+                                </div>
+                                <div className={style.row}>
+                                    <label><span className={style.attributeData} >DNI : </span> <input id={errorsForm.DNI?style.error:undefined} onChange={handlerChange} name="DNI" className={style.valueData} style={editable?editableStyle:undefined} value={userData.DNI} readOnly={!editable}  spellCheck="false" />  </label>
+                                    <label><span className={style.attributeData} >Región :</span> <input id={errorsForm.region?style.error:undefined} onChange={handlerChange} name="region" className={style.valueData} style={editable?editableStyle:undefined} value={userData.region} readOnly={!editable} spellCheck="false" />  </label>
+                                </div>   
+                                <div className={style.row}>
+                                    <label><span className={style.attributeData} >Ciudad : </span> <input id={errorsForm.city?style.error:undefined} onChange={handlerChange} name="city" className={style.valueData} style={editable?editableStyle:undefined} value={userData.city} readOnly={!editable} spellCheck="false" />  </label>
+                                    <label><span className={style.attributeData} >Dirección :</span> <input id={errorsForm.address?style.error:undefined} onChange={handlerChange} name="address" className={style.valueData} style={editable?editableStyle:undefined} value={userData.address} readOnly={!editable} spellCheck="false" />  </label>
+                                </div>
+                                <div className={style.row}>
+                                    <label><span className={style.attributeData} >Celular :</span> <input id={errorsForm.phoneNumber?style.error:undefined} onChange={handlerChange} name="phoneNumber" className={style.valueData} style={editable?editableStyle:undefined} value={userData.phoneNumber} readOnly={!editable} spellCheck="false" />  </label>                           
+                                    <label><span className={style.attributeData} >Cumpleaños :</span> <input className={errorsForm.birthday?style.error:undefined} id={style.my_date_input} onChange={handlerChange} name="birthday" type={"date"}  style={editable?editableStyle:undefined} value={userData.birthday} readOnly={!editable} spellCheck="false" />  <span id={style.admirationBirthday}><img src={iconAdmiration} alt="" /></span></label>
+                                </div> 
+                                {editable?
+                                <div id={style.guardar}>
+                                    <label><p onClick={()=>cancelEdit()}>Cancelar</p></label>
+                                    <label><span onClick={()=>handleSave()}>Guardar</span></label>
+                                </div>:null
+                                }
+                        
+                            </div>
+                        
+                        </div>
+
+                        <div>
+                            <MisCompras ordenes={user.purchaseOrders}/>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        )
+    }
 };
 
 export default Perfil_usuario
