@@ -32,6 +32,7 @@ const MisCompras = ({ordenes,loading}) =>{
         }
       },[orderFocus])
 
+
     return(
         <div id={style.MisComprasContaier}>
             <div>
@@ -40,7 +41,7 @@ const MisCompras = ({ordenes,loading}) =>{
                 </div>
             <div id={style.comprasCardContainer}>
                 { !loading?
-                   ordenes?.length? ordenes.map(e=> <CardMisCompras key={e._id} onClickk={setOrderFocus} orden={e}/>)
+                   ordenes?.length? ordenes.slice().reverse().map(e=> <CardMisCompras key={e._id} onClickk={setOrderFocus} orden={e}/>)
                    :(<p id={style.sinCompras}>Aún no tienes compras realizadas.</p>)
 
                    :(<LoadingMisCompras/>)

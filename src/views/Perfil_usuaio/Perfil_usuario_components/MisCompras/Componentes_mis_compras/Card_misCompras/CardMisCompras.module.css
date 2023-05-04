@@ -43,8 +43,12 @@
     padding: 24px;
     text-align: right;
 }
-#mainCardMisCompras :nth-child(1){
+#mainCardMisCompras >:nth-child(1){
     display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 #precioSection{
     width: 25%;
@@ -79,9 +83,15 @@
 #direction label span{
     margin-left: 5px;
 }
-
-#compraStatus > #entregado{
-    color: #05b022;
+#compraStatus{
+    background-color: red;
+}
+#compraStatus label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#compraStatus > label span{
     font-size:14px;
     font-weight: 500;
     display: flex;
@@ -89,23 +99,12 @@
     flex-grow: 0;
     background-color: #2c2c25 ;
     border-radius: 6px;
-    padding: 1px 4px;
+    padding: 1px 4px 2px 4px;
     max-height: 25px;
 }
-#compraStatus > #pendiente{
-    color: #fff93e;
-    font-size:14px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    flex-grow: 0;
-    background-color: #2c2c25 ;
-    border-radius: 6px;
-    padding: 1px 4px;
-    max-height: 25px;
-}
+
 #compraStatus  img{
-    height: 15px;
+    height: 30px;
     margin-right: 3px;
 }
 

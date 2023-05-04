@@ -8,13 +8,15 @@
 }
 #topDetallesContainer{
     border-bottom: 1px solid #808080;
-    padding: 28px 18px 15px 15px;
+    padding: 20px 18px 10px 15px;
     display: flex;
     position: relative;
 }
 #aNombreDeContainer{
     flex-grow: 1;
     margin-right: 10px;
+    display: flex;
+    align-items: center;
 }
 #aNombreDe :nth-child(1){
     font-size: 16px;
@@ -202,34 +204,7 @@
     display: flex;
     align-items: center;
 }
-#compraStatus > #entregado{
-    color: #05b022;
-    font-size:14px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    flex-grow: 0;
-    background-color: #2c2c25 ;
-    border-radius: 6px;
-    padding: 1px 4px;
-    max-height: 25px;
-}
-#compraStatus > #pendiente{
-    color: #fff93e;
-    font-size:14px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    flex-grow: 0;
-    background-color: #2c2c25 ;
-    border-radius: 6px;
-    padding: 1px 4px;
-    max-height: 25px;
-}
-#compraStatus  img{
-    height: 15px;
-    margin-right: 3px;
-}
+
 #footer{
     padding-top: 7px;
     display: flex;
@@ -242,6 +217,17 @@
     padding: 5px 15px;
     border-radius: 6px;
     cursor: pointer;
+}
+
+#compraStatus label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 15px;
+}
+#compraStatus label img{
+    height: 40px;
+    margin-right: 5px;
 }
 
 @media screen and (max-width: 680px) {
