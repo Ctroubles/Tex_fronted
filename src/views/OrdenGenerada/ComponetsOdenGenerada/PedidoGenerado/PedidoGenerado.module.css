@@ -115,10 +115,25 @@
     font-size: 20px;
     font-weight: 300;
 }
-#statusAndTime{
-    padding-top: 10px;
+#status{
     display: flex;
+    width: 100%;
+    align-items: center;
     justify-content: space-between;
+    max-width: 500px;
+    padding: 5px 5px;
+}
+#status>label{
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    justify-content: space-between;
+}
+#status>label>span{
+    background-color: rgb(44, 40, 40);
+    margin-left: 5px;
+    padding: 1px 3px 2px 3px;
+    border-radius: 4px;
 }
 #statusAndTime p{
     font-size: 30px;
@@ -126,17 +141,18 @@
 #status >span{
     color: yellow;
 }
+
+#anuncio{
+    padding: 0 10px;
+}
+#anuncio p{
+    font-size: 14px;
+    text-align: end;
+}
+
 #accounts p{
     display: block;
     padding: 1px 20px;
-}
-#sentenceValidada{
-    display: block;
-    margin-top: 7px;
-    max-width: 500px;
-    padding: 0 8px 0 8px;
-    text-align: end;
-    font-size: 15px;
 }
 
 @media screen and (max-width: 680px) {

@@ -1,16 +1,14 @@
 import style from "./DetailsCardMisCompras.module.css"
-import succes  from "../../assets_mis_compras/success-svgrepo-com.svg"
 import { format } from 'date-fns';
 import esLocale from 'date-fns/locale/es';
-import pending from "../../../../../../assets/icons/yellow_clock.png";
 import { useHistory } from "react-router-dom";
 
 
 const DetailsCardMisCompras = ({setOrderFocus,orderFocus})=>{
+    
     const history = useHistory()
 
 
-    const msPDay = 24 * 60 * 60 * 1000;
     const date = format(new Date(orderFocus.date), "EEEE d 'de' MMMM 'de' y, HH:mm : ss", {locale: esLocale});
     
 

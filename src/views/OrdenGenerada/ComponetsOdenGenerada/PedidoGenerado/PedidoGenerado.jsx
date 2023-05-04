@@ -2,69 +2,72 @@ import style from "./PedidoGenerado.module.css"
 import { Link } from "react-router-dom";
 import texLogo from "../../../../assets/logos/logo_tex_modern.png"
 import checkGreen from "../../../../assets/icons/check-green.svg"
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import CartOrden from "../CartOrden/CartOrden";
-import { useHistory } from "react-router-dom";
 import xOver from "../../../../assets/icons/x_octagon_red.svg"
-import GeneralLoading from "../../../General_Loading/GeneralLoading";
 
 
 
-const PedidoGenerado = () =>{
+const twoHours = 7200000;
+const thirtyMinutes = 30 * 60 * 1000;
 
-    const history = useHistory()
+const ahora = new Date().getTime();
 
-    const { norden,id } = useParams();
 
-    const [pedido, setPedido] = useState({})
-    const [timeLeft, setTimeLeft] = useState(); 
-    const [loading,setLoading] = useState(true)
+const PedidoGenerado = ({pedido}) =>{
 
 
 
-
-    useEffect(()=>{
-        const getOrder = async()=>{
-            try {
-                const {data} = await axios.get(`/shopping/pedidos/${norden}/${id}`)
-                const dosHorasEnMilisegundos = 7200000;
-                const ahora = new Date();
-                if(data)setPedido(data)
-                const tiempoRestanteEnMilisegundos = dosHorasEnMilisegundos - (ahora - new Date(data.date));
-                if(tiempoRestanteEnMilisegundos)setTimeLeft(tiempoRestanteEnMilisegundos)
-                setLoading(false)
-            } catch (error) {
-              history.push("/tienda")
-            }
-
-        }
-        getOrder()
-
-    },[])
+    const [timeLeft, setTimeLeft] = useState(ahora - pedido.date); 
 
     useEffect(() => {
-        const timer = setInterval(() => {
-          setTimeLeft((prevTime) => prevTime - 1000);
-        }, 1000);
-    
-        return () => clearInterval(timer);
+        handleTimer();
       }, []);
+
+
+      const handleTimer = () => {
+        const timer = setInterval(() => {
+          if (timeLeft < twoHours) {
+            setTimeLeft((prevTime) => prevTime + 1000);
+          } else {
+            clearInterval(timer);
+          }
+        }, 1000);
+        return () => clearInterval(timer);
+      };
+
     
       const getFormattedTime = () => {
-        const hours = Math.floor(timeLeft / (1000 * 60 * 60)).toString()
-        const minutes = Math.floor((timeLeft / (1000 * 60)) % 60).toString().padStart(2, "0");
-        const seconds = Math.floor((timeLeft / 1000) % 60).toString().padStart(2, "0");
-    
-        return `${hours}:${minutes}:${seconds}`;
+            const hours = Math.floor( (twoHours-timeLeft) / (1000 * 60 * 60)).toString()
+            const minutes = Math.floor(( (twoHours-timeLeft) / (1000 * 60)) % 60).toString().padStart(2, "0");
+            const seconds = Math.floor(( (twoHours-timeLeft) / 1000) % 60).toString().padStart(2, "0");
+        
+            return `${hours}:${minutes}:${seconds}`;
+            
       };
     
-if (loading) {
-    return(
-        <GeneralLoading/>
-    )
-}else{
+
+      
+    const over2hours = (ahora - pedido.date) > twoHours;
+    const over30minuts = (ahora - pedido.date) > thirtyMinutes;
+
+
+    let status = 1;
+
+
+    if (over2hours && !pedido.status) {
+        status = 0
+   }else if (!over2hours && !pedido.status) {
+        status = 1
+   }else if(pedido.status && !pedido.delivered && !over30minuts){
+        status = 2;
+   }else if(pedido.status && !pedido.delivered && over30minuts){
+        status = 3;
+   }else if(pedido.status && pedido.delivered){
+        status = 4;
+   }
+
+console.log(timeLeft);
     return(
         <div id={style.PedidoGenerado}>
             <div id={style.main}>
@@ -83,7 +86,7 @@ if (loading) {
                     <img src={timeLeft>0?checkGreen:xOver} alt="" />
                     <div>
                         <label>
-                            {timeLeft>0?(<h2>¡Felicitaciones tu orden ha sido generada!</h2>)
+                            {timeLeft>0?(<h2>¡Felicitaciones tu pedido ha sido generado!</h2>)
                             :(<h2>Se acabó el tiempo para validar tu compra</h2>)}
                             <p>Orden N° {pedido.nOrden}</p>
                         </label>
@@ -93,16 +96,16 @@ if (loading) {
                         <img src={checkGreen} alt="check Green" />
                         <div>
                             <label>
-                                <h2>¡Felicitaciones tu orden ha sido generada!</h2>
-                                <p>Orden N° {pedido.nOrden}</p>
+                                <h2>¡Felicitaciones tu pedido ha sido generado!</h2>
+                                <p>Pedido N° {pedido.nOrden}</p>
                             </label>
                         </div>
                     </div>)
                 }
 
                 <div>
-                    <div id={style.statusAndTime} style={pedido.status?{flexDirection:"column"}:undefined}>
-                        <label id={style.status}>
+                    <div id={style.statusAndTime}>
+                        {/* <label id={style.status}>
                             Estado: {!pedido.delivered? timeLeft>0? (<span style={!pedido.status?{color:"yellow"}:{color:"#31d13b"}} >{pedido.status?"Pagado":"Sin pagar"}</span>):(<span style={{color:"red"}} >Cancelada</span>) : <span style={{color:"#31d13b"}}> Entregado</span>}  </label>
                         {!pedido.status?(<label>{timeLeft>0?(<p style={{color:timeLeft<1800000?"#ff4040":timeLeft>3600000 ?"#31d13b":"yellow"}}>{getFormattedTime()}</p>)
                                              :(<p style={{color:"red"}}>00:00:00</p>)}
@@ -110,7 +113,53 @@ if (loading) {
                             : (<label id={style.sentenceValidada} style={!pedido.delivered?{color:"#abf523"}:{color:"#31d13b"}}>
                                     {!pedido.delivered?"Tu orden se encuentra en proceso de entrega.":"Tu orden ha sido entregada."}
                                 </label>)
-                        }
+                        } */}
+
+                        <label id={style.status}>
+                            {status ===0? (<label  style={{justifyContent:"start"}} ><img src={"https://res.cloudinary.com/dmv0gnlcu/image/upload/v1681933425/Tex_logos/CANCELADO_pmqlme.png"} alt="" /><span style={{color:"#ff0000"}} >Anulado</span></label>)
+                                : status === 1? (<label style={{justifyContent:"start"}} ><img src={"https://res.cloudinary.com/dmv0gnlcu/image/upload/v1681933425/Tex_logos/PENDIENTE_ai7cl5.png"} alt="" /><span style={{color:"#FFFF00"}}>Pago pendiente</span></label>)
+                                : status === 2? (<label style={{justifyContent:"start"}} ><img src={"https://res.cloudinary.com/dmv0gnlcu/image/upload/v1681933425/Tex_logos/VALIDADO_svc1do.png"} alt="" /><span style={{color:"##0fa80f"}}>Pago validado</span></label>)
+                                : status === 3? (<label style={{justifyContent:"start"}} ><img src={"https://res.cloudinary.com/dmv0gnlcu/image/upload/v1681933425/Tex_logos/EN_CAMINO_eziw1f.png"} alt="" /><span style={{color:"#2c9dc9"}}>En proceso de entrega</span></label>)
+                                : status === 4? (<label style={{justifyContent:"start"}} ><img src={"https://res.cloudinary.com/dmv0gnlcu/image/upload/v1681933425/Tex_logos/ENTREGADO_eapqos.png"} alt="" /><span style={{color:"#0fa80f"}}>Entregado</span></label>):
+                                <label>Contace a soporta para consultar el estado de su orden</label>
+                            } 
+                             {!pedido.status?(<label id={style.cronometro} >{timeLeft < twoHours?(<p style={{color:timeLeft<1800000?"#ff4040":timeLeft>3600000 ?"#31d13b":"#FFFF00"}} >{getFormattedTime()}</p>)
+                                             :(<span style={{color:"#ff4040"}}>00:00:00</span>)}
+                                        </label>)
+                                : undefined}
+                        
+                        </label>
+                          
+                        <div id={style.anuncio}>
+                                    {
+                                        status === 0 ?(
+                                        <label style={{color:"#ff0000"}}  >
+                                            <p>Tu orden ha sido cancelada</p>
+                                        </label>
+                                        )
+                                        :status === 1 ?(
+                                        <label style={{color:"#FFFF00"}}  >
+                                            <p>Valida tu compra para proceder con tu pedido.</p>
+                                        </label>
+                                        )
+                                        :status === 2 ?(
+                                        <label style={{color:"#0fa80f"}} >
+                                            <p>¡Tu pago se ha validado exitosamenete!, se está preparando ael envío.</p>
+                                        </label>
+                                        )
+                                        :status === 3 ?(
+                                        <label style={{color:"#2c9dc9"}} >
+                                            <p>Tu pedido está en camino!</p>
+                                        </label>
+                                        )
+                                        :status === 4 ?(
+                                        <label style={{color:"#0fa80f"}} >
+                                            <p>Tu pedido ha sido entregado.</p>
+                                        </label>
+                                        )
+                                        :undefined
+                                    }
+                              </div>
                     </div>
                 </div>
                 <div id={style.dataClient} style={{marginTop:"15px"}}>
@@ -261,7 +310,7 @@ if (loading) {
             </div>
         </div>
       )
-    }
+    
 };
 
 export default PedidoGenerado;
