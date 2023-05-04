@@ -99,8 +99,9 @@
     flex-grow: 0;
     background-color: #2c2c25 ;
     border-radius: 6px;
-    padding: 1px 4px 2px 4px;
-    max-height: 25px;
+    padding: 0px 4px 2px 4px;
+    min-height: 25px;
+    text-align: center;
 }
 
 #compraStatus  img{
@@ -170,11 +171,19 @@
         align-items: center;
     }
     #deliveryStatus{
-        width: 100px;
+        width: 45%;
         flex-shrink: 0;
     }
     #precioSection{
         width: 100%;
+        display: flex;
+    }
+    #precioSection >label{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 20px;
     }
     .value{
         display: flex;
