@@ -164,8 +164,7 @@ const DetailProduct = ({product})=>{
 
                         <div id={style.pricesZone}>
                             <div>
-                                <p id={style.priceLabel}>PRECIO</p>
-                                <h2>{precioFormatedo}</h2>
+                                
                             </div>
                             {/* <div>
                                 <p id={style.discountPrice}>PRECIO NORMAL</p>

@@ -83,10 +83,10 @@ console.log(timeLeft);
             <div id={style.containerBox}> 
             
                 {!pedido.status?(<div id={style.top}>
-                    <img src={timeLeft>0?checkGreen:xOver} alt="" />
+                    <img src={timeLeft < twoHours?checkGreen:xOver} alt="" />
                     <div>
                         <label>
-                            {timeLeft>0?(<h2>¡Felicitaciones tu pedido ha sido generado!</h2>)
+                            {timeLeft < twoHours?(<h2>¡Felicitaciones tu pedido ha sido generado!</h2>)
                             :(<h2>Se acabó el tiempo para validar tu compra</h2>)}
                             <p>Orden N° {pedido.nOrden}</p>
                         </label>
@@ -96,7 +96,7 @@ console.log(timeLeft);
                         <img src={checkGreen} alt="check Green" />
                         <div>
                             <label>
-                                <h2>¡Felicitaciones tu pedido ha sido generado!</h2>
+                                <h2>¡Felicitaciones tu pedido ha sido validado!</h2>
                                 <p>Pedido N° {pedido.nOrden}</p>
                             </label>
                         </div>
@@ -105,15 +105,6 @@ console.log(timeLeft);
 
                 <div>
                     <div id={style.statusAndTime}>
-                        {/* <label id={style.status}>
-                            Estado: {!pedido.delivered? timeLeft>0? (<span style={!pedido.status?{color:"yellow"}:{color:"#31d13b"}} >{pedido.status?"Pagado":"Sin pagar"}</span>):(<span style={{color:"red"}} >Cancelada</span>) : <span style={{color:"#31d13b"}}> Entregado</span>}  </label>
-                        {!pedido.status?(<label>{timeLeft>0?(<p style={{color:timeLeft<1800000?"#ff4040":timeLeft>3600000 ?"#31d13b":"yellow"}}>{getFormattedTime()}</p>)
-                                             :(<p style={{color:"red"}}>00:00:00</p>)}
-                                        </label>)
-                            : (<label id={style.sentenceValidada} style={!pedido.delivered?{color:"#abf523"}:{color:"#31d13b"}}>
-                                    {!pedido.delivered?"Tu orden se encuentra en proceso de entrega.":"Tu orden ha sido entregada."}
-                                </label>)
-                        } */}
 
                         <label id={style.status}>
                             {status ===0? (<label  style={{justifyContent:"start"}} ><img src={"https://res.cloudinary.com/dmv0gnlcu/image/upload/v1681933425/Tex_logos/CANCELADO_pmqlme.png"} alt="" /><span style={{color:"#ff0000"}} >Anulado</span></label>)

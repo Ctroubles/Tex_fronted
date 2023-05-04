@@ -4,8 +4,8 @@
 
 
 #Tienda{
-    background: linear-gradient(to bottom, #161616 70%, rgb(13, 54, 92));
-    background: linear-gradient(to bottom,  rgb(4, 52, 97) , #161616);
+    background: linear-gradient(to bottom,  rgb(4, 52, 97) 75%, #161616);
+    /* background: linear-gradient(to bottom,  rgb(4, 52, 97) , #161616); */
     height: 100vh;
     color: #fefefe;
     font-family: 'Nasalization', sans-serif;

@@ -19,6 +19,7 @@
     max-width: 1200px;
     max-height: 90vh;
     overflow: auto;
+    min-width: 950px;
 }
 
 #shadowContainer{
@@ -138,6 +139,7 @@
     font-size: 25px;
     padding: 15px 0;
     font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
 }
 #xIcon{
     position: absolute;
@@ -198,27 +200,12 @@
     flex-shrink: 0;
 }
 
-#mainInfo > :first-child > h1{
-    font-size: 28px;
-    font-weight: 400;
-}
 
 #mainInfo > span{
     font-size: 12px;
     font-weight: 400;
     padding: 12px 0;
     display: block;
-}
-
-#mainInfo > :nth-child(3){
-    border-top: 1px solid #696967;
-    /* border-bottom: 1px solid #696967; */
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    padding-right: 50px;
-    padding-top: 10px;
 }
 
 #priceLabel{
@@ -334,6 +321,19 @@
     font-size: 18px !important;
     font-family: 'Exo 2', sans-serif;
     font-weight: 300 !important;
+    text-align: end;
+    padding-right: 20px !important;
+    display: inline-block;
+}
+#pricesZone{
+    border-top: 1px solid #696967;
+    /* border-bottom: 1px solid #696967; */
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 50px;
+    padding-top: 10px;
 }
 #pricesZone p {
     font-family: 'Exo 2', sans-serif;
@@ -401,12 +401,48 @@
   }
 
 
+@media screen and (min-width: 681px) and (max-width: 951px) {
+    #pupoutDetail{
+        min-width: 1px;
+    }
+    #imageContainer img{
+        width: 80%;
+    }
+}
+
+  
+@media screen and (min-width: 501px) and (max-width: 680px) {
+    #pupoutDetail{
+        min-width: 1px;
+    }
+    #imageContainer img{
+        width: 80%;
+    }
+    #top {
+        flex-direction: column;
+    }
+    #imageContainer{
+        width: 100%;
+    }
+    #mainInfo{
+        width: 100%;
+        padding: 0 20px;
+    }
+    #mainInfo > :nth-child(5){
+        text-align: center;
+    }
+  
+}
 
 
 
 @media screen  and (max-width: 500px) {
     #pupoutDetail{
+        min-width: 1px;
         padding: 10px 10px 30px 10px;
+    }
+    #imageContainer img{
+        width: 80%;
     }
     #top {
         flex-direction: column;
@@ -452,24 +488,6 @@
         font-size: 18px;
     }
 
-}
-
-
-@media screen and (min-width: 501px) and (max-width: 680px) {
-    #top {
-        flex-direction: column;
-    }
-    #imageContainer{
-        width: 100%;
-    }
-    #mainInfo{
-        width: 100%;
-        padding: 0 20px;
-    }
-    #mainInfo > :nth-child(5){
-        text-align: center;
-    }
-  
 }
 
 
