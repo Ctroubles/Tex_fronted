@@ -116,7 +116,7 @@ export default function Sidebar({setSidebarPosition}){
                     <div id={style.childsContaier} className={open === "Motherboards" ? style.categoryActiveThreeElement : style.categoryDesactive}>
                         <span id={categoryFilter.label=== "Todas las Motherboards" ? style.categoryPick : undefined}> 
                             -&nbsp;
-                            <p onClick={()=>{dispatch(filterByCategory("Motherboards","INTEL","Todas las Motherboards"));setSidebarPosition(0)}}>
+                            <p onClick={()=>{dispatch(filterByCategory("Motherboards","","Todas las Motherboards"));setSidebarPosition(0)}}>
                             Todas
                             </p>
                          </span>         
