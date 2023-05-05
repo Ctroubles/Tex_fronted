@@ -145,31 +145,32 @@ const DetailProduct = ({product})=>{
                         <div>
                             
                         </div>
-                        <span id={style.category} style={{
-                                color: '#fefefeac',
-                                }}> 
-                            <span
-                                style={{
-                                display: 'inline-block',
-                                width: '7.5px',
-                                height: '7.5px',
-                                borderRadius: '50%',
-                                backgroundColor: '#fefefe8d',
-                                textAlign: 'center',
-                                lineHeight: '20px',
-                                }}
-                            >
-                            </span>{' '} 
-                            {category?.replace(/^\w/, (letra) => letra.toUpperCase())}</span>
+                        <div id={style.category}> 
+                            <label id={style.priceSection}>
+                                <p id={style.label}>Precio</p>
+                                <p id={style.monto}>{ofertaFormated}</p>
+                            </label>
+                            <label style={{color:"#fefefe"}}>
+                                <span
+                                        style={{
+                                        display: 'inline-block',
+                                        width: '7.5px',
+                                        height: '7.5px',
+                                        borderRadius: '50%',
+                                        backgroundColor: '#fefefed6',
+                                        textAlign: 'center',
+                                        lineHeight: '20px',
+                                        }}
+                                    >
+                                    </span>{' '} 
+                                    {category?.replace(/^\w/, (letra) => letra.toUpperCase())}
+                            </label>
+                        </div>
 
                         <div id={style.pricesZone}>
-                            <div>
+                            <div style={{backgroundColor:""}}>
                                 
                             </div>
-                            {/* <div>
-                                <p id={style.discountPrice}>PRECIO NORMAL</p>
-                                <h2 id={style.discountPrice}> {ofertaFormated}</h2>
-                            </div> */}
                         </div>
                                 <div>
                                     <ul>
@@ -179,7 +180,7 @@ const DetailProduct = ({product})=>{
                                         :<li style={{color:"#e51818"}}><div><img src={redX} alt="X error" id={style.check} /></div>Sin stock</li>}
                                     </ul>
                                 </div>
-                                <div id={style.addersZone}>
+                                <div id={style.addersZone} style={{backgroundColor:"", textAlign:"center"}}>
                                     <div id={style.adderInput}>
                                         <span onClick={()=>restInputValue()} >-</span>
                                         <input value={inputStatus} type="text" onChange={(e)=>handlerChange(e)} min={1}  max={product.stock}/>

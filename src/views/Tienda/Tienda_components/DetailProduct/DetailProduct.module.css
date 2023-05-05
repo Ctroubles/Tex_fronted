@@ -217,23 +217,7 @@
     margin-bottom: 3px;
     color: #e7e4e4;
 }
-#mainInfo > :nth-child(3){
-    color: #fefefebb;
-}
-#mainInfo > :nth-child(3) h2{
-    font-size: 30px;
-    font-family: 'Exo 2', sans-serif;
-    font-weight: 500;
-}
 
-#mainInfo > :nth-child(3) > div > #discountPrice{
-    color: #e649ce;
-    font-size: 20px;
-}
-
-#mainInfo > :nth-child(3) p{
-    font-size: 10px;
-}
 
 
 #mainInfo > :nth-child(4) > ul{
@@ -318,22 +302,36 @@
     justify-content: center;
 }
 #category{
-    font-size: 18px !important;
+    font-size: 18px;
     font-family: 'Exo 2', sans-serif;
-    font-weight: 300 !important;
+    font-weight: 300 ;
     text-align: end;
-    padding-right: 20px !important;
+    padding-right: 20px ;
+    display: flex;
+    color: #fefefeac ;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 5px;
+}
+#priceSection{
+    text-align: start;
+}
+#label{
+    background-color: #e4752b;
+    text-align: center;
     display: inline-block;
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: #fefefe;
+    margin-bottom: 10px;
+}
+#monto{
+    text-align: start;
+    color: #fefefe;
+    font-size: 18px;
 }
 #pricesZone{
     border-top: 1px solid #696967;
-    /* border-bottom: 1px solid #696967; */
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-right: 50px;
-    padding-top: 10px;
 }
 #pricesZone p {
     font-family: 'Exo 2', sans-serif;
