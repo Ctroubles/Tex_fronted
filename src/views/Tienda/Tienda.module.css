@@ -228,8 +228,7 @@
     position: fixed;
     left: -250px;
     height: calc(100vh);
-    top: unset;
-    bottom: 0%;
+    top: 0;
     transition: all 0.3s ease-out;
     width: 250px;
     padding: 5px 15px;
