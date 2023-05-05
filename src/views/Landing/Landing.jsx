@@ -6,13 +6,24 @@ import bolsaTienda from "../../assets/landing_assets/bag_tex.png"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useMediaQuery } from '@material-ui/core';
+import { useEffect ,useCallback ,useState} from "react";
 
 
 
 const Landing = ()=>{
     const history = useHistory();
 
-    const widthMobile = useMediaQuery('(max-width: 680px)');
+    const [isMobile, setIsMobile] = useState(false);
+
+    const checkMediaQuery = useCallback(() => {
+      setIsMobile(window.matchMedia("(max-width: 680px)").matches);
+    }, []);
+  
+    useEffect(() => {
+      checkMediaQuery();
+      window.addEventListener("resize", checkMediaQuery);
+      return () => window.removeEventListener("resize", checkMediaQuery);
+    }, [checkMediaQuery]);
 
 
     return(
@@ -42,11 +53,15 @@ const Landing = ()=>{
                 <img src={instagram} alt="" />
                 <img src={facebook} alt="" />
             </div> */}
-                <video autoPlay ="autoPlay " muted="muted" loop="loop">
-                    {!widthMobile?<source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1682690748/Videos/H_PAGE_LOOP_a6c9iu.mp4" type="video/mp4" />
-                    :<source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1682690747/Videos/V_PAGE_LOOP_h6lggy.mp4" type="video/mp4" />}
+                {isMobile?(<video autoPlay ="autoPlay " muted="muted" loop="loop">
+                    <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1682690747/Videos/V_PAGE_LOOP_h6lggy.mp4" type="video/mp4" />
                     <p>Tu navegador no este video.</p>
-                </video>
+                     </video>)
+                    :(<video autoPlay ="autoPlay " muted="muted" loop="loop">
+                        <source src="https://res.cloudinary.com/dmv0gnlcu/video/upload/v1682690748/Videos/H_PAGE_LOOP_a6c9iu.mp4" type="video/mp4" />
+                <p>Tu navegador no este video.</p>
+            </video>)
+                }
                 <label id={style.linkContainer}>
                     <Link to='/tienda' className={style.LinkCreate}>
                         <span className={style.span1}></span>

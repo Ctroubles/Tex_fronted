@@ -203,10 +203,10 @@
         width: 100%;
     }    
     #linkContainer {
-        bottom: 80px;
+        bottom: 40px;
     }
     #privTerms{
-        bottom: 45px;
+        bottom: 0px;
     }
 }
 

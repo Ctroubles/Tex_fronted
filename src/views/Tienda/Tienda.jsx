@@ -316,13 +316,30 @@ const getData2 =async()=>{
 
     },[categoryFilter])
 
+    useEffect(() => {
+      const handleClick = (event) => {
+        const sideBar = document.getElementById(style.sideBar);
+        const target = event.target;
+        if (sideBar !== target && !sideBar.contains(target)) {
+          setSidebarPosition(false);
+        }
+      };
+    
+      if (sidebarPosition) {
+        window.addEventListener("click", handleClick);
+      } else {
+        window.removeEventListener("click", handleClick);
+      }
+    
+      return () => {
+        window.removeEventListener("click", handleClick);
+      };
+    }, [sidebarPosition]);
 
 
-
-
-const manageSideBar = ()=>{
-  setSidebarPosition(!sidebarPosition)
-}
+  const manageSideBar = ()=>{
+    setSidebarPosition(!sidebarPosition)
+  }
 
     return(
         <div id={style.Tienda}>
