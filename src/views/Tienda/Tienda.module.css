@@ -10,7 +10,19 @@
     color: #fefefe;
     font-family: 'Nasalization', sans-serif;
     overflow: hidden;
-    animation: introTineda 1.5s ease-out;
+    /* animation: introTineda 1.5s ease-out; */
+}
+#Tienda::after{
+    content: "";
+    background: linear-gradient(to bottom,  rgb(4, 49, 90) 75%, #111111);
+    height: 100vh;
+    width: 100vw;
+    z-index: 100000000;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    animation: introTineda 2s ease forwards;
 }
 #Tienda>div{
     display: flex;
@@ -247,10 +259,16 @@
 }
 
 @keyframes introTineda {
-    0%{
-        filter: brightness(50%) opacity(1);
+    0% {
+        transform: translateX(0%);
     }
-    100%{
-        filter: brightness(100%) opacity(1);
+    40% {
+        transform: translateX(50%);
+    }
+    60% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(100%);
     }
 }

@@ -72,7 +72,7 @@
 
 
 #linkContainer{
-    position: absolute;
+    position: fixed;
     bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
@@ -168,14 +168,6 @@
 }
 
 
-@media screen and (max-width: 500px){
-
-    .LinkCreate{
-        background: #111111;
-        box-shadow: 0 0 10px #111111, 0 0 40px #111111, 0 0 80px #111111;
-        transition-delay: 0.5s;
-    }
-}
 
 
 
@@ -189,7 +181,7 @@
 }
 
 #privTerms{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -215,5 +207,15 @@
     }
     #privTerms{
         bottom: 45px;
+    }
+}
+
+
+@media screen and (max-width: 500px){
+
+    .LinkCreate{
+        background: #111111;
+        box-shadow: 0 0 10px #111111, 0 0 40px #111111, 0 0 80px #111111;
+        transition-delay: 0.5s;
     }
 }
