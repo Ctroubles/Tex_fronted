@@ -148,7 +148,7 @@ const DetailProduct = ({product})=>{
                         <div id={style.category}> 
                             <label id={style.priceSection}>
                                 <p id={style.label}>Precio</p>
-                                <p id={style.monto}>{ofertaFormated}</p>
+                                <p id={style.monto}>{precioFormatedo}</p>
                             </label>
                             <label style={{color:"#fefefe"}}>
                                 <span

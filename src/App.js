@@ -36,7 +36,7 @@ function App() {
   useEffect(()=>{
     const setting = async()=>{
         const postUser=async()=>{
-        const {data} = await axios.post(`/users`,{user:user}).catch(err=>alert("errore 39 line"+{err}))
+        const {data} = await axios.post(`/users`,{user:user}).catch(err=>alert("errore 39 line appjs"+ err))
         if (data) setCurrentUser(data)
       }
         if(isAuthenticated) await postUser()
