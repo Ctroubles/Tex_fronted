@@ -18,8 +18,8 @@ import PrivacidadView from "./views/Privacidad/Privacidad";
 import TermsConditions from "./views/TermsCondi/TermsConditions";
 
 
-axios.defaults.baseURL = 'https://tex-api.vercel.app/';
-// axios.defaults.baseURL = 'http://localhost:3001/';
+// axios.defaults.baseURL = 'https://tex-api.vercel.app/';
+axios.defaults.baseURL = 'http://localhost:3001/';
 
 
 function App() {

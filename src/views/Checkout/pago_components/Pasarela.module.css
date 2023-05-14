@@ -1,0 +1,49 @@
+#Pasarela{
+    color: black;
+}
+#fullName{
+    display: flex;
+}
+
+#paymentButtonContainer{
+    margin-bottom: 20px;
+}
+
+
+
+
+@keyframes loading {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .loading-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loading_dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+    background-color: #dbdadab9;
+    border-radius: 50%;
+    animation: loading 1s infinite;
+  }
+  
+  .loading_dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .loading_dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }

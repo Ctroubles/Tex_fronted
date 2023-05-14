@@ -10,6 +10,9 @@ function capitalize(str) {
 }
 
 
+const isEmptyObject = (obj) => {
+  return Object.keys(obj).length === 0;
+};
 
 const getCurrentComponent = {
   "/construye/paso1": "cpu",
@@ -31,6 +34,7 @@ export{
     getCurrentComponent,
     cleanPathname,
     capitalize,
+    isEmptyObject,
 }
 
 

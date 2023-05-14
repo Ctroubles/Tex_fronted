@@ -135,7 +135,7 @@ console.log(timeLeft);
                                         )
                                         :status === 2 ?(
                                         <label style={{color:"#0fa80f"}} >
-                                            <p>¡Tu pago se ha validado exitosamenete!, se está preparando ael envío.</p>
+                                            <p>¡Tu pago se ha validado exitosamenete!, se está preparando el envío.</p>
                                         </label>
                                         )
                                         :status === 3 ?(

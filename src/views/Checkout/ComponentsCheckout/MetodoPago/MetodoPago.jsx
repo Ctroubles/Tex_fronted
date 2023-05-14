@@ -4,7 +4,10 @@ import { useDispatch, useSelector, } from "react-redux";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { cleanShoppingCart } from "../../../../redux/actions/actions";
-// import PaymentForm from "../../pago_components/paymentForm";
+import Pasarela from "../../pago_components/paymentForm";
+
+
+
 
 
 
@@ -17,41 +20,29 @@ const MetodoPago = ({userId})=>{
     const plinRef = useRef(null)
     const bcpRef = useRef(null)
     const interbankRef = useRef(null)
+    const optionsSquare = useRef(null)
+    const observer = useRef(null);
 
     const purchaseOrder = useSelector(e=>e.purchaseOrder)
     const carritoCompras = useSelector(e=>e.shoppingCart)
 
 
-    const [boxActive, setBoxActive] = useState(null)
-    const [totalPrice, setTotalPrice] = useState([])
-    const [totalPriceNumber, setTotalPriceNumber] = useState([])
-    const [sessionToken, setSessionToken] = useState('');
+    const [boxActive, setBoxActive] = useState(null);
+    const [totalPrice, setTotalPrice] = useState([]);
+    const [totalPriceNumber, setTotalPriceNumber] = useState([]);
+    const [paymentWay, setPaymentWay] = useState(null)
+    const [loading, setLoading] = useState(false)
+
+
+
+
+
 
 
     useEffect(()=>{
-        // if(!carritoCompras.length || !purchaseOrder.deliveryData){
-        //     history.push("/finalizar")
-        // }
-        // const getAccesToken = async()=>{
-        //     try {
-                
-           
-        //     const { data } = await axios.post("/payment/getAccesToken");
-        //     const accesToken = data
-          
-
-        //    const resp = await axios.post("/payment/getSessionToken",{token:accesToken});
-        //    const sessionToken = resp.data.sessionKey;
-        //    setSessionToken(sessionToken)
-
-
-     
-        // } catch (error) {
-                
-        // }
-        // };
-        // getAccesToken()
-
+        if(!carritoCompras.length || !purchaseOrder.deliveryData){
+            history.push("/finalizar")
+        }
     },[])
     
 
@@ -59,7 +50,6 @@ const MetodoPago = ({userId})=>{
 
 
     const confirmarHandler=()=>{
-        console.log(typeof(totalPriceNumber))
         if (!boxActive) {
             alert("selecciona un metodo de pago")
         }else if((boxActive === "PLIN" || boxActive === "YAPE") && totalPriceNumber>500){
@@ -124,72 +114,130 @@ const MetodoPago = ({userId})=>{
         setTotalPrice([`${integerParts}.`,fractionPart])
 
     },[])
+    
+
+
+    
+  useEffect(() => {
+    const updateHeight = () => {
+      if (paymentWay === 2 && optionsSquare.current) {
+        const height = optionsSquare.current.scrollHeight;
+        optionsSquare.current.style.height = `${height}px`;
+      }
+    };
+
+    observer.current = new ResizeObserver(updateHeight);
+
+    if (optionsSquare.current) {
+      observer.current.observe(optionsSquare.current);
+    }
+
+    return () => {
+      if (optionsSquare.current) {
+        observer.current.unobserve(optionsSquare.current);
+      }
+    };
+  }, [boxActive]);
+  
+
+
+
 
     return(
                    <div>
-                    {/* <PaymentForm/> */}
+                    {paymentWay === "pasarela" ? (
+                    <Pasarela key="pasarela" setPaymentWay={setPaymentWay} setLoadingButton={setLoading} purchaseOrder={purchaseOrder} totalPriceNumber={totalPriceNumber} userId={userId} carritoCompras={carritoCompras} dispatch={dispatch} cleanShoppingCart={cleanShoppingCart}/>
+                    ) : null}
                     <div>
                         <label id={style.title}>
-                            <h1>Metodo de pago</h1>
+                            <h1>Método de pago</h1>
                         </label>
                         <div id={style.montoSection}>
                             <label>Monto total:&nbsp;&nbsp;</label>
                             <label><span>{totalPrice[0]}</span><span style={{fontSize:"15px",marginLeft:"1px"}}>{totalPrice[1]}</span></label>
                         </div>
-                        <div id={style.squarePayment}>
-                            <div style={totalPriceNumber>500?{opacity:"0.6"}:undefined} >
-                                <div className={style.boxes} onClick={()=>setBoxActive("YAPE")} id={boxActive === "YAPE"?style.boxSelected:undefined} >
-                                    <img src="https://res.cloudinary.com/dmv0gnlcu/image/upload/v1680737075/600x600PX/LOGOS%20PAGOS/YAPE_add3pr.png" alt="" />
-                                    YAPE (Solo para compras max. s/500)
+                        <div>
+                            <label className={style.paymentWays_container} style={{margin:"20px 0"}}>
+                                <div className={style.paymentWays} id={paymentWay === 1?style.active:undefined} onClick={()=>{setPaymentWay(1);setBoxActive(null)}}>
+                                    <label>
+                                        <img src="https://res.cloudinary.com/dixhwbp02/image/upload/v1683988852/icons/TARJETA_hzmsji.png" alt="" />
+                                    </label>  
+                                    <label>
+                                    Tarjetas de Crédito y Débito (Visa, Mastercard, Amex, Diners)
+                                    </label>                      
                                 </div>
-                                <div   style={{height:boxActive === "YAPE"? yapeRef?.current?.scrollHeight:"0px" ,}} ref={yapeRef} className={boxActive === "YAPE"? style.dinamicBoxes :style.dinamicBoxesInactive} >
-                                    <p>
-                                        Si cuentas con YAPE y su pedido tiene un valor inferior a S/500 esta es la opción más rápida de efectuar tu pago                                
-                                    </p>
-                                </div>
+                            </label>
+                            <label className={style.paymentWays_container} id={style.secondPaymentWay} style={paymentWay === 2? {height:optionsSquare?.current?.scrollHeight} : undefined} ref={optionsSquare} >
+                                  <div className={style.paymentWays} id={paymentWay === 2?style.active:undefined} onClick={()=>setPaymentWay(2)} >
+                                        <label style={{height:"35px", width:"51px", position:"relative",}}>
+                                            <img style={{height:"40px",width:"56px", position:"absolute", bottom:"0px", left:"2px"}} src="https://res.cloudinary.com/dixhwbp02/image/upload/v1683988852/icons/PAGOS_OTROS_wkpgaj.png" alt="" />
+                                        </label>  
+                                        <label>
+                                            Yape, plin, transferencias, depósitos bancarios.
+                                        </label>  
+                                    </div>
+                            <div id={style.squarePayment} >
+                                    <div style={totalPriceNumber>500?{opacity:"0.6"}:undefined} >
+                                        <div className={style.boxes} onClick={()=>setBoxActive("YAPE")} id={boxActive === "YAPE"?style.boxSelected:undefined} style={{borderTop: "1px solid #757373b7"}}>
+                                            <img src="https://res.cloudinary.com/dmv0gnlcu/image/upload/v1680737075/600x600PX/LOGOS%20PAGOS/YAPE_add3pr.png" alt="" />
+                                            YAPE (Solo para compras max. s/500)
+                                        </div>
+                                        <div   style={{height:boxActive === "YAPE"? yapeRef?.current?.scrollHeight:"0px" ,}} ref={yapeRef} className={boxActive === "YAPE"? style.dinamicBoxes :style.dinamicBoxesInactive} >
+                                            <p>
+                                                Si cuentas con YAPE y su pedido tiene un valor inferior a S/500 esta es la opción más rápida de efectuar tu pago                                
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div style={totalPriceNumber>500?{opacity:"0.6"}:undefined}>
+                                        <div className={style.boxes} onClick={()=>setBoxActive("PLIN")} id={boxActive === "PLIN"?style.boxSelected:undefined}>
+                                            <img src="https://res.cloudinary.com/dmv0gnlcu/image/upload/v1680734118/600x600PX/LOGOS%20PAGOS/PLIN_dovgkb.png" alt="" />
+                                            PLIN (Solo para compras max. s/500)
+                                        </div>
+                                        <div ref={plinRef} style={{height:boxActive === "PLIN"? yapeRef?.current?.scrollHeight:"0px" ,}}  className={boxActive === "PLIN"? style.dinamicBoxes :style.dinamicBoxesInactive} >
+                                            <p>
+                                                Si cuentas con PLIN y su pedido tiene un valor inferior a S/500 esta es la opción más rápida de efectuar tu pago.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className={style.boxes} onClick={()=>setBoxActive("BCP")} id={boxActive === "BCP"?style.boxSelected:undefined}>
+                                            <img src="https://res.cloudinary.com/dmv0gnlcu/image/upload/v1680734118/600x600PX/LOGOS%20PAGOS/BCP_hfqhrd.png" alt="" />
+                                            Transferencia o depósito bancario (BCP)
+                                        </div>
+                                        <div ref={bcpRef} style={{height:boxActive === "BCP"? yapeRef?.current?.scrollHeight:"0px" ,}}  className={boxActive === "BCP"? style.dinamicBoxes :style.dinamicBoxesInactive} >
+                                            <p>
+                                            Realiza Depósito o Transferencia Bancaria a nuestras cuentas:
+                                            (Añade como referencia tu número de DNI y código de pedido)
+                                            </p>
+                                        </div>
+                                    </div>    
+                                    <div>
+                                        <div className={style.boxes} onClick={()=>setBoxActive("Interbank")} id={boxActive === "Interbank"?style.boxSelected:undefined}>
+                                            <img src="https://res.cloudinary.com/dmv0gnlcu/image/upload/v1680734118/600x600PX/LOGOS%20PAGOS/INTERBANK_t0mswe.png" alt="" />
+                                            Transferencia o depósito bancario (Interbank)
+                                        </div>
+                                        <div ref={interbankRef} style={{height:boxActive === "Interbank"? yapeRef?.current?.scrollHeight:"0px" ,}} className={boxActive === "Interbank"? style.dinamicBoxes :style.dinamicBoxesInactive} >
+                                            <p>
+                                                Realiza Depósito o Transferencia Bancaria a nuestras cuentas:
+                                                (Añade como referencia tu número de DNI y código de pedido)
+                                            </p>
+                                        </div>
+                                    </div>
                             </div>
-                            <div style={totalPriceNumber>500?{opacity:"0.6"}:undefined}>
-                                <div className={style.boxes} onClick={()=>setBoxActive("PLIN")} id={boxActive === "PLIN"?style.boxSelected:undefined}>
-                                    <img src="https://res.cloudinary.com/dmv0gnlcu/image/upload/v1680734118/600x600PX/LOGOS%20PAGOS/PLIN_dovgkb.png" alt="" />
-                                    PLIN (Solo para compras max. s/500)
-                                </div>
-                                <div ref={plinRef} style={{height:boxActive === "PLIN"? yapeRef?.current?.scrollHeight:"0px" ,}}  className={boxActive === "PLIN"? style.dinamicBoxes :style.dinamicBoxesInactive} >
-                                    <p>
-                                        Si cuentas con PLIN y su pedido tiene un valor inferior a S/500 esta es la opción más rápida de efectuar tu pago.
-                                    </p>
-                                </div>
-                            </div>
-                            <div>
-                                <div className={style.boxes} onClick={()=>setBoxActive("BCP")} id={boxActive === "BCP"?style.boxSelected:undefined}>
-                                    <img src="https://res.cloudinary.com/dmv0gnlcu/image/upload/v1680734118/600x600PX/LOGOS%20PAGOS/BCP_hfqhrd.png" alt="" />
-                                    Transferencia o depósito bancario (BCP)
-                                </div>
-                                <div ref={bcpRef} style={{height:boxActive === "BCP"? yapeRef?.current?.scrollHeight:"0px" ,}}  className={boxActive === "BCP"? style.dinamicBoxes :style.dinamicBoxesInactive} >
-                                    <p>
-                                    Realiza Depósito o Transferencia Bancaria a nuestras cuentas:
-                                    (Añade como referencia tu número de DNI y código de pedido)
-                                    </p>
-                                </div>
-                            </div>    
-                            <div>
-                                <div className={style.boxes} onClick={()=>setBoxActive("Interbank")} id={boxActive === "Interbank"?style.boxSelected:undefined}>
-                                    <img src="https://res.cloudinary.com/dmv0gnlcu/image/upload/v1680734118/600x600PX/LOGOS%20PAGOS/INTERBANK_t0mswe.png" alt="" />
-                                    Transferencia o depósito bancario (Interbank)
-                                </div>
-                                <div ref={interbankRef} style={{height:boxActive === "Interbank"? yapeRef?.current?.scrollHeight:"0px" ,}} className={boxActive === "Interbank"? style.dinamicBoxes :style.dinamicBoxesInactive} >
-                                    <p>
-                                        Realiza Depósito o Transferencia Bancaria a nuestras cuentas:
-                                        (Añade como referencia tu número de DNI y código de pedido)
-                                    </p>
-                                </div>
-                            </div>
+                            </label>
                         </div>
+
                     </div>
-                    <div id={style.confirmarButton}>
-                        <label onClick={()=>confirmarHandler()}>
-                            <span>Confirmar</span>
-                        </label>
+                    <div>
+                        {!loading?(<div id={style.confirmarButton} className={paymentWay === 1 || boxActive ?style.active:undefined}>
+                            <label onClick={boxActive?()=>confirmarHandler():paymentWay === 1?()=>{setPaymentWay("pasarela");setLoading(true)}:undefined}>
+                                <span>Continuar</span>
+                            </label>
+                            
+                        </div>):<div className={style.loading}></div>}
                     </div>
+                  
+
             </div> 
     )
 };

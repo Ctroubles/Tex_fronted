@@ -35,10 +35,10 @@ const Shopping = (props) =>{
         for(let i in errores){
             if(errores[i])approved=false;
         }
-        if (approved){
+        // if (approved){
             dispatch(addDeliveryInformation(statusForm.current))
             history.push("/finalizar/checkout")
-        }
+        // }
     }
 
     return(
