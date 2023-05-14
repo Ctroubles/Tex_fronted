@@ -148,7 +148,7 @@ const MetodoPago = ({userId})=>{
                     {paymentWay === "pasarela" ? (
                     <Pasarela key="pasarela" setPaymentWay={setPaymentWay} setLoadingButton={setLoading} purchaseOrder={purchaseOrder} totalPriceNumber={totalPriceNumber} userId={userId} carritoCompras={carritoCompras} dispatch={dispatch} cleanShoppingCart={cleanShoppingCart}/>
                     ) : null}
-                    <div>
+                    <div style={{padding:"0 20px", maxWidth:"500px"}}>
                         <label id={style.title}>
                             <h1>Método de pago</h1>
                         </label>
