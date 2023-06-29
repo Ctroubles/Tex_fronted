@@ -25,12 +25,16 @@ axios.defaults.baseURL = 'https://tex-api.vercel.app/';
 function App() {
 
   const { user,isAuthenticated,loginWithRedirect,isLoading,logout} = useAuth0()
+  const { pathname } = useLocation()
+  const history = useHistory()
 
 
   const [currentUser, setCurrentUser]=useState({})
   const [loadinStatus, setLoadingStatus]=useState(true)
 
-
+  useEffect(()=>{
+    if(pathname==="/") history.push("/tienda")
+  },[pathname])
   
 
   useEffect(()=>{
@@ -48,22 +52,13 @@ function App() {
   },[user,isLoading])
   
 
-  useEffect(()=>{
-    const userBanned = async()=>{
-    // const userr = await axios.get(`${urlBack}/users/db/${user.email}`)
-    // if(userr.data.isActive===false){
-    //   alert("User is banned. Please contact us for more information")
-    //   logout({ returnTo: window.location.origin })
-    // }
-  }
-
-  })
   
 
   if (!loadinStatus) {
     return (
       <div id={style.AbsoluteContaier}>
-          <Route exact path={"/"} render={()=> <Landing/>}/>
+          {/* <Route exact path={"/"} render={()=> <Landing/>}/> */}
+          <Route  path={"/"} render={()=> <Tienda picture={currentUser?.picture}/>}/>
           <Route  path={"/tienda"} render={()=> <Tienda picture={currentUser?.picture}/>}/>
           <Route exact path={"/perfil"} render={()=>!isAuthenticated?loginWithRedirect():<PerfilUsuario userEmail={currentUser.email}/>}/>
           <Route exact path={"/forja"} render={()=> <Forja/>}/>
@@ -72,23 +67,6 @@ function App() {
           <Route exact path={"/pedidos/:norden/:id"} render={()=> <OrdenGenerada/>}/>
           <Route exact path={"/politica-de-privacidad"} render={()=> <PrivacidadView/>}/>
           <Route exact path={"/terminos&condiciones"} render={()=> <TermsConditions/>}/>
-          {/* { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') && location.pathname!=='/shoppingcart' && <Header headerRef={headerRef} isAdmin={currentUser?.isAdmin}/>}
-          { location.pathname!=='/' &&  !location.pathname.toLowerCase().includes('/admin') && location.pathname!=='/shoppingcart' &&<div id={style.bodyMain} style={{paddingTop:`${paddingMain}px`}}>
-          <Route exact path={"/productos"} render={()=> <Productos/>} />
-          <Route exact path={"/producto/:id"} render={()=> <DetalleProducto/>} />
-          <Route path={"/construye"} render={()=> <Construye/>} />
-          <Route exact path={"/compra"} render={()=> <Compra/>}/>
-          <Route exact path={"/profile/miscompras"} render={()=>!isAuthenticated?loginWithRedirect():<MisCompras currentUser={currentUser}/>}/>
-          {/* <Route exact path={"/edituser"} render={()=> <EditUser/>}/>
-          <Route exact path={"/edituser"} render={()=> <EditUser/>}/> */}
-          {/*<Route exact path={"/ayuda"} render={()=> <Ayuda/>}/> }
-          </div>
-          }
-          <Route exact path={"/notfound"} render={()=> <NotFound/>}/>
-          <Route path={"/admin"} render={()=>!isAuthenticated?loginWithRedirect():currentUser?.isAdmin?<Admin/>:history.push("/productos")}/>
-          <Route exact path={"/nosotros"} render={()=><Nosotros/>}/>
-          { location.pathname!=='/' && !location.pathname.toLowerCase().includes('/admin') &&  location.pathname!=='/shoppingcart' &&  <Footer/>}
-          <Route path="*"> <Redirect to="/notfound" /> </Route> */}
       </div>
     );
   }else{

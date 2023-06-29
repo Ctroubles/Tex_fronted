@@ -1,14 +1,13 @@
 /* @import '../../fonts/fonts.css'; */
 
 #SidebarContainer{
-    width: 230px;
-    /* font-family: 'Nasalization', sans-serif; */
-    color: #fefefefe;
-    transition: all 2s;
-    cursor: auto;
-    overflow: hidden;
-    padding: 15px 5px 15px 0;
-    font-family: 'Exo 2', sans-serif;
+  width: 230px;
+  color: #fefefefe;
+  transition: all 2s;
+  cursor: auto;
+  overflow: hidden;
+  padding: 15px 5px 15px 0;
+  font-family: 'Exo 2', sans-serif;
 }
 #title{
   display: flex;

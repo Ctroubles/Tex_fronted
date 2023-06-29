@@ -60,12 +60,14 @@
 }
 #arroSideBar{
     content: "";
+    background-repeat: no-repeat;
     height: 30px;
-    width: 30px;
+    width: 27px;
+    display: flex;
     display: block;
     margin-left: 20px;
-    background-image: url(https://res.cloudinary.com/dmv0gnlcu/image/upload/v1682976671/icons/arrrow_yellow_z0fccv.png);
-    background-size: contain;
+    background-image: url("../../assets//icons/arrow_icon.svg");
+    background-size:cover;
     pointer-events: auto; 
     transition: transform 0.4s ease;
     transform: rotate(0deg);
