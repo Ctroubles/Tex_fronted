@@ -11,6 +11,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useMediaQuery } from '@material-ui/core';
 import menuLine from "../../../../assets/icons/menu-icon.svg";
 import SearchBar from "../SearchBar/SearchBar";
+import LOGO from "../../../../assets/logos/TEXstore_LOGO.png"
 
 
 
@@ -111,7 +112,7 @@ const Header_tienda =({setPopoutFinalizar,picture,setSidebarPosition,sidebarPosi
                     <img src={menuLine} alt="menu lines" />
                 </label>):null}
                 <Link to={"/"} id={style.logoTexContainer}>
-                    <img src={"https://res.cloudinary.com/dmv0gnlcu/image/upload/v1682527319/Tex_logos/TEXstore_BNF_jrl0qv.png"} alt="Logo TEX" />
+                    <img src={LOGO} alt="Logo TEX" />
                 </Link>  
                 <div id={style.searchBarContainer}>
                      <SearchBar/>
