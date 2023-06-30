@@ -24,6 +24,11 @@ axios.defaults.baseURL = 'https://tex-api.vercel.app/';
 
 function App() {
 
+  useEffect(()=>{
+    if(pathname==="/") history.push("/tienda")
+  },[pathname])
+
+
   const { user,isAuthenticated,loginWithRedirect,isLoading,logout} = useAuth0()
   const { pathname } = useLocation()
   const history = useHistory()
@@ -32,9 +37,7 @@ function App() {
   const [currentUser, setCurrentUser]=useState({})
   const [loadinStatus, setLoadingStatus]=useState(true)
 
-  useEffect(()=>{
-    if(pathname==="/") history.push("/tienda")
-  },[pathname])
+
   
 
   useEffect(()=>{
@@ -57,8 +60,7 @@ function App() {
   if (!loadinStatus) {
     return (
       <div id={style.AbsoluteContaier}>
-          {/* <Route exact path={"/"} render={()=> <Landing/>}/> */}
-          <Route  path={"/"} render={()=> <Tienda picture={currentUser?.picture}/>}/>
+          <Route exact path={"/"} render={()=> <Landing/>}/>
           <Route  path={"/tienda"} render={()=> <Tienda picture={currentUser?.picture}/>}/>
           <Route exact path={"/perfil"} render={()=>!isAuthenticated?loginWithRedirect():<PerfilUsuario userEmail={currentUser.email}/>}/>
           <Route exact path={"/forja"} render={()=> <Forja/>}/>
