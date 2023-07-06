@@ -43,7 +43,7 @@ const MetodoPago = ({userId})=>{
         if(!carritoCompras.length || !purchaseOrder.deliveryData){
             history.push("/finalizar")
         }
-    },[])
+    },[carritoCompras,purchaseOrder])
     
 
 
