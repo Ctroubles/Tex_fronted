@@ -30,6 +30,7 @@ const TiendaCard = ({id, name, price, img, stock})=>{
         const button = event.target;
         const card = button.closest(`#${style.Card}`);
         const imagen = card.querySelector(`#${style.imgToThrow}`);
+        const imgContainer = card.querySelector(`#${style.relativeCotainer}`);
         const imgClone = imagen.cloneNode(true);
         const rect = card.getBoundingClientRect();
         const distanciaX = window.innerWidth - rect.right;
@@ -43,7 +44,7 @@ const TiendaCard = ({id, name, price, img, stock})=>{
         },
         };
         imgClone.classList.add(style.lanzar);
-        card.children[0].appendChild(imgClone);
+        imgContainer.appendChild(imgClone);
         imgClone.style.setProperty('--destino-x', styles.destinoX['--destino-x']);
         imgClone.style.setProperty('--destino-y', styles.destinoY['--destino-y']);
         setTimeout(() => {
@@ -57,7 +58,6 @@ const TiendaCard = ({id, name, price, img, stock})=>{
         const itemInCart = carrito.find(producto => producto._id === id);
         if(itemInCart?.quantity>=cuurrentStatusProduct.stock)setOverStock(true)
         else setOverStock(false)
-
     }
     updateStock()
     
@@ -103,7 +103,7 @@ useEffect(() => {
         <div id={style.Card} style={stock<=0?{opacity:0.5}:undefined}>
             <div>
                 <div id={style.imageContainer} onClick={()=>seeDetails(id)}>
-                    <div>
+                    <div id={style.relativeCotainer}>
                         <img src={img} alt={name} id={style.imgToThrow} onError={(event) =>(event.target.src = img_not_available)} />   
                     </div>
                 </div>
