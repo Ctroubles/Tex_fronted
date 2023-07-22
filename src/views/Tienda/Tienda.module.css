@@ -80,8 +80,8 @@
     align-items: center;
     justify-content: space-between;
     height: 30px;
-    max-width: 1400px;
-    padding: 0 10px 5px 10px;
+    max-width: 1600px;
+    padding: 0 60px 5px;
 }
 #categoryPick{
     background-color: #fd621a9a;
@@ -120,16 +120,20 @@
     justify-content: start;
 }
 #cardContainer{
+    width: 100%;
+    overflow: visible;
+    max-width: 1550px;
+    display: flex;
+    justify-content: center;
+    padding: 0px 60px;
+}
+#cardContainer>div:nth-child(1){
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    flex-shrink: 1;
-    width: 100%;
-    max-height: calc(100vh - 167.5px);
-    overflow: visible;
-    max-width: 1500px;
+    width: calc(100% + 20px);
+    flex-shrink: 0;
 }
-
 #noHayProductos{
     height: calc(100vh - 167.5px);
     display: flex;
@@ -190,10 +194,6 @@
 #priceFilter>:nth-child(2){
     display: flex;
 }
-/* #switchContainer{
-    position: absolute;
-    right: 100px;
-} */
 #detailProductContainer{
     background-color: rgba(0, 0, 0, 0.596);
     width: 100vw;
@@ -238,27 +238,28 @@
     transform: unset;
 }
   #searchBarContainer{
-    padding: 5px 8px;
+    padding: 5px 20px;
     border-radius: 10px;
     font-size: 11.5px;
-  }
-  #mainContent{
+}
+#mainContent{
     padding-top: 5px;
     height: 100%;
-  }
-  #switchContainer{
+}
+#switchContainer{
     bottom: 10px;
     left: 20px;
-  }
-  #categoryPick{
+}
+#categoryPick{
     bottom: 20px;
     right: 20px;
     left: initial;
-  }
-  #cardContainer{
+}
+#cardContainer{
     max-height: calc(100vh - 142px);
     height: calc(100vh - 142px);
-   }
+    padding: 0px 20px;
+}
 }
 
 @keyframes introTineda {

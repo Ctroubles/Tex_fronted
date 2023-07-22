@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../../redux/actions/actions";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import img_not_available from '../../../../assets/icons/img_not_available.png';
 
 
 const TiendaCard = ({id, name, price, img, stock})=>{
@@ -101,27 +101,31 @@ useEffect(() => {
 
     return(
         <div id={style.Card} style={stock<=0?{opacity:0.5}:undefined}>
-            <div id={style.imageContainer} onClick={()=>seeDetails(id)}>
-                 <img src={img} alt={name} id={style.imgToThrow} />  {/*esta es la imagén que se lanza cuando el botón se clickea */}
-            </div>
-            <div id={style.title}>
-                <label>
-                    <h1 style={{cursor:"pointer"}} onClick={()=>seeDetails(id)}>
-                        {name}
-                    </h1>
-                </label>
-            </div>            
-            <div id={style.price}>
-                <label id={style.discount}>
-                    {priceFormated}
-                </label>
-            </div>
-            {/* <div id={style.seeDetails}>
-                 <button onClick={()=>seeDetails(id)}>Ver detalles</button> 
-            </div>    */}
-            <div id={style.buy}>
-                <button  onClick={stock<=0?undefined:overStock?()=>alert("limite de stock"):(e)=>{addToCartHandler(e)}} className="buttonSumarCart" style={{cursor:stock<=0?"not-allowed":undefined}} >Comprar</button>  {/*este es el botón que se clickea */}
-            </div>
+            <div>
+                <div id={style.imageContainer} onClick={()=>seeDetails(id)}>
+                    <div>
+                        <img src={img} alt={name} id={style.imgToThrow} onError={(event) =>(event.target.src = img_not_available)} />   
+                    </div>
+                </div>
+                <div id={style.title}>
+                    <label>
+                        <h1 style={{cursor:"pointer"}} onClick={()=>seeDetails(id)}>
+                            {name}
+                        </h1>
+                    </label>
+                </div>            
+                <div id={style.price}>
+                    <label id={style.discount}>
+                        {priceFormated}
+                    </label>
+                </div>
+                {/* <div id={style.seeDetails}>
+                    <button onClick={()=>seeDetails(id)}>Ver detalles</button> 
+                </div>    */}
+                <div id={style.buy}>
+                    <button  onClick={stock<=0?undefined:overStock?()=>alert("limite de stock"):(e)=>{addToCartHandler(e)}} className="buttonSumarCart" style={{cursor:stock<=0?"not-allowed":undefined}} >Comprar</button>  {/*este es el botón que se clickea */}
+                </div>
+            </div>          
         </div>
     )
 };

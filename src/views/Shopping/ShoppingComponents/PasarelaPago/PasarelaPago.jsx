@@ -69,7 +69,6 @@ const Paypalboton= (props)=>{
     else{
     
         const manejadorSucces = async(order) =>{
-            console.log(order);
     
             const cleanCart = pagoCarrito.map((e)=>{
                 return{

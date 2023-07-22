@@ -108,17 +108,22 @@ const Header_tienda =({setPopoutFinalizar,picture,setSidebarPosition,sidebarPosi
 
     return(
             <div id={style.header}>
-                {widthMobile?(<label id={style.menuLine} onClick={()=>setSidebarPosition(!sidebarPosition)}>
-                    <img src={menuLine} alt="menu lines" />
-                </label>):null}
-                <Link to={"/"} id={style.logoTexContainer}>
-                    <img src={LOGO} alt="Logo TEX" />
-                </Link>  
+                <div>
+                    {widthMobile?(<label id={style.menuLine} onClick={()=>setSidebarPosition(!sidebarPosition)}>
+                        <img src={menuLine} alt="menu lines" />
+                    </label>):null
+                    }
+                </div>
+                <div>
+                    <Link to={"/"} id={style.logoTexContainer}>
+                        <img src={LOGO} alt="Logo TEX" />
+                    </Link>  
+                </div>              
                 <div id={style.searchBarContainer}>
                      <SearchBar/>
                 </div>
 
-                <label id={style.buttonsRight}>
+                <div id={style.buttonsRight}>
                     <div id={style.shoppingCartContainer}  style={shoppingCartStatus ? { backgroundColor: '#ffdf58' } : undefined} >
                         <div ref={cartIconRef}  onClick={()=>setShoppingCart(!shoppingCartStatus)} >
                             <img src={shoppingCart} alt="shoping Cart"/>
@@ -138,7 +143,7 @@ const Header_tienda =({setPopoutFinalizar,picture,setSidebarPosition,sidebarPosi
                         )}
                     </div>
                     
-                </label>
+                </div>
                 {itemsToBuy.length ?<span onClick={(e)=>finalizarHanlder(e)} id={style.finalizarCompre}>
                     <label>
                         <h3>Finalizar compra</h3>

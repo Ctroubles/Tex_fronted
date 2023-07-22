@@ -1,34 +1,51 @@
 #Card{
-    width: 330px;
+    width: 100%;
+    max-width: 20%;
+    flex-basis: 20%;
     font-family: 'Exo 2', sans-serif;
     color: #fefefe;
-    padding: 10px 10px 15px 10px;
-    margin: 20px;
+    padding:10px;
+}
+#Card>div:first-child{
+    padding: 10px 12px 18px;
     border-radius: 10px;
     background-color: #fefefe17;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 #imageContainer{
-    width: 190px;
-    height: 190px;
-    margin: 5px auto 10px auto;
+    width: 100%;
     position: relative;
     cursor: pointer;
+    padding: 20px 15px 0px;
+}
+#imageContainer>div{
+    width: 100%;
+    padding-bottom: 100%;
+    height: 0;
 }
 #imageContainer img{
     width: 100%;
+    border-radius: 6px;
 }
 #title{
-    margin-bottom: 10px;
+    margin: 6px 0 15px;
     min-height: 40px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 #title h1{
-    font-size: 17px;
+    font-size: 16px;
     text-align: center;
     font-weight: 300;
     transition: all 0.08s ease;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 #title h1:hover{
     transform: scale(1.025);
@@ -37,6 +54,8 @@
     display: flex;
     justify-content: center;
     min-height: 19px;
+    height: 100%;
+    align-items: end;
 }
 #price>label{
     text-align: center;
@@ -124,8 +143,43 @@
   }
 
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 1450px) {
     #Card{
-        margin: 10px 20px;
+        max-width: 25%;
+        flex-basis: 25%;
+    }
+    #title h1{
+        font-size: 15px
+    }
+}
+@media screen and (max-width: 1150px) {
+    #Card{
+        max-width: 33.33333333333333%;
+        flex-basis: 33.33333333333333%;
+    }
+}
+@media screen and (max-width: 900px) {
+    #imageContainer{
+        padding: 20px 10px 0px;
+    }
+}
+@media screen and (max-width: 750px) {
+    #Card{
+        max-width: 50%;
+        flex-basis: 50%;
+    }
+}
+@media screen and (max-width: 450px) {
+    #imageContainer{
+        padding: 20px 0px 0px;
+    }
+}
+@media screen and (max-width: 390px) {
+    #Card{
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+    #imageContainer{
+        padding: 20px 25px 0px;
     }
 }

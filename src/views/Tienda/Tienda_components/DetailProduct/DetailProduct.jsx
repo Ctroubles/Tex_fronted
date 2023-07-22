@@ -10,6 +10,7 @@ import axios from "axios";
 import { capitalize } from "../../../../utils";
 import { useEffect, useRef, useState } from "react";
 import redX from "../../../../assets/icons/red-x.svg"
+import img_not_available from '../../../../assets/icons/img_not_available.png';
 
 
 
@@ -139,7 +140,7 @@ const DetailProduct = ({product})=>{
                     <main id={style.ContainerDetailsProduct}>
                         <div id={style.top}>
                             <div id={style.imageContainer} ref={spanCountRef} >
-                                <img src={product.img} alt={product.name} />
+                                <img src={product.img} alt={product.name} onError={(event) =>(event.target.src = img_not_available)}/>
                             </div>
                         <div id={style.mainInfo}>
                         <div>

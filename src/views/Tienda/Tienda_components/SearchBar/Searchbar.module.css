@@ -7,11 +7,13 @@
 
 #SearchBarContainer{
     position: relative;
-    width: 500px;
+    width: 100%;
+    min-width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 2s;
+    max-width: 800px;
 }
 
 .divSearchBar{
@@ -64,6 +66,12 @@
 /* RSPONSIVE DESIGN */
 
 
+@media screen and (max-width: 1400px) {
+    #SearchBarContainer{
+        min-width: auto;
+    }
+}
+
 @media screen and (max-width : 450px){
     #SearchBarContainer {
         width: 100%;
@@ -71,15 +79,8 @@
 }
 
 @media screen and (max-width : 1024px ) and (min-width :450px) {
-    #SearchBarContainer{
-        width: 450px;
-        /* background-color: yellow; */
-
-    }
-
     .divSearchBar input{
         font-size: 0.95rem;
-
     }
 
     .divSearchBar input::placeholder{
