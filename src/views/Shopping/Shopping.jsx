@@ -58,7 +58,9 @@ const Shopping = (props) =>{
                                     <h1 id={style.titleFormulario}>Información de entrega</h1>
                                 </div> */}
                                 <section>
-                                    <Form statusForm={statusForm} errorsForm={errorsForm} setErrorsForm={setErrorsForm}/>
+                                    <div style={{backgroundColor:"#25292f"}}>
+                                        <Form statusForm={statusForm} errorsForm={errorsForm} setErrorsForm={setErrorsForm}/>
+                                    </div>
                                     <div id={style.continuarButton}>
                                         <button onClick={()=>submitHandler()} id={style.principalButton} tabIndex="9">
                                             <span >Continuar</span>

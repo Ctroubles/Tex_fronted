@@ -67,7 +67,7 @@
     user-select: none;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 1250px) {
     #CardContainer{
         justify-content: space-between;
     }

@@ -29,6 +29,9 @@
 #FormCotainer >#firstChild{
     padding: 15px 32px 10px 32px;
 }
+#boxInputs{
+    padding-bottom: 10px;
+}
 #identification{
     display: flex;
     justify-content: space-between;
@@ -223,7 +226,7 @@
 
 .advertisement{
     margin-bottom: 15px;
-    font-size: 15px;
+    font-size: 14px;
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     font-style: italic;
@@ -276,10 +279,17 @@
     outline: 1px solid #8a8b91bb;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 1250px) {
     #FormCotainer{
-        width: 90vw;
+        width: 100%;
     }
+    #boxInputs{
+        max-width: 600px;
+        padding: 12px 0 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
     #identification{
         flex-direction: column;
     }

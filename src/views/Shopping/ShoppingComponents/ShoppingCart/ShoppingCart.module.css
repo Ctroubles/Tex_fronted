@@ -33,7 +33,7 @@
     font-size: 17px;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 1250px) {
     #cartContainer{
         width: 90vw;
         padding: 20px 15px;

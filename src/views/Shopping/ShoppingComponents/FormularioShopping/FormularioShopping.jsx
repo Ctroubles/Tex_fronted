@@ -79,6 +79,7 @@ const Formulario = ({statusForm,errorsForm, setErrorsForm}) =>{
                                 <div>
                                     <h1 id={style.titleFormulario}>Información de entrega</h1>
                                 </div>
+            <div id={style.boxInputs}>
                 <div id={style.identification}>
                     <label className={style.firstLabel}>
                         <div style={errorsForm.name?{border:"1px solid red"}:undefined} id={style.childTwo} className={style.inputsContainer}>
@@ -285,17 +286,18 @@ const Formulario = ({statusForm,errorsForm, setErrorsForm}) =>{
                         </div>
                     </label>
                 </div>
+                </div>
                 <div className={style.advertisement}>
                     <label>
                         <p>*Ingresar nombre y número de DNI correctamente.</p>
                     </label>
                 </div>
-                <div className={style.advertisement}>
+                {/* <div className={style.advertisement}>
                     <label>
                         <p>
                             *Entregas a domicilio o en un punto acordado, disponible para Trujillo. Para el resto del país, los productos serán envíados a través de Olva Courier. </p>
                     </label>
-                </div>                
+                </div>                 */}
                 <div className={style.advertisement}>
                     <label>
                         <p>
