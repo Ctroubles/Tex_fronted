@@ -14,7 +14,7 @@ const LoggingButton = () =>{
        <label style={{height:"40px"}}>
             {esAncho ?  <div  className={style.LinkCreate}  onClick={() => loginWithRedirect()}
             >
-                INICIAR SESIÓN
+                Iniciar sesión
                 
             </div> : <img  onClick={() => loginWithRedirect()} id={style.imgLogIN} src={userimg} alt="imagen" />}
        </label>
